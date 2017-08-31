@@ -1,0 +1,15 @@
+E:\Projetos\TCC\Crusade\Fonte\Crusade\elroy.crusade.Aplicacao\bin\Debug\netcoreapp1.1\elroy.crusade.Aplicacao.deps.json
+E:\Projetos\TCC\Crusade\Fonte\Crusade\elroy.crusade.Aplicacao\bin\Debug\netcoreapp1.1\elroy.crusade.Aplicacao.dll
+E:\Projetos\TCC\Crusade\Fonte\Crusade\elroy.crusade.Aplicacao\bin\Debug\netcoreapp1.1\elroy.crusade.Aplicacao.pdb
+E:\Projetos\TCC\Crusade\Fonte\Crusade\elroy.crusade.Aplicacao\bin\Debug\netcoreapp1.1\elroy.crusade.bll.dll
+E:\Projetos\TCC\Crusade\Fonte\Crusade\elroy.crusade.Aplicacao\bin\Debug\netcoreapp1.1\elroy.crusade.dominio.dll
+E:\Projetos\TCC\Crusade\Fonte\Crusade\elroy.crusade.Aplicacao\bin\Debug\netcoreapp1.1\Dapper.dll
+E:\Projetos\TCC\Crusade\Fonte\Crusade\elroy.crusade.Aplicacao\bin\Debug\netcoreapp1.1\elroy.crusade.bll.pdb
+E:\Projetos\TCC\Crusade\Fonte\Crusade\elroy.crusade.Aplicacao\bin\Debug\netcoreapp1.1\elroy.crusade.bll.dll.config
+E:\Projetos\TCC\Crusade\Fonte\Crusade\elroy.crusade.Aplicacao\bin\Debug\netcoreapp1.1\elroy.crusade.dominio.pdb
+E:\Projetos\TCC\Crusade\Fonte\Crusade\elroy.crusade.Aplicacao\bin\Debug\netcoreapp1.1\Dapper.xml
+E:\Projetos\TCC\Crusade\Fonte\Crusade\elroy.crusade.Aplicacao\obj\Debug\netcoreapp1.1\elroy.crusade.Aplicacao.csprojResolveAssemblyReference.cache
+E:\Projetos\TCC\Crusade\Fonte\Crusade\elroy.crusade.Aplicacao\obj\Debug\netcoreapp1.1\elroy.crusade.Aplicacao.csproj.CoreCompileInputs.cache
+E:\Projetos\TCC\Crusade\Fonte\Crusade\elroy.crusade.Aplicacao\obj\Debug\netcoreapp1.1\elroy.crusade.Aplicacao.AssemblyInfo.cs
+E:\Projetos\TCC\Crusade\Fonte\Crusade\elroy.crusade.Aplicacao\obj\Debug\netcoreapp1.1\elroy.crusade.Aplicacao.dll
+E:\Projetos\TCC\Crusade\Fonte\Crusade\elroy.crusade.Aplicacao\obj\Debug\netcoreapp1.1\elroy.crusade.Aplicacao.pdb

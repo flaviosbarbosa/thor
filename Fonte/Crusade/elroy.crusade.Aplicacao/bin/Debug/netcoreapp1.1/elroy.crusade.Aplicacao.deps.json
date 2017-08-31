@@ -1,0 +1,50 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v1.1",
+    "signature": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v1.1": {
+      "elroy.crusade.aplicacao/1.0.0": {
+        "dependencies": {
+          "elroy.crusade.Infra": "1.0.0",
+          "elroy.crusade.dominio": "1.0.0"
+        },
+        "runtime": {
+          "elroy.crusade.Aplicacao.dll": {}
+        }
+      },
+      "elroy.crusade.dominio/1.0.0": {
+        "runtime": {
+          "elroy.crusade.dominio.dll": {}
+        }
+      },
+      "elroy.crusade.infra/1.0.0": {
+        "dependencies": {
+          "elroy.crusade.dominio": "1.0.0"
+        },
+        "runtime": {
+          "elroy.crusade.bll.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "elroy.crusade.aplicacao/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "elroy.crusade.dominio/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "elroy.crusade.infra/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
