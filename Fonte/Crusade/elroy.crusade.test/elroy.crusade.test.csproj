@@ -58,6 +58,7 @@
     <Compile Include="MensagemEntranteTest.cs" />
     <Compile Include="MensagemSainteTest.cs" />
     <Compile Include="MinisterioTest.cs" />
+    <Compile Include="OcorrenciaTest.cs" />
     <Compile Include="ParametrosTest.cs" />
     <Compile Include="ProgramacaoTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

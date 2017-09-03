@@ -41,7 +41,7 @@ namespace elroy.crusade.Infra
                                                                     PRIVADO
                                                                FROM AGENDAPASTORAL", AgendaPastoral);
                     }
-                    catch (Exception e)
+                    catch (Exception )
                     {
                         return new AgendaPastoral();
                     }

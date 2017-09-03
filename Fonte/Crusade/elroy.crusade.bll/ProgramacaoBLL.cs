@@ -34,7 +34,7 @@ namespace elroy.crusade.Infra
                                                                     DESCRICAO
                                                                FROM Programacao", Programacao);
                     }
-                    catch (Exception e)
+                    catch (Exception )
                     {
                         return new Programacao();
                     }

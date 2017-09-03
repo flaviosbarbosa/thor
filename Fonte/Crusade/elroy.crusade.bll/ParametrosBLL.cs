@@ -31,7 +31,7 @@ namespace elroy.crusade.Infra
                                                                    EXIBIRLOCALIZACAO
                                                     FROM PARAMETROS", parametros);
                     }
-                    catch (Exception e)
+                    catch (Exception )
                     {
                         return new Parametros();
                     }

@@ -4,6 +4,153 @@
         <name>elroy.crusade.API</name>
     </assembly>
     <members>
+        <member name="T:elroy.crusade.API.SwaggerConfig">
+            <summary>
+            Configuração do Swagger
+            </summary>
+        </member>
+        <member name="M:elroy.crusade.API.SwaggerConfig.Register">
+            <summary>
+            Configuração do registro do Swagger
+            </summary>
+        </member>
+        <member name="M:elroy.crusade.API.SwaggerConfig.GetXmlCommentsPath">
+            <summary>
+            Definição do caminho do XML das Apis
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:elroy.crusade.API.WebApiConfig">
+            <summary>
+            Configuração geral das WEBApis
+            </summary>
+        </member>
+        <member name="M:elroy.crusade.API.WebApiConfig.Register(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Definição do registro do swagger
+            </summary>
+            <param name="config">Informe</param>
+        </member>
+        <member name="T:elroy.crusade.API.Controllers.AgendaPastoralController">
+            <summary>
+            Controle das ações da Agenda Pastoral
+            </summary>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.AgendaPastoralController.Get(System.Int32)">
+            <summary>
+            Retorna um evento da agenda pastoral por código do evento
+            </summary>
+            <param name="id">Informe o codigo do compromisso</param>        
+            <remarks>Retorna um compromisso da igreja</remarks>        
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.AgendaPastoralController.Get">
+            <summary>
+            Retorna uma lista de eventos da agenda pastoral
+            </summary>
+            <remarks>Retorna um lsita de agenda pastoral</remarks>        
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.AgendaPastoralController.Post(elroy.crusade.dominio.AgendaPastoral)">
+            <summary>
+            Insere um evento na agenda pastoral
+            </summary>
+            <param name="agenda">Informe um objeto agenda</param>
+            <remarks>Insere um evento na agenda pastoral</remarks>        
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.AgendaPastoralController.Delete(System.Int32)">
+            <summary>
+            Exclui um evento da agenda pastoral
+            </summary>
+            <param name="id">Informe o código do evento a ser excluído</param>        
+            <remarks>Retorna uma mensagem http de sucesso ou falha</remarks>        
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.AgendaPastoralController.Put(elroy.crusade.dominio.AgendaPastoral,System.Int32)">
+            <summary>
+            Atualiza um evento da agenda pastoral
+            </summary>
+            <param name="agenda">Informe um objeto agenda</param>
+            <param name="id">Informe o codigo da agenda a ser atualizada</param>
+            <remarks>Retorna uma mensagem http de sucesso ou falha</remarks>        
+        </member>
+        <member name="T:elroy.crusade.API.Controllers.BeneficiarioController">
+            <summary>
+            Registro de beneficiarios (Membros, Pastor e Fornecedores de Serviços
+            </summary>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.BeneficiarioController.Get(System.Int32)">
+            <summary>
+            Retorna um beneficíario por código
+            </summary>
+            <param name="id">Informe o codigo do beneficiario</param>
+            <remarks>Retona um objeto beneficiario valido</remarks>             
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.BeneficiarioController.Get">
+            <summary>
+            Retorna uma lista de beneficiarios
+            </summary>
+            <remarks>Retorna uma lista de beneficiarios</remarks>        
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.BeneficiarioController.Post(elroy.crusade.dominio.Beneficiario)">
+            <summary>
+            Insere um beneficiario
+            </summary>
+            <param name="beneficiario"></param>        
+            <remarks>Retorna Beneficiario criado</remarks>        
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.BeneficiarioController.Delete(System.Int32)">
+            <summary>
+            Exclui um beneficiario
+            </summary>
+            <param name="id">Informe o codigo do beneficiario</param>
+            <remarks>Retorna Beneficiario excluido</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.BeneficiarioController.Put(elroy.crusade.dominio.Beneficiario,System.Int32)">
+            <summary>
+            Atualiza um beneficiario
+            </summary>
+            <param name="beneficiario">Informe os dados do beneficiario a ser atualizado</param>
+            <param name="id">Informe o codigo do beneficiario</param>
+            <returns>Retorna Beneficiario atualizado</returns>
+        </member>
+        <member name="T:elroy.crusade.API.Controllers.EventosController">
+            <summary>
+            Registro dos Eventos da igreja
+            </summary>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.EventosController.Get(System.Int32)">
+            <summary>
+            Retorna um Evento agendado por código
+            </summary>
+            <param name="id">Informe o codigo do evento</param>
+            <remarks>Retorna o evento informado</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.EventosController.Get">
+            <summary>
+            Retorna uma lista de eventos agendados
+            </summary>
+            <remarks>Retorna uma lista de eventos agendados</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.EventosController.Post(elroy.crusade.dominio.Eventos)">
+            <summary>
+            Insere um novo evento
+            </summary>
+            <param name="eventos">Informe o evento a ser inserido</param>
+            <remarks>Retorna Evento criado</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.EventosController.Delete(System.Int32)">
+            <summary>
+            Exclui e evento
+            </summary>
+            <param name="id">Informe o codigo do evento a ser excluido</param>
+            <remarks>Retorna Evento excluido</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.EventosController.Put(elroy.crusade.dominio.Eventos,System.Int32)">
+            <summary>
+            Atualiza evento
+            </summary>
+            <param name="Eventos">Informe os dados a serem atualizados</param>
+            <param name="id">Informe o código do evento a ser atualizado</param>
+            <remarks>Retorna evento atualizado</remarks>
+        </member>
         <member name="T:elroy.crusade.API.Controllers.IgrejaController">
             <summary>
             Controle sobre as ações da Igreja
@@ -14,7 +161,7 @@
             Retorna uma igreja pelo codigo
             </summary>
             <param name="id">Informe o codigo</param>
-            <remarks>Adds new user to application and grant access</remarks>
+            <remarks>Retorna uma igreja pelo código</remarks>
             <response code="400">Falha ao buscar igreja</response>
             <response code="500">Não foi possivel localizar a igreja desejada</response>        
         </member>
@@ -52,6 +199,370 @@
             <param name="id">Informe o Código da igreja</param>
             <response code="400">Falha ao enviar os dados para atualização</response>
             <response code="500">Não foi possível atualizar os dados no servidor</response>        
+        </member>
+        <member name="T:elroy.crusade.API.Controllers.IntegrantesController">
+            <summary>
+            Registro dos Beneficiarios que participam de Ministerios
+            </summary>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.IntegrantesController.Get(System.Int32)">
+            <summary>
+            Retorna um integrande por código
+            </summary>
+            <param name="id">Informe o código do integrante</param>
+            <remarks>Retorna o integrante solicitado</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.IntegrantesController.Get">
+            <summary>
+            Retorna uma lista de integrantes
+            </summary>
+            <remarks>Retorna uma lista de integrantes</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.IntegrantesController.Post(elroy.crusade.dominio.Integrantes)">
+            <summary>
+            Insere um novo integrante
+            </summary>
+            <param name="integrantes">Informe o integrante a ser inserido</param>
+            <remarks>Retona integrante inserido</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.IntegrantesController.Delete(System.Int32)">
+            <summary>
+            Exclui integrante
+            </summary>
+            <param name="id">Informe o codigo do integrante a ser excluido</param>
+            <remarks>Retorna integrante excluido</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.IntegrantesController.Put(elroy.crusade.dominio.Integrantes,System.Int32)">
+            <summary>
+            Atualiza integrante
+            </summary>
+            <param name="integrantes">Informe o integrante com os dados a serem atualizados </param>
+            <param name="id">Informe o codigo do integrante a ser atualizado</param>
+            <remarks>Retorna integrante atualizado</remarks>
+        </member>
+        <member name="T:elroy.crusade.API.Controllers.MensagemEntranteController">
+            <summary>
+            Registro das mensagens que foram enviadas pela App Mobile
+            </summary>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.MensagemEntranteController.Get(System.Int32)">
+            <summary>
+            Retorna uma Mensagem Entrante por código
+            </summary>
+            <param name="id">Informe o código a ser retornado</param>
+            <remarks>Retorna uma Mensagem Entrante </remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.MensagemEntranteController.Get">
+            <summary>
+            Retorna uma lista de Mensagens Entrantes
+            </summary>
+            <remarks>Retorna uma lista de mensagens entrantes</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.MensagemEntranteController.Post(elroy.crusade.dominio.MensagemEntrante)">
+            <summary>
+            Insere Mensagem Entrante
+            </summary>
+            <param name="mensagemEntrante">Informe a nova mensagem</param>
+            <remarks>Retorna mensagem entrante</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.MensagemEntranteController.Delete(System.Int32)">
+            <summary>
+            Excluir Mensagem Entrante
+            </summary>
+            <param name="id">Informe o codigo da mensagem a ser excluida</param>
+            <remarks>Retorna mensagem excluida</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.MensagemEntranteController.Put(elroy.crusade.dominio.MensagemEntrante,System.Int32)">
+            <summary>
+            Atualiza Mensaagem Entrante
+            </summary>
+            <param name="mensagementrante">Informe os dados a serem atualizados</param>
+            <param name="id">Informa o código da mensagem a ser atualizada</param>
+            <remarks>Retorna mensagem atualizada</remarks>
+        </member>
+        <member name="T:elroy.crusade.API.Controllers.MensagemSainteController">
+            <summary>
+            Registro das mensagens que são enviadas pela Igreja para a app mobile
+            </summary>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.MensagemSainteController.Get(System.Int32)">
+            <summary>
+            Retorna uma mensagem sainte por código
+            </summary>
+            <param name="id">Informe o código a ser retornado</param>
+            <remarks>Retorna uma mensagem sainte</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.MensagemSainteController.Get">
+            <summary>
+            Retorna uma lista de mensagens saintes
+            </summary>
+            <remarks>Retorna uma lista de msnagens saintes</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.MensagemSainteController.Post(elroy.crusade.dominio.MensagemSainte)">
+            <summary>
+            Insere uma nova mensagem sainte
+            </summary>
+            <param name="mensagemSainte">Informe os dados da mensagens sainte</param>
+            <remarks>Retorna mensagem inserida</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.MensagemSainteController.Delete(System.Int32)">
+            <summary>
+            Exclui Mensagem Sainte
+            </summary>
+            <param name="id">Informe o código da mensagem a ser excluida</param>
+            <remarks>Retorna mensagem excluida</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.MensagemSainteController.Put(elroy.crusade.dominio.MensagemSainte,System.Int32)">
+            <summary>
+            Atualiza Mensagem Sainte
+            </summary>
+            <param name="mensagemsainte">Informe os dados a serem atualizados</param>
+            <param name="id">Informe o codigo a ser atualizado</param>
+            <remarks>Retorna mensagem atualizada</remarks>
+        </member>
+        <member name="T:elroy.crusade.API.Controllers.MinisterioController">
+            <summary>
+            Registro dos ministérios existentes na igreja
+            </summary>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.MinisterioController.Get(System.Int32)">
+            <summary>
+            Retorna um ministerio por código
+            </summary>
+            <param name="id">Informe o codigo a ser retornado</param>
+            <remarks>Retorna um Ministerio</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.MinisterioController.Get">
+            <summary>
+            Retorna uma lista de Ministérios
+            </summary>
+            <remarks>Retorna lista de ministérios</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.MinisterioController.Post(elroy.crusade.dominio.Ministerio)">
+            <summary>
+            Insere um novo ministério
+            </summary>
+            <param name="ministerio">Informe os dados do novo ministério</param>
+            <remarks>Retorna ministerior registrado</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.MinisterioController.Delete(System.Int32)">
+            <summary>
+            Exclui um Ministério
+            </summary>
+            <param name="id">Informe o código a ser excluido</param>
+            <remarks>Retor4na ministério excluído</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.MinisterioController.Put(elroy.crusade.dominio.Ministerio,System.Int32)">
+            <summary>
+            Atualiza Ministério
+            </summary>
+            <param name="Ministerio">Informe os dados a serem atualizados</param>
+            <param name="id">Informe o código do Ministério</param>
+            <remarks>Retorna ministerio atualizado</remarks>
+        </member>
+        <member name="T:elroy.crusade.API.Controllers.OcorrenciaController">
+            <summary>
+            Registro de ocorrencias durante o tratamento das mensagens
+            </summary>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.OcorrenciaController.Get(System.Int32)">
+            <summary>
+            Retorna uma ocorrencia por código
+            </summary>
+            <param name="id">Informe o código</param>
+            <remarks>Retorna uma ocorrência</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.OcorrenciaController.Get">
+            <summary>
+            Retorna uma lista de ocorrencias
+            </summary>
+            <remarks>Retorna uma lista de ocorrencias</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.OcorrenciaController.Post(elroy.crusade.dominio.Ocorrencia)">
+            <summary>
+            Insere uma nova ocorrencia
+            </summary>
+            <param name="ocorrencia">Informe os dados da nova ocorrencia</param>
+            <remarks>Retorna ocorrencia registrada</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.OcorrenciaController.Delete(System.Int32)">
+            <summary>
+            Exclui uma ocorrência
+            </summary>
+            <param name="id">Informe o codigo da ocorrência</param>
+            <remarks>Retorna ocorrencia excluida</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.OcorrenciaController.Put(elroy.crusade.dominio.Ocorrencia,System.Int32)">
+            <summary>
+            Atualiza uma ocorrencia
+            </summary>
+            <param name="ocorrencia">Informe os dados a serem atualizados</param>
+            <param name="id">Informe o codigo a ser atualizado</param>
+            <remarks>Retorna Ocorrencia atualizada</remarks>
+        </member>
+        <member name="T:elroy.crusade.API.Controllers.ParametrosController">
+            <summary>
+             Registro dos parametros utilizados pela igreja no sistema
+            </summary>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.ParametrosController.Get(System.Int32)">
+            <summary>
+            Retorna um registro de parametro por codigo
+            </summary>
+            <param name="id">Informe o codigo do parametro </param>
+            <remarks>Retorna Parametro</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.ParametrosController.Post(elroy.crusade.dominio.Parametros)">
+            <summary>
+            Registra um novo parametro
+            </summary>
+            <param name="parametros">Informe os dados do parametro</param>
+            <remarks>Retorna parametro registrado</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.ParametrosController.Delete(System.Int32)">
+            <summary>
+            Exclui um parametro
+            </summary>
+            <param name="id">Informe o codigo</param>
+            <remarks>Parametro excluido</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.ParametrosController.Put(elroy.crusade.dominio.Parametros,System.Int32)">
+            <summary>
+            Atualiza Parametro
+            </summary>
+            <param name="parametros">Informe os dados a serem atualizados</param>
+            <param name="id">Informe o codigo</param>
+            <remarks>Parametros atualizados</remarks>
+        </member>
+        <member name="T:elroy.crusade.API.Controllers.ProgramacaoController">
+            <summary>
+            Registro da programação da igreja a ser enviada via mensagem para a app mobile
+            </summary>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.ProgramacaoController.Get(System.Int32)">
+            <summary>
+            Retorna uma Programacao por codigo
+            </summary>
+            <param name="id">Informe o codigo</param>
+            <remarks>Retorna Programacao</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.ProgramacaoController.Get">
+            <summary>
+            Retorna lista de programações
+            </summary>
+            <remarks>Retorna lista de programações</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.ProgramacaoController.Post(elroy.crusade.dominio.Programacao)">
+            <summary>
+            Insere uma nova programação
+            </summary>
+            <param name="programacao">Informe os dados a serem incluidos</param>
+            <remarks>Retorna programa registrada</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.ProgramacaoController.Delete(System.Int32)">
+            <summary>
+            Exclui programação
+            </summary>
+            <param name="id">Informe o codigo da programação</param>
+            <remarks>Retorna Programação excluida</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.ProgramacaoController.Put(elroy.crusade.dominio.Programacao,System.Int32)">
+            <summary>
+            Atualiza Programação
+            </summary>
+            <param name="programacao">Informe os dados da programação</param>
+            <param name="id">Informe o código</param>
+            <remarks>Retorna Programação atualizada</remarks>
+        </member>
+        <member name="T:elroy.crusade.API.Controllers.TipoMensagemController">
+            <summary>
+            Classificação das mensagens entrantes e saintes
+            </summary>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.TipoMensagemController.Get(System.Int32)">
+            <summary>
+            Retorna por código
+            </summary>
+            <param name="id">Informe o código</param>
+            <remarks>Retorna um Tipo de Mensaagem</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.TipoMensagemController.Get">
+            <summary>
+            Retorna lista de tipos de mensagens
+            </summary>
+            <remarks>Retorna lista de menagens</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.TipoMensagemController.Post(elroy.crusade.dominio.TipoMensagem)">
+            <summary>
+            Insere novo registro
+            </summary>
+            <param name="tipo">Informe os dados do novo registro</param>
+            <remarks>Retorna Tipo de Mensagem inserido</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.TipoMensagemController.Delete(System.Int32)">
+            <summary>
+            Exclui registro
+            </summary>
+            <param name="id">Informe o código</param>
+            <remarks>Retorna tipo mensagem excluída</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.TipoMensagemController.Put(elroy.crusade.dominio.TipoMensagem,System.Int32)">
+            <summary>
+            Atualiza Tipo de Mensagem
+            </summary>
+            <param name="tipo">Informe os dados a serem atualizados</param>
+            <param name="id">Informe o codigo</param>
+            <remarks>Retorna Tipo Mensagem atualizada</remarks>
+        </member>
+        <member name="T:elroy.crusade.API.Controllers.UsuarioController">
+            <summary>
+            Registro dos usuarios do sistema
+            </summary>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.UsuarioController.Get(System.Int32)">
+            <summary>
+            Busca um usuário por ID
+            </summary>               
+            <param name="id">Informe o codigo do usuario desejado</param>
+            <remarks>Retorna um objeto usuario</remarks>        
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.UsuarioController.Get">
+            <summary>
+            Retorna lista de Tipos de Mensagens
+            </summary>
+            <remarks>Retorna lista de mensagens</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.UsuarioController.Post(elroy.crusade.dominio.Usuario)">
+            <summary>
+            Insere novo Usuario
+            </summary>
+            <param name="usuario">Informe os dados</param>
+            <remarks>Retorna usuario inserido</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.UsuarioController.Delete(System.Int32)">
+            <summary>
+            Exclui usuario
+            </summary>
+            <param name="id">Informe os novos dados</param>
+            <remarks>Retorna usuario inserido</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.UsuarioController.Put(elroy.crusade.dominio.Usuario,System.Int32)">
+            <summary>
+            Atualiza usuario
+            </summary>
+            <param name="usuarios">Informe os dados a serem atulizados</param>
+            <param name="id">Informe o codigo a ser atualizado</param>
+            <remarks>Retorna usuario atualizado</remarks>
+        </member>
+        <member name="T:elroy.crusade.API.WebApiApplication">
+            <summary>
+            Configuração das Apis da aplicação
+            </summary>
+        </member>
+        <member name="M:elroy.crusade.API.WebApiApplication.Application_Start">
+            <summary>
+            Confidencial
+            </summary>
         </member>
     </members>
 </doc>

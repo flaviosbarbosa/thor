@@ -97,7 +97,19 @@
   <ItemGroup>
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AgendaPastoralController.cs" />
+    <Compile Include="Controllers\BeneficiarioController.cs" />
+    <Compile Include="Controllers\EventosController.cs" />
     <Compile Include="Controllers\IgrejaController.cs" />
+    <Compile Include="Controllers\IntegrantesController.cs" />
+    <Compile Include="Controllers\MensagemEntranteController.cs" />
+    <Compile Include="Controllers\MensagemSainteController.cs" />
+    <Compile Include="Controllers\MinisterioController.cs" />
+    <Compile Include="Controllers\OcorrenciaController.cs" />
+    <Compile Include="Controllers\ParametrosController.cs" />
+    <Compile Include="Controllers\ProgramacaoController.cs" />
+    <Compile Include="Controllers\TipoMensagemController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -105,6 +117,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

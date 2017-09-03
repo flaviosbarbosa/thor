@@ -49,6 +49,7 @@
     <Compile Include="MensagemEntrante.cs" />
     <Compile Include="MensagemSainte.cs" />
     <Compile Include="Ministerio.cs" />
+    <Compile Include="Ocorrencia.cs" />
     <Compile Include="Parametros.cs" />
     <Compile Include="Postagem.cs" />
     <Compile Include="Programacao.cs" />

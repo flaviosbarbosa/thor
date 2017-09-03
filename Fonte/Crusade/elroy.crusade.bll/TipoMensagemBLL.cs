@@ -30,7 +30,7 @@ namespace elroy.crusade.Infra
                                                                       DESCRICAO
                                                                   FROM TIPOMENSAGEM", tipoMensagem);
                     }
-                    catch (Exception e)
+                    catch (Exception )
                     {
                         return new TipoMensagem();
                     }
@@ -49,7 +49,7 @@ namespace elroy.crusade.Infra
                                                                       DESCRICAO
                                                                   FROM TIPOMENSAGEM", tipoMensagem);
                     }
-                    catch (Exception e)
+                    catch (Exception )
                     {
                         return new TipoMensagem();
                     }

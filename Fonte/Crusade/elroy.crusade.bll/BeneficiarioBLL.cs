@@ -72,7 +72,7 @@ namespace elroy.crusade.Infra
                                                                       CELULAR
                                                                   FROM BENEFICIARIO", beneficiario);
                     }
-                    catch (Exception e)
+                    catch (Exception )
                     {
                         return new Beneficiario();
                     }

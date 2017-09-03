@@ -51,7 +51,7 @@ namespace elroy.crusade.Infra
                                                                           FREQUENTA
                                                                       FROM MENSAGEMENTRANTE", mensagemEntrante);
                     }
-                    catch (Exception e)
+                    catch (Exception )
                     {
                         return new MensagemEntrante();
                     }
@@ -84,7 +84,7 @@ namespace elroy.crusade.Infra
                                                                           FREQUENTA
                                                                       FROM MENSAGEMENTRANTE", mensagemEntrante);
                     }
-                    catch (Exception e)
+                    catch (Exception )
                     {
                         return new MensagemEntrante();
                     }

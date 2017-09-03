@@ -5,8 +5,15 @@ using System.Web.Http;
 
 namespace elroy.crusade.API
 {
+    /// <summary>
+    /// Configuração geral das WEBApis
+    /// </summary>
     public static class WebApiConfig
     {
+        /// <summary>
+        /// Definição do registro do swagger
+        /// </summary>
+        /// <param name="config">Informe</param>
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services

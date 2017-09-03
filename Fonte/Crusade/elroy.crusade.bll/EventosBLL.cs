@@ -55,7 +55,7 @@ namespace elroy.crusade.Infra
                                                         PASTORPRESENTE
                                                     FROM EVENTOS", eventos);
                     }
-                    catch (Exception e)
+                    catch (Exception )
                     {
                         return new Eventos();
                     }
