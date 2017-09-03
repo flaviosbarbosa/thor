@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>elroy.crusade.API</name>
+    </assembly>
+    <members>
+        <member name="T:elroy.crusade.API.Controllers.IgrejaController">
+            <summary>
+            Controle sobre as ações da Igreja
+            </summary>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.IgrejaController.Get(System.Int32)">
+            <summary>
+            Retorna uma igreja pelo codigo
+            </summary>
+            <param name="id">Informe o codigo</param>
+            <remarks>Adds new user to application and grant access</remarks>
+            <response code="400">Falha ao buscar igreja</response>
+            <response code="500">Não foi possivel localizar a igreja desejada</response>        
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.IgrejaController.Get">
+            <summary>
+            Retorna uma lista de igrejas
+            </summary>        
+            <remarks>Lista de Igrejas</remarks>
+            <response code="400">Falha ao buscar lista de igrejas</response>
+            <response code="500">Não foi possivel buscar a lista de igrejas</response>        
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.IgrejaController.Post(elroy.crusade.dominio.Igreja)">
+            <summary>
+            Adiciona uma nova igreja
+            </summary>
+            <param name="igreja">Informe os dados de uma igreja</param>
+            <remarks>Lista de Igrejas</remarks>
+            <response code="400">Falha ao enviar os dados ao servidor</response>
+            <response code="500">Não foi possível salvar os dados no servidor</response>        
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.IgrejaController.Delete(System.Int32)">
+            <summary>
+            Exclui Igreja
+            </summary>
+            <param name="id">Informe o código</param>
+            <remarks>Exclui igrejas</remarks>
+            <response code="400">Falha ao excluir os dados do servidor</response>
+            <response code="500">Não foi possível excluir os dados no servidor</response>        
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.IgrejaController.Put(elroy.crusade.dominio.Igreja,System.Int32)">
+            <summary>
+            Atualiza Igreja
+            </summary>
+            <param name="igreja">Informe os dados da Igreja</param>
+            <param name="id">Informe o Código da igreja</param>
+            <response code="400">Falha ao enviar os dados para atualização</response>
+            <response code="500">Não foi possível atualizar os dados no servidor</response>        
+        </member>
+    </members>
+</doc>

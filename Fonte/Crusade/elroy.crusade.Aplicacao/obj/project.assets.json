@@ -7078,11 +7078,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "E:\\Projetos\\TCC\\Crusade\\Fonte\\Crusade\\elroy.crusade.Aplicacao\\elroy.crusade.Aplicacao.csproj",
+      "projectUniqueName": "E:\\Projetos\\GitHub\\thor\\Fonte\\Crusade\\elroy.crusade.Aplicacao\\elroy.crusade.Aplicacao.csproj",
       "projectName": "elroy.crusade.Aplicacao",
-      "projectPath": "E:\\Projetos\\TCC\\Crusade\\Fonte\\Crusade\\elroy.crusade.Aplicacao\\elroy.crusade.Aplicacao.csproj",
+      "projectPath": "E:\\Projetos\\GitHub\\thor\\Fonte\\Crusade\\elroy.crusade.Aplicacao\\elroy.crusade.Aplicacao.csproj",
       "packagesPath": "C:\\Users\\Flavio Barbosa\\.nuget\\packages\\",
-      "outputPath": "E:\\Projetos\\TCC\\Crusade\\Fonte\\Crusade\\elroy.crusade.Aplicacao\\obj\\",
+      "outputPath": "E:\\Projetos\\GitHub\\thor\\Fonte\\Crusade\\elroy.crusade.Aplicacao\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Flavio Barbosa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7098,11 +7098,11 @@
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {
-            "E:\\Projetos\\TCC\\Crusade\\Fonte\\Crusade\\elroy.crusade.dominio\\elroy.crusade.dominio.csproj": {
-              "projectPath": "E:\\Projetos\\TCC\\Crusade\\Fonte\\Crusade\\elroy.crusade.dominio\\elroy.crusade.dominio.csproj"
+            "E:\\Projetos\\GitHub\\thor\\Fonte\\Crusade\\elroy.crusade.dominio\\elroy.crusade.dominio.csproj": {
+              "projectPath": "E:\\Projetos\\GitHub\\thor\\Fonte\\Crusade\\elroy.crusade.dominio\\elroy.crusade.dominio.csproj"
             },
-            "E:\\Projetos\\TCC\\Crusade\\Fonte\\Crusade\\elroy.crusade.bll\\elroy.crusade.Infra.csproj": {
-              "projectPath": "E:\\Projetos\\TCC\\Crusade\\Fonte\\Crusade\\elroy.crusade.bll\\elroy.crusade.Infra.csproj"
+            "E:\\Projetos\\GitHub\\thor\\Fonte\\Crusade\\elroy.crusade.bll\\elroy.crusade.Infra.csproj": {
+              "projectPath": "E:\\Projetos\\GitHub\\thor\\Fonte\\Crusade\\elroy.crusade.bll\\elroy.crusade.Infra.csproj"
             }
           }
         }
