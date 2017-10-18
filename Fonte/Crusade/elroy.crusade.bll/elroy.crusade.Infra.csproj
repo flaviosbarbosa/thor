@@ -52,7 +52,6 @@
     <Compile Include="MensagemEntranteBLL.cs" />
     <Compile Include="MensagemSainteBLL.cs" />
     <Compile Include="MinisterioBLL.cs" />
-    <Compile Include="OcorrenciaBLL.cs" />
     <Compile Include="ParametrosBLL.cs" />
     <Compile Include="ProgramacaoBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

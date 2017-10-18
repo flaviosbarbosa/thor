@@ -32,7 +32,7 @@ namespace elroy.crusade.Infra
                                                                      ATIVO
                                                                 FROM INTEGRANTES", integrantes);
                     }
-                    catch (Exception )
+                    catch (Exception e)
                     {
                         return new Integrantes();
                     }

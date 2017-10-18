@@ -35,7 +35,7 @@ namespace elroy.crusade.Infra
                                                                           DATAENVIO
                                                                       FROM MENSAGEMSAINTE", MensagemSainte);
                     }
-                    catch (Exception )
+                    catch (Exception e)
                     {
                         return new MensagemSainte();
                     }
@@ -58,7 +58,7 @@ namespace elroy.crusade.Infra
                                                                           DATAENVIO
                                                                       FROM MENSAGEMSAINTE", MensagemSainte);
                     }
-                    catch (Exception )
+                    catch (Exception e)
                     {
                         return new MensagemSainte();
                     }

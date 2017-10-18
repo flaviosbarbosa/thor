@@ -35,7 +35,7 @@ namespace elroy.crusade.Infra
                                                                       DESCRICAO
                                                                   FROM MINISTERIOS", Ministerio);
                     }
-                    catch (Exception )
+                    catch (Exception e)
                     {
                         return new Ministerio();
                     }
@@ -93,7 +93,7 @@ namespace elroy.crusade.Infra
                                                         WHERE ID = @id", Ministerio);
                     return true;
                 }
-                catch (Exception )
+                catch (Exception e)
                 {
                     return false;
                 }

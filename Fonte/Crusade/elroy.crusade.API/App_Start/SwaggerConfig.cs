@@ -7,14 +7,8 @@ using Swashbuckle.Application;
 
 namespace elroy.crusade.API
 {
-    /// <summary>
-    /// Configuração do Swagger
-    /// </summary>
     public class SwaggerConfig
     {
-        /// <summary>
-        /// Configuração do registro do Swagger
-        /// </summary>
         public static void Register()
         {
             var thisAssembly = typeof(SwaggerConfig).Assembly;
@@ -31,10 +25,6 @@ namespace elroy.crusade.API
                 });
         }
 
-        /// <summary>
-        /// Definição do caminho do XML das Apis
-        /// </summary>
-        /// <returns></returns>
         protected static string GetXmlCommentsPath()
         {
             return System.String.Format(@"{0}\bin\elroy.crusade.API.xml", System.AppDomain.CurrentDomain.BaseDirectory);
