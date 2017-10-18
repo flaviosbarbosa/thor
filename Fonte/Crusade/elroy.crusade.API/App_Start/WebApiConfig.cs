@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Web.Http;
 
 namespace elroy.crusade.API
@@ -15,8 +16,9 @@ namespace elroy.crusade.API
         /// </summary>
         /// <param name="config">Informe</param>
         public static void Register(HttpConfiguration config)
-        {
-            // Web API configuration and services
+        {            
+            // Web API configuration and services (Define para retornar em json)
+            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
 
             // Web API routes
             config.MapHttpAttributeRoutes();
@@ -26,7 +28,7 @@ namespace elroy.crusade.API
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-           // SwaggerConfig.Register();
+            //SwaggerConfig.Register();
         }
     }
 }

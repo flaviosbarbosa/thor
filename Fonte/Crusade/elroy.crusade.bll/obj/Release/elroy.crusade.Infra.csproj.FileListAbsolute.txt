@@ -9,3 +9,13 @@ E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.bll\obj\Release\elroy.crusad
 E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.bll\obj\Release\elroy.crusade.Infra.csproj.CoreCompileInputs.cache
 E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.bll\obj\Release\elroy.crusade.bll.dll
 E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.bll\obj\Release\elroy.crusade.bll.pdb
+C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.bll\bin\Release\elroy.crusade.bll.dll.config
+C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.bll\bin\Release\elroy.crusade.bll.dll
+C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.bll\bin\Release\elroy.crusade.bll.pdb
+C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.bll\bin\Release\Dapper.dll
+C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.bll\bin\Release\elroy.crusade.dominio.dll
+C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.bll\bin\Release\elroy.crusade.dominio.pdb
+C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.bll\bin\Release\Dapper.xml
+C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.bll\obj\Release\elroy.crusade.Infra.csprojResolveAssemblyReference.cache
+C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.bll\obj\Release\elroy.crusade.bll.dll
+C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.bll\obj\Release\elroy.crusade.bll.pdb

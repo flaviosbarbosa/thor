@@ -116,19 +116,6 @@
             Registro dos Eventos da igreja
             </summary>
         </member>
-        <member name="M:elroy.crusade.API.Controllers.EventosController.Get(System.Int32)">
-            <summary>
-            Retorna um Evento agendado por código
-            </summary>
-            <param name="id">Informe o codigo do evento</param>
-            <remarks>Retorna o evento informado</remarks>
-        </member>
-        <member name="M:elroy.crusade.API.Controllers.EventosController.Get">
-            <summary>
-            Retorna uma lista de eventos agendados
-            </summary>
-            <remarks>Retorna uma lista de eventos agendados</remarks>
-        </member>
         <member name="M:elroy.crusade.API.Controllers.EventosController.Post(elroy.crusade.dominio.Eventos)">
             <summary>
             Insere um novo evento

@@ -150,6 +150,7 @@ namespace elroy.crusade.Infra
                                                           TITULO,
                                                           DESCRICAO,
                                                           DATA,
+                                                          HORARIO
                                                           LOCAL,
                                                           HORARIO,
                                                           BANNER,

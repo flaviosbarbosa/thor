@@ -79,15 +79,15 @@ namespace elroy.crusade.test
             Assert.AreEqual(pastorpresente, retorno.pastorPresente, "Não foi possivel atualizar o Eventos");
         }
 
-        [TestMethod]
-        public void BuscaListadeEventoss()
-        {
+        //[TestMethod]
+        //public void BuscaListadeEventoss()
+        //{
 
-            conexao.Grava(eventos);
-            conexao.Grava(eventos);
-            var lista = conexao.ListaEventos();
+        //    conexao.Grava(eventos);
+        //    conexao.Grava(eventos);
+        //    var lista = conexao.ListaEventos();
 
-            Assert.IsNotNull(lista, "A lista não contem os dois itens necessários");
-        }
+        //    Assert.IsNotNull(lista, "A lista não contem os dois itens necessários");
+        //}
     }
 }

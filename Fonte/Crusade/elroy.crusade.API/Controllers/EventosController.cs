@@ -1,8 +1,6 @@
 ﻿using elroy.crusade.dominio;
 using elroy.crusade.Infra;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -14,58 +12,58 @@ namespace elroy.crusade.API.Controllers
     /// </summary>
     public class EventosController : ApiController
     {
-        /// <summary>
-        /// Retorna um Evento agendado por código
-        /// </summary>
-        /// <param name="id">Informe o codigo do evento</param>
-        /// <remarks>Retorna o evento informado</remarks>
-        [Route("API/BuscaEvento/{id}")]
-        [HttpGet]
-        public HttpResponseMessage Get(int id)
-        {
-            try
-            {
-                EventosBLL eventosbll = new EventosBLL();
-                var Eventos = eventosbll.BuscaPorCodigo(id);
+        ///// <summary>
+        ///// Retorna um Evento agendado por código
+        ///// </summary>
+        ///// <param name="id">Informe o codigo do evento</param>
+        ///// <remarks>Retorna o evento informado</remarks>
+        //[Route("API/BuscaEvento/{id}")]
+        //[HttpGet]
+        //public HttpResponseMessage Get(int id)
+        //{
+        //    try
+        //    {
+        //        EventosBLL eventosbll = new EventosBLL();
+        //        var Eventos = eventosbll.BuscaPorCodigo(id);
 
-                if (Eventos.id != 0)
-                    return Request.CreateResponse(HttpStatusCode.OK, Eventos);
-                else
-                    throw new KeyNotFoundException();
-            }
-            catch (KeyNotFoundException )
-            {
-                string mensagem = string.Format("Não foi possivel localizar o Evento {0]", id);
-                HttpError error = new HttpError(mensagem);
-                return Request.CreateErrorResponse(HttpStatusCode.NotFound, error);
-            }
-        }
+        //        if (Eventos.id != 0)
+        //            return Request.CreateResponse(HttpStatusCode.OK, Eventos);
+        //        else
+        //            throw new KeyNotFoundException();
+        //    }
+        //    catch (KeyNotFoundException )
+        //    {
+        //        string mensagem = string.Format("Não foi possivel localizar o Evento {0]", id);
+        //        HttpError error = new HttpError(mensagem);
+        //        return Request.CreateErrorResponse(HttpStatusCode.NotFound, error);
+        //    }
+        //}
 
-        /// <summary>
-        /// Retorna uma lista de eventos agendados
-        /// </summary>
-        /// <remarks>Retorna uma lista de eventos agendados</remarks>
-        [Route("API/ListaEventos")]
-        [HttpGet]
-        public HttpResponseMessage Get()
-        {
-            try
-            {
-                EventosBLL eventosBll = new EventosBLL();
-                var listaEventos = eventosBll.ListaEventos();
+        ///// <summary>
+        ///// Retorna uma lista de eventos agendados
+        ///// </summary>
+        ///// <remarks>Retorna uma lista de eventos agendados</remarks>
+        //[Route("API/ListaEventos")]
+        //[HttpGet]
+        //public HttpResponseMessage Get()
+        //{
+        //    try
+        //    {
+        //        EventosBLL eventosBll = new EventosBLL();
+        //        var listaEventos = eventosBll.ListaEventos();
 
-                if (listaEventos.Count > 0)
-                    return Request.CreateResponse(HttpStatusCode.OK, listaEventos);
-                else
-                    throw new KeyNotFoundException();
-            }
-            catch (KeyNotFoundException )
-            {
-                string mensagem = string.Format("Não foi possivel localizar nenhum evento");
-                HttpError error = new HttpError(mensagem);
-                return Request.CreateErrorResponse(HttpStatusCode.NotFound, error);
-            }
-        }
+        //        if (listaEventos.Count > 0)
+        //            return Request.CreateResponse(HttpStatusCode.OK, listaEventos);
+        //        else
+        //            throw new KeyNotFoundException();
+        //    }
+        //    catch (KeyNotFoundException )
+        //    {
+        //        string mensagem = string.Format("Não foi possivel localizar nenhum evento");
+        //        HttpError error = new HttpError(mensagem);
+        //        return Request.CreateErrorResponse(HttpStatusCode.NotFound, error);
+        //    }
+        //}
 
         /// <summary>
         /// Insere um novo evento
