@@ -7,3 +7,4 @@ C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.dominio\bin\Release\elroy.cr
 C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.dominio\bin\Release\elroy.crusade.dominio.pdb
 C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.dominio\obj\Release\elroy.crusade.dominio.dll
 C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.dominio\obj\Release\elroy.crusade.dominio.pdb
+E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.dominio\obj\Release\elroy.crusade.dominio.csprojResolveAssemblyReference.cache
