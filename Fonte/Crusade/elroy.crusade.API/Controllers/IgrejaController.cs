@@ -13,6 +13,7 @@ namespace elroy.crusade.API.Controllers
     /// <summary>
     /// Controle sobre as ações da Igreja
     /// </summary>
+    [RoutePrefix("api/igrejas")]
     public class IgrejaController : ApiController
     {
         /// <summary>
@@ -22,7 +23,7 @@ namespace elroy.crusade.API.Controllers
         /// <remarks>Retorna uma igreja pelo código</remarks>
         /// <response code="400">Falha ao buscar igreja</response>
         /// <response code="500">Não foi possivel localizar a igreja desejada</response>        
-        [Route("Api/BuscaIgreja/{id}")]
+        [Route("{id:int}")]
         [ResponseType(typeof(int))]
         [HttpGet]
         public HttpResponseMessage Get(int id)
@@ -52,7 +53,7 @@ namespace elroy.crusade.API.Controllers
         /// <remarks>Lista de Igrejas</remarks>
         /// <response code="400">Falha ao buscar lista de igrejas</response>
         /// <response code="500">Não foi possivel buscar a lista de igrejas</response>        
-        [Route("Api/ListaIgrejas")]        
+        [Route("")]        
         [HttpGet]
         public HttpResponseMessage Get()
         {
@@ -82,7 +83,7 @@ namespace elroy.crusade.API.Controllers
         /// <remarks>Lista de Igrejas</remarks>
         /// <response code="400">Falha ao enviar os dados ao servidor</response>
         /// <response code="500">Não foi possível salvar os dados no servidor</response>        
-        [Route("Api/GravaIgreja")]
+        [Route("")]
         [ResponseType(typeof(Igreja))]
         [HttpPost]
         public HttpResponseMessage Post([FromBody] Igreja igreja)
@@ -104,7 +105,7 @@ namespace elroy.crusade.API.Controllers
         /// <remarks>Exclui igrejas</remarks>
         /// <response code="400">Falha ao excluir os dados do servidor</response>
         /// <response code="500">Não foi possível excluir os dados no servidor</response>        
-        [Route("Api/DeletaIgreja/{id}")]        
+        [Route("{id:int}")]        
         [HttpDelete]
         public HttpResponseMessage Delete([FromUri] int id)
         {
@@ -117,13 +118,14 @@ namespace elroy.crusade.API.Controllers
         /// <summary>
         /// Atualiza Igreja
         /// </summary>
+        /// <remarks>Atualiza Igreja</remarks>
         /// <param name="igreja">Informe os dados da Igreja</param>
         /// <param name="id">Informe o Código da igreja</param>
         /// <response code="400">Falha ao enviar os dados para atualização</response>
         /// <response code="500">Não foi possível atualizar os dados no servidor</response>        
-        //[Route("Api/AtualizaIgreja/{id}")]
-        //[ResponseType(typeof(Igreja))]
-        //[HttpPut]
+        [Route("{id:int}")]
+        [ResponseType(typeof(Igreja))]
+        [HttpPut]
         public HttpResponseMessage Put([FromBody]Igreja igreja, [FromUri] int id)
         {
             IgrejaBLL igrejaBLL = new IgrejaBLL();

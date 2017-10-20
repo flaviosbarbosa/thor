@@ -182,6 +182,7 @@
             <summary>
             Atualiza Igreja
             </summary>
+            <remarks>Atualiza Igreja</remarks>
             <param name="igreja">Informe os dados da Igreja</param>
             <param name="id">Informe o Código da igreja</param>
             <response code="400">Falha ao enviar os dados para atualização</response>

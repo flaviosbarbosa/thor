@@ -146,3 +146,7 @@ C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.API\bin\Dapper.xml
 C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.API\obj\Release\elroy.crusade.API.csprojResolveAssemblyReference.cache
 C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.API\obj\Release\elroy.crusade.API.dll
 C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.API\obj\Release\elroy.crusade.API.pdb
+C:\Arquivos\GitHub\Thor\Fonte\Crusade\elroy.crusade.API\bin\System.Web.Cors.dll
+C:\Arquivos\GitHub\Thor\Fonte\Crusade\elroy.crusade.API\bin\System.Web.Http.Cors.dll
+C:\Arquivos\GitHub\Thor\Fonte\Crusade\elroy.crusade.API\bin\WebActivatorEx.dll
+C:\Arquivos\GitHub\Thor\Fonte\Crusade\elroy.crusade.API\bin\System.Web.Http.Cors.xml

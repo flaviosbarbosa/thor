@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace elroy.crusade.API
 {
@@ -19,6 +20,10 @@ namespace elroy.crusade.API
         {            
             // Web API configuration and services (Define para retornar em json)
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
+
+            // Habilita o CORS globalmente
+            var corsAttr = new EnableCorsAttribute("http://www.elroy.com.br,http://localhost:51737", " * ", "*");
+            config.EnableCors(corsAttr);            
 
             // Web API routes
             config.MapHttpAttributeRoutes();

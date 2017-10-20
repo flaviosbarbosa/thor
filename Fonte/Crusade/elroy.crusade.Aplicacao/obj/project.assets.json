@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 2,
   "targets": {
     ".NETCoreApp,Version=v1.1": {
       "Libuv/1.9.1": {
@@ -2268,24 +2268,12 @@
         }
       },
       "elroy.crusade.dominio/1.0.0": {
-        "type": "project",
-        "compile": {
-          "bin/placeholder/elroy.crusade.dominio.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/elroy.crusade.dominio.dll": {}
-        }
+        "type": "project"
       },
       "elroy.crusade.Infra/1.0.0": {
         "type": "project",
         "dependencies": {
           "elroy.crusade.dominio": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/elroy.crusade.Infra.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/elroy.crusade.Infra.dll": {}
         }
       }
     }
@@ -7070,39 +7058,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Flavio Barbosa\\.nuget\\packages\\": {}
+    "C:\\Users\\flavio.barbosa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "E:\\Projetos\\GitHub\\thor\\Fonte\\Crusade\\elroy.crusade.Aplicacao\\elroy.crusade.Aplicacao.csproj",
+      "projectUniqueName": "C:\\Arquivos\\GitHub\\Thor\\Fonte\\Crusade\\elroy.crusade.Aplicacao\\elroy.crusade.Aplicacao.csproj",
       "projectName": "elroy.crusade.Aplicacao",
-      "projectPath": "E:\\Projetos\\GitHub\\thor\\Fonte\\Crusade\\elroy.crusade.Aplicacao\\elroy.crusade.Aplicacao.csproj",
-      "packagesPath": "C:\\Users\\Flavio Barbosa\\.nuget\\packages\\",
-      "outputPath": "E:\\Projetos\\GitHub\\thor\\Fonte\\Crusade\\elroy.crusade.Aplicacao\\obj\\",
+      "projectPath": "C:\\Arquivos\\GitHub\\Thor\\Fonte\\Crusade\\elroy.crusade.Aplicacao\\elroy.crusade.Aplicacao.csproj",
+      "outputPath": "C:\\Arquivos\\GitHub\\Thor\\Fonte\\Crusade\\elroy.crusade.Aplicacao\\obj\\",
       "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\Flavio Barbosa\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-      ],
       "originalTargetFrameworks": [
         "netcoreapp1.1"
       ],
-      "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
-      },
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {
-            "E:\\Projetos\\GitHub\\thor\\Fonte\\Crusade\\elroy.crusade.dominio\\elroy.crusade.dominio.csproj": {
-              "projectPath": "E:\\Projetos\\GitHub\\thor\\Fonte\\Crusade\\elroy.crusade.dominio\\elroy.crusade.dominio.csproj"
+            "C:\\Arquivos\\GitHub\\Thor\\Fonte\\Crusade\\elroy.crusade.dominio\\elroy.crusade.dominio.csproj": {
+              "projectPath": "C:\\Arquivos\\GitHub\\Thor\\Fonte\\Crusade\\elroy.crusade.dominio\\elroy.crusade.dominio.csproj"
             },
-            "E:\\Projetos\\GitHub\\thor\\Fonte\\Crusade\\elroy.crusade.bll\\elroy.crusade.Infra.csproj": {
-              "projectPath": "E:\\Projetos\\GitHub\\thor\\Fonte\\Crusade\\elroy.crusade.bll\\elroy.crusade.Infra.csproj"
+            "C:\\Arquivos\\GitHub\\Thor\\Fonte\\Crusade\\elroy.crusade.bll\\elroy.crusade.Infra.csproj": {
+              "projectPath": "C:\\Arquivos\\GitHub\\Thor\\Fonte\\Crusade\\elroy.crusade.bll\\elroy.crusade.Infra.csproj"
             }
           }
         }
