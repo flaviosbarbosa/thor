@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>elroy.crusade.dominio</RootNamespace>
     <AssemblyName>elroy.crusade.dominio</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,6 +44,8 @@
   <ItemGroup>
     <Compile Include="AgendaPastoral.cs" />
     <Compile Include="Beneficiario.cs" />
+    <Compile Include="Enum\TipoBeneficiario.cs" />
+    <Compile Include="Enum\TipoPessoa.cs" />
     <Compile Include="Eventos.cs" />
     <Compile Include="Igreja.cs" />
     <Compile Include="Integrantes.cs" />
@@ -52,14 +55,18 @@
     <Compile Include="Ocorrencia.cs" />
     <Compile Include="Parametros.cs" />
     <Compile Include="Postagem.cs" />
+    <Compile Include="Profissao.cs" />
     <Compile Include="Programacao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Enum\SimNao.cs" />
     <Compile Include="TipoMensagem.cs" />
     <Compile Include="Topico.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

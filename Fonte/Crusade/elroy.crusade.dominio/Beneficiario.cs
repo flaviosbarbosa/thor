@@ -1,4 +1,5 @@
-﻿using System;
+﻿using elroy.crusade.dominio.Enum;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace elroy.crusade.dominio
@@ -30,17 +31,17 @@ namespace elroy.crusade.dominio
         
         [MaxLength(10, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Tipo")]
-        public string tipo { get; set;}
+        public TipoBeneficiario tipoBeneficiario{ get; set;}
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(1, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Ativo")]
-        public string ativo { get; set;}
+        public SimNao ativo { get; set;}
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(1, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Tipo Pessoa")]
-        public string tipoPessoa { get; set; }
+        public TipoPessoa tipoPessoa { get; set; }
                 
         [MaxLength(18, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Documento I")]
@@ -71,9 +72,16 @@ namespace elroy.crusade.dominio
         [Display(Name = "UF")]
         public string UF { get; set; }
 
+        public Profissao profissao { get; set; }
+
+        public int codprofissao { get; set; }
+
+        public SimNao autorizaProfissao { get; set; }
+
         public Beneficiario()
         {
             dataCadastro = DateTime.Now;
+            profissao = new Profissao();
         }
     }
 }

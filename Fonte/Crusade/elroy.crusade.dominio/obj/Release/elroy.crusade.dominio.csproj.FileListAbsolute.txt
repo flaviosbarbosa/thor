@@ -3,8 +3,3 @@ E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.dominio\bin\Release\elroy.cr
 E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.dominio\obj\Release\elroy.crusade.dominio.csproj.CoreCompileInputs.cache
 E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.dominio\obj\Release\elroy.crusade.dominio.dll
 E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.dominio\obj\Release\elroy.crusade.dominio.pdb
-C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.dominio\bin\Release\elroy.crusade.dominio.dll
-C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.dominio\bin\Release\elroy.crusade.dominio.pdb
-C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.dominio\obj\Release\elroy.crusade.dominio.dll
-C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.dominio\obj\Release\elroy.crusade.dominio.pdb
-E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.dominio\obj\Release\elroy.crusade.dominio.csprojResolveAssemblyReference.cache

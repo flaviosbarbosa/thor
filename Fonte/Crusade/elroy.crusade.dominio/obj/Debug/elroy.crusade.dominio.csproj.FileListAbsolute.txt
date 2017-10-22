@@ -1,16 +1,6 @@
-E:\Projetos\TCC\Crusade\Fonte\Crusade\elroy.crusade.dominio\bin\Debug\elroy.crusade.dominio.dll
-E:\Projetos\TCC\Crusade\Fonte\Crusade\elroy.crusade.dominio\bin\Debug\elroy.crusade.dominio.pdb
-E:\Projetos\TCC\Crusade\Fonte\Crusade\elroy.crusade.dominio\obj\Debug\elroy.crusade.dominio.csprojResolveAssemblyReference.cache
-E:\Projetos\TCC\Crusade\Fonte\Crusade\elroy.crusade.dominio\obj\Debug\elroy.crusade.dominio.csproj.CoreCompileInputs.cache
-E:\Projetos\TCC\Crusade\Fonte\Crusade\elroy.crusade.dominio\obj\Debug\elroy.crusade.dominio.dll
-E:\Projetos\TCC\Crusade\Fonte\Crusade\elroy.crusade.dominio\obj\Debug\elroy.crusade.dominio.pdb
 E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.dominio\bin\Debug\elroy.crusade.dominio.dll
 E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.dominio\bin\Debug\elroy.crusade.dominio.pdb
+E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.dominio\obj\Debug\elroy.crusade.dominio.csprojResolveAssemblyReference.cache
 E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.dominio\obj\Debug\elroy.crusade.dominio.csproj.CoreCompileInputs.cache
 E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.dominio\obj\Debug\elroy.crusade.dominio.dll
 E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.dominio\obj\Debug\elroy.crusade.dominio.pdb
-C:\Arquivos\GitHub\Thor\Fonte\Crusade\elroy.crusade.dominio\bin\Debug\elroy.crusade.dominio.dll
-C:\Arquivos\GitHub\Thor\Fonte\Crusade\elroy.crusade.dominio\bin\Debug\elroy.crusade.dominio.pdb
-C:\Arquivos\GitHub\Thor\Fonte\Crusade\elroy.crusade.dominio\obj\Debug\elroy.crusade.dominio.csprojResolveAssemblyReference.cache
-C:\Arquivos\GitHub\Thor\Fonte\Crusade\elroy.crusade.dominio\obj\Debug\elroy.crusade.dominio.dll
-C:\Arquivos\GitHub\Thor\Fonte\Crusade\elroy.crusade.dominio\obj\Debug\elroy.crusade.dominio.pdb

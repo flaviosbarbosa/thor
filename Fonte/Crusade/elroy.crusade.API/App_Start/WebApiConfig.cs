@@ -17,13 +17,13 @@ namespace elroy.crusade.API
         /// </summary>
         /// <param name="config">Informe</param>
         public static void Register(HttpConfiguration config)
-        {            
+        {
             // Web API configuration and services (Define para retornar em json)
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
 
             // Habilita o CORS globalmente
             var corsAttr = new EnableCorsAttribute("http://www.elroy.com.br,http://localhost:51737", " * ", "*");
-            config.EnableCors(corsAttr);            
+            config.EnableCors(corsAttr);
 
             // Web API routes
             config.MapHttpAttributeRoutes();
