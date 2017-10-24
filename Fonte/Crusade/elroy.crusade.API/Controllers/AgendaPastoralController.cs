@@ -30,7 +30,7 @@ namespace elroy.crusade.API.Controllers
                 AgendaPastoralBLL agendapastoral = new AgendaPastoralBLL();
                 var agenda = agendapastoral.BuscaPorCodigo(id);
 
-                if (agenda.id != 0)
+                if (agenda.Id != 0)
                     return Request.CreateResponse(HttpStatusCode.OK, agenda);
                 else
                     throw new KeyNotFoundException();
@@ -84,7 +84,7 @@ namespace elroy.crusade.API.Controllers
             var agendaret = agendabll.Grava(agenda);
 
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created);
-            string location = Url.Link("DefaultApi", new { Controller = "agendapastoral", id = agendaret.id });
+            string location = Url.Link("DefaultApi", new { Controller = "agendapastoral", id = agendaret.Id });
             response.Headers.Location = new Uri(location);
 
             return response;

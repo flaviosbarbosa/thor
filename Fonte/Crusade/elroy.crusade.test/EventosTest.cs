@@ -23,17 +23,17 @@ namespace elroy.crusade.test
         public void CriaEventos()
         {
             this.eventos = new Eventos();
-            eventos.id = 0;
+            eventos.Id = 0;
             //eventos.banner = "Flavio";
-            eventos.titulo = "Dia de Lazer e Cultura";
-            eventos.descricao = "Evento Social para a comunidade";
-            eventos.data = new DateTime(2017, 10, 12);
-            eventos.local = "Igreja Presbiteriana Praia de Itapoã";
+            eventos.Titulo = "Dia de Lazer e Cultura";
+            eventos.Descricao = "Evento Social para a comunidade";
+            eventos.Data = new DateTime(2017, 10, 12);
+            eventos.Local = "Igreja Presbiteriana Praia de Itapoã";
             eventos.horario = new DateTime(2017, 10, 12, 17, 00, 00);
-            eventos.pastorPresente = "S";
-            eventos.privado = "N";
-            eventos.ministerio = new Factory().CriaMinisterio();
-            eventos.codMinisterio = eventos.ministerio.id;
+            eventos.PastorPresente = "S";
+            eventos.Privado = "N";
+            eventos.Ministerio = new Factory().CriaMinisterio();
+            eventos.CodMinisterio = eventos.Ministerio.Id;
 
             this.conexao = new EventosBLL();
         }
@@ -55,28 +55,28 @@ namespace elroy.crusade.test
         public void SalvandoEventos()
         {
             var retorno = conexao.Grava(eventos);
-            Assert.IsNotNull(retorno.id, "Erro ao salvar Evento");
+            Assert.IsNotNull(retorno.Id, "Erro ao salvar Evento");
         }
 
         [TestMethod]
         public void BuscaEventosporCodigo()
         {
             var usuretorno = conexao.Grava(eventos);
-            eventos = conexao.BuscaPorCodigo(usuretorno.id);
-            Assert.AreEqual(usuretorno.id, eventos.id, "Não foi possivel localizar o Evento");
+            eventos = conexao.BuscaPorCodigo(usuretorno.Id);
+            Assert.AreEqual(usuretorno.Id, eventos.Id, "Não foi possivel localizar o Evento");
         }
 
         [TestMethod]
         public void AtualizaEventos()
         {
             var usuretorno = conexao.Grava(eventos);
-            eventos = conexao.BuscaPorCodigo(usuretorno.id);
+            eventos = conexao.BuscaPorCodigo(usuretorno.Id);
 
             var pastorpresente = "S";
-            eventos.pastorPresente = pastorpresente;
+            eventos.PastorPresente = pastorpresente;
             var retorno = conexao.Grava(eventos);
 
-            Assert.AreEqual(pastorpresente, retorno.pastorPresente, "Não foi possivel atualizar o Eventos");
+            Assert.AreEqual(pastorpresente, retorno.PastorPresente, "Não foi possivel atualizar o Eventos");
         }
 
         //[TestMethod]

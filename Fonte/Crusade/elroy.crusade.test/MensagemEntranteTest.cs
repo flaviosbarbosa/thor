@@ -17,17 +17,17 @@ namespace elroy.crusade.test
         {
             this.mensagemEntrante = new MensagemEntrante();
             
-            mensagemEntrante.tipoMensagem = new TipoMensagemBLL().Grava(new Factory().CriaTipoMensagem());
+            mensagemEntrante.TipoMensagem = new TipoMensagemBLL().Grava(new Factory().CriaTipoMensagem());
                         
-            mensagemEntrante.codTipoMensagem = mensagemEntrante.tipoMensagem.id;
-            mensagemEntrante.dataContato = DateTime.Now;
-            mensagemEntrante.assunto = "";
-            mensagemEntrante.emailContato = "";
-            mensagemEntrante.frequenta = "S";
-            mensagemEntrante.mensagem = "Orem por mim";
-            mensagemEntrante.nomeSolicitante = "Joaquim Jose da Silva Xavier";
-            mensagemEntrante.permiteRetorno = "S";
-            mensagemEntrante.telefoneContato = "27992969013";
+            mensagemEntrante.CodTipoMensagem = mensagemEntrante.TipoMensagem.id;
+            mensagemEntrante.DataContato = DateTime.Now;
+            mensagemEntrante.Assunto = "";
+            mensagemEntrante.EmailContato = "";
+            mensagemEntrante.Frequenta = "S";
+            mensagemEntrante.Mensagem = "Orem por mim";
+            mensagemEntrante.NomeSolicitante = "Joaquim Jose da Silva Xavier";
+            mensagemEntrante.PermiteRetorno = "S";
+            mensagemEntrante.TelefoneContato = "27992969013";
 
             this.conexao = new MensagemEntranteBLL();
         }
@@ -49,28 +49,28 @@ namespace elroy.crusade.test
         public void SalvandoMensagemEntrante()
         {
             var retorno = conexao.Grava(mensagemEntrante);
-            Assert.IsNotNull(retorno.id, "Erro ao salvar MensagemEntrante");
+            Assert.IsNotNull(retorno.Id, "Erro ao salvar MensagemEntrante");
         }
 
         [TestMethod]
         public void BuscaMensagemEntranteporCodigo()
         {
             var MensagemEntranteretorno = conexao.Grava(mensagemEntrante);
-            mensagemEntrante = conexao.BuscaPorCodigo(MensagemEntranteretorno.id);
-            Assert.AreEqual(MensagemEntranteretorno.id, mensagemEntrante.id, "Não foi possivel localizar o MensagemEntranter");
+            mensagemEntrante = conexao.BuscaPorCodigo(MensagemEntranteretorno.Id);
+            Assert.AreEqual(MensagemEntranteretorno.Id, mensagemEntrante.Id, "Não foi possivel localizar o MensagemEntranter");
         }
 
         [TestMethod]
         public void AtualizaMensagemEntrante()
         {
             var MEretorno = conexao.Grava(mensagemEntrante);
-            mensagemEntrante = conexao.BuscaPorCodigo(MEretorno.id);
+            mensagemEntrante = conexao.BuscaPorCodigo(MEretorno.Id);
 
             var mensagem = "Dia de lazer e cultura";
-            mensagemEntrante.mensagem = mensagem;
+            mensagemEntrante.Mensagem = mensagem;
             var retorno = conexao.Grava(mensagemEntrante);
 
-            Assert.AreEqual(mensagem, retorno.mensagem, "Não foi possivel atualizar o MensagemEntrante");
+            Assert.AreEqual(mensagem, retorno.Mensagem, "Não foi possivel atualizar o MensagemEntrante");
         }
 
         [TestMethod]

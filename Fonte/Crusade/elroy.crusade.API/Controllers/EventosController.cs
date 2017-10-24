@@ -78,7 +78,7 @@ namespace elroy.crusade.API.Controllers
             var eventoret = eventosBll.Grava(eventos);
 
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created);
-            string location = Url.Link("DefaultApi", new { Controller = "eventos", id = eventoret.id });
+            string location = Url.Link("DefaultApi", new { Controller = "eventos", id = eventoret.Id });
             response.Headers.Location = new Uri(location);
 
             return response;

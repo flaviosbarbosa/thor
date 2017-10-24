@@ -27,7 +27,7 @@ namespace elroy.crusade.API.Controllers
                 MinisterioBLL ministerioBLL = new MinisterioBLL();
                 var ministerio = ministerioBLL.BuscaPorCodigo(id);
 
-                if (ministerio.id != 0)
+                if (ministerio.Id != 0)
                     return Request.CreateResponse(HttpStatusCode.OK, ministerio);
                 else
                     throw new KeyNotFoundException();
@@ -79,7 +79,7 @@ namespace elroy.crusade.API.Controllers
             var beneret = ministerioBLL.Grava(ministerio);
 
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created);
-            string location = Url.Link("DefaultApi", new { Controller = "ministerio", id = beneret.id });
+            string location = Url.Link("DefaultApi", new { Controller = "ministerio", id = beneret.Id });
             response.Headers.Location = new Uri(location);
 
             return response;

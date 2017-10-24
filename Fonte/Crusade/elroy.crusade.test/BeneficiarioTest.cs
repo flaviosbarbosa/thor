@@ -43,28 +43,28 @@ namespace elroy.crusade.test
         public void SalvandoBeneficiario()
         {
             var retorno = conexao.Grava(beneficiario);
-            Assert.IsNotNull(retorno.id, "Erro ao salvar usuário");
+            Assert.IsNotNull(retorno.Id, "Erro ao salvar usuário");
         }
 
         [TestMethod]
         public void BuscaBeneficiarioporCodigo()
         {
             var usuretorno = conexao.Grava(beneficiario);
-            beneficiario = conexao.BuscaPorCodigo(usuretorno.id);
-            Assert.AreEqual(usuretorno.id, beneficiario.id, "Não foi possivel localizar o usuário");
+            beneficiario = conexao.BuscaPorCodigo(usuretorno.Id);
+            Assert.AreEqual(usuretorno.Id, beneficiario.Id, "Não foi possivel localizar o usuário");
         }
 
         [TestMethod]
         public void AtualizaBeneficiario()
         {
             var usuretorno = conexao.Grava(beneficiario);
-            beneficiario = conexao.BuscaPorCodigo(usuretorno.id);
+            beneficiario = conexao.BuscaPorCodigo(usuretorno.Id);
 
             var email = "flavio.barbosa@autoglass.com.br";
-            beneficiario.email = email;
+            beneficiario.Email = email;
             var retorno = conexao.Grava(beneficiario);
 
-            Assert.AreEqual(email, retorno.email, "Não foi possivel atualizar o Beneficiario");
+            Assert.AreEqual(email, retorno.Email, "Não foi possivel atualizar o Beneficiario");
         }
 
         [TestMethod]

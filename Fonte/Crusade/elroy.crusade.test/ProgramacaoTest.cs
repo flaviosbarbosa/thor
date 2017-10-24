@@ -21,7 +21,7 @@ namespace elroy.crusade.test
             this.programacao = new Programacao();
             programacao.descricao = "Culto Vespertino";
             programacao.titulo = "Noite de Louvour";
-            programacao.codIgreja = igrejaretorno.id;
+            programacao.codIgreja = igrejaretorno.Id;
             programacao.igreja = igrejaretorno;
 
             this.conexao = new ProgramacaoBLL();

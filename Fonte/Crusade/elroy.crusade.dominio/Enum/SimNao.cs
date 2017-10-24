@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace elroy.crusade.dominio
+namespace elroy.crusade.dominio.Enum
 {
     public enum SimNao
     {

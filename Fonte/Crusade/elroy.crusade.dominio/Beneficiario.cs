@@ -6,82 +6,82 @@ namespace elroy.crusade.dominio
 {
     public class Beneficiario
     {         
-        public int id { get; set; }
+        public int Id { get; set; }
                 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(100, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Nome")]
-        public string nome { get; set; }
+        public string Nome { get; set; }
                 
         [MaxLength(100, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "e-Mail")]
-        public string email { get; set; }
+        public string Email { get; set; }
 
         [MaxLength(16, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Telefone")]
-        public string telefone { get; set; }
+        public string Telefone { get; set; }
 
         [MaxLength(500, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Celular")]
-        public string celular { get; set; }
+        public string Celular { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]        
         [Display(Name = "Data Cadastro")]
-        public DateTime dataCadastro { get; set; }
+        public DateTime DataCadastro { get; set; }
         
         [MaxLength(10, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Tipo")]
-        public TipoBeneficiario tipoBeneficiario{ get; set;}
+        public TipoBeneficiario TipoBeneficiario{ get; set;}
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(1, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Ativo")]
-        public SimNao ativo { get; set;}
+        public SimNao Ativo { get; set;}
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(1, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Tipo Pessoa")]
-        public TipoPessoa tipoPessoa { get; set; }
+        public TipoPessoa TipoPessoa { get; set; }
                 
         [MaxLength(18, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Documento I")]
-        public string documentoI { get; set; }
+        public string DocumentoI { get; set; }
                 
         [MaxLength(18, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Documento II")]
-        public string documentoII { get; set; }
+        public string DocumentoII { get; set; }
                 
         [MaxLength(60, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Endereço")]
-        public string endereco { get; set; }
+        public string Endereco { get; set; }
                 
         [MaxLength(10, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Numero")]
-        public string numero { get; set; }
+        public string Numero { get; set; }
                 
         [MaxLength(60, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Bairro")]
-        public string bairro { get; set; }
+        public string Bairro { get; set; }
                 
         [MaxLength(60, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Cidade")]
-        public string cidade { get; set; }
+        public string Cidade { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(2, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "UF")]
         public string UF { get; set; }
 
-        public Profissao profissao { get; set; }
+        public Profissao Profissao { get; set; }
 
-        public int codprofissao { get; set; }
+        public int CodProfissao { get; set; }
 
-        public SimNao autorizaProfissao { get; set; }
+        public SimNao AutorizaProfissao { get; set; }
 
         public Beneficiario()
         {
-            dataCadastro = DateTime.Now;
-            profissao = new Profissao();
+            DataCadastro = DateTime.Now;
+            Profissao = new Profissao();
         }
     }
 }

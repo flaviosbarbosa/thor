@@ -18,13 +18,13 @@ namespace elroy.crusade.test
         {
             this.mensagemsainte = new MensagemSainte();
 
-            mensagemsainte.ministerio = new MinisterioBLL().Grava(new Factory().CriaMinisterio());
-            mensagemsainte.tipoMensagem = new TipoMensagemBLL().Grava(new Factory().CriaTipoMensagem());
+            mensagemsainte.Ministerio = new MinisterioBLL().Grava(new Factory().CriaMinisterio());
+            mensagemsainte.TipoMensagem = new TipoMensagemBLL().Grava(new Factory().CriaTipoMensagem());
 
-            mensagemsainte.codMinisterio = mensagemsainte.ministerio.id;
-            mensagemsainte.codTipoMensagem = mensagemsainte.tipoMensagem.id;
-            mensagemsainte.dataEnvio = DateTime.Now;
-            mensagemsainte.mensagem = "Ensaio no sabado";
+            mensagemsainte.CodMinisterio = mensagemsainte.Ministerio.Id;
+            mensagemsainte.CodTipoMensagem = mensagemsainte.TipoMensagem.id;
+            mensagemsainte.DataEnvio = DateTime.Now;
+            mensagemsainte.Mensagem = "Ensaio no sabado";
 
             this.conexao = new MensagemSainteBLL();
         }
@@ -46,28 +46,28 @@ namespace elroy.crusade.test
         public void SalvandoMensagemSainte()
         {
             var retorno = conexao.Grava(mensagemsainte);
-            Assert.IsNotNull(retorno.id, "Erro ao salvar MensagemSainte");
+            Assert.IsNotNull(retorno.Id, "Erro ao salvar MensagemSainte");
         }
 
         [TestMethod]
         public void BuscaMensagemSainteporCodigo()
         {
             var MensagemSainteretorno = conexao.Grava(mensagemsainte);
-            mensagemsainte = conexao.BuscaPorCodigo(MensagemSainteretorno.id);
-            Assert.AreEqual(MensagemSainteretorno.id, mensagemsainte.id, "Não foi possivel localizar o MensagemSainter");
+            mensagemsainte = conexao.BuscaPorCodigo(MensagemSainteretorno.Id);
+            Assert.AreEqual(MensagemSainteretorno.Id, mensagemsainte.Id, "Não foi possivel localizar o MensagemSainter");
         }
 
         [TestMethod]
         public void AtualizaMensagemSainte()
         {
             var usuretorno = conexao.Grava(mensagemsainte);
-            mensagemsainte = conexao.BuscaPorCodigo(usuretorno.id);
+            mensagemsainte = conexao.BuscaPorCodigo(usuretorno.Id);
 
             var mensagem = "Dia de lazer e cultura";
-            mensagemsainte.mensagem = mensagem;
+            mensagemsainte.Mensagem = mensagem;
             var retorno = conexao.Grava(mensagemsainte);
 
-            Assert.AreEqual(mensagem, retorno.mensagem, "Não foi possivel atualizar o MensagemSainte");
+            Assert.AreEqual(mensagem, retorno.Mensagem, "Não foi possivel atualizar o MensagemSainte");
         }
 
         [TestMethod]

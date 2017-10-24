@@ -20,12 +20,12 @@ namespace elroy.crusade.test
         public void CriaMinisterio()
         {
             this.ministerio = new Ministerio();
-            ministerio.beneficiario =  new BeneficiarioBLL().Grava(new Factory().CriaBeneficiario());
+            ministerio.Beneficiario =  new BeneficiarioBLL().Grava(new Factory().CriaBeneficiario());
 
-            ministerio.id = 0;
-            ministerio.nome = "Louvor";
-            ministerio.codResponsavel = ministerio.beneficiario.id;
-            ministerio.descricao = "Ministerio de Louvor";                       
+            ministerio.Id = 0;
+            ministerio.Nome = "Louvor";
+            ministerio.CodResponsavel = ministerio.Beneficiario.Id;
+            ministerio.Descricao = "Ministerio de Louvor";                       
 
             this.conexao = new MinisterioBLL();
         }
@@ -47,28 +47,28 @@ namespace elroy.crusade.test
         public void SalvandoMinisterio()
         {
             var retorno = conexao.Grava(ministerio);
-            Assert.IsNotNull(retorno.id, "Erro ao salvar ministerio");
+            Assert.IsNotNull(retorno.Id, "Erro ao salvar ministerio");
         }
 
         [TestMethod]
         public void BuscaMinisterioporCodigo()
         {
             var ministerioretorno = conexao.Grava(ministerio);
-            ministerio = conexao.BuscaPorCodigo(ministerioretorno.id);
-            Assert.AreEqual(ministerioretorno.id, ministerio.id, "Não foi possivel localizar o ministerior");
+            ministerio = conexao.BuscaPorCodigo(ministerioretorno.Id);
+            Assert.AreEqual(ministerioretorno.Id, ministerio.Id, "Não foi possivel localizar o ministerior");
         }
 
         [TestMethod]
         public void AtualizaMinisterio()
         {
             var usuretorno = conexao.Grava(ministerio);
-            ministerio = conexao.BuscaPorCodigo(usuretorno.id);
+            ministerio = conexao.BuscaPorCodigo(usuretorno.Id);
 
             var nome = "flavio.barbosa@autoglass.com.br";
-            ministerio.nome = nome;
+            ministerio.Nome = nome;
             var retorno = conexao.Grava(ministerio);
 
-            Assert.AreEqual(nome, retorno.nome, "Não foi possivel atualizar o Ministerio");
+            Assert.AreEqual(nome, retorno.Nome, "Não foi possivel atualizar o Ministerio");
         }
 
         [TestMethod]

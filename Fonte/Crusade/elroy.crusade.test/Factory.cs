@@ -1,4 +1,5 @@
 ﻿using elroy.crusade.dominio;
+using elroy.crusade.dominio.Enum;
 using elroy.crusade.Infra;
 using System;
 
@@ -10,12 +11,12 @@ namespace elroy.crusade.test
         {
             Igreja igreja = new Igreja();
             
-            igreja.razaosocial = "Igreja Presbiteriana do Brasil";
-            igreja.cnpj = "07333707000195";
-            igreja.uf = "ES";
+            igreja.Razaosocial = "Igreja Presbiteriana do Brasil";
+            igreja.Cnpj = "07333707000195";
+            igreja.UF = "ES";
             igreja.CEP = "29101595";
             igreja.Responsavel = "Eu mesmo";
-            igreja.telefone = "992969013";
+            igreja.Telefone = "992969013";
 
             return new IgrejaBLL().Grava(igreja);
         }
@@ -33,35 +34,35 @@ namespace elroy.crusade.test
         public Beneficiario CriaBeneficiario()
         {
             var beneficiario = new Beneficiario();
-            beneficiario.id = 0;
-            beneficiario.nome = "Flavio de Souza Barbosa";
-            beneficiario.ativo = "S";
-            beneficiario.tipo = "X";
-            beneficiario.endereco = "Rua Central";
-            beneficiario.numero = "1940";
-            beneficiario.bairro = "Itapua";
-            beneficiario.cidade = "Vila Velha";
+            beneficiario.Id = 0;
+            beneficiario.Nome = "Flavio de Souza Barbosa";
+            beneficiario.Ativo = SimNao.Sim;
+            beneficiario.TipoBeneficiario = TipoBeneficiario.Membro;
+            beneficiario.Endereco = "Rua Central";
+            beneficiario.Numero = "1940";
+            beneficiario.Bairro = "Itapua";
+            beneficiario.Cidade = "Vila Velha";
             beneficiario.UF = "ES";
-            beneficiario.email = "flavio@elroy.com.br";
-            beneficiario.celular = "992969013";
-            beneficiario.telefone = "30252812";
-            beneficiario.dataCadastro = DateTime.Now;
-            beneficiario.tipoPessoa = "F";
-            beneficiario.documentoI = "03180155795";
-            beneficiario.documentoII = "1214494";
+            beneficiario.Email = "flavio@elroy.com.br";
+            beneficiario.Celular = "992969013";
+            beneficiario.Telefone = "30252812";
+            beneficiario.DataCadastro = DateTime.Now;
+            beneficiario.TipoPessoa = TipoPessoa.Fisica;
+            beneficiario.DocumentoI = "03180155795";
+            beneficiario.DocumentoII = "1214494";
 
-            return new BeneficiarioBLL().Grava(beneficiario);
+            return beneficiario;
         }
 
         public Ministerio CriaMinisterio()
         {
             var ministerio = new Ministerio();
-            ministerio.beneficiario = this.CriaBeneficiario();
+            ministerio.Beneficiario = this.CriaBeneficiario();
 
-            ministerio.id = 0;
-            ministerio.nome = "Louvor";
-            ministerio.codResponsavel = ministerio.beneficiario.id;
-            ministerio.descricao = "Ministerio de Louvor";
+            ministerio.Id = 0;
+            ministerio.Nome = "Louvor";
+            ministerio.CodResponsavel = ministerio.Beneficiario.Id;
+            ministerio.Descricao = "Ministerio de Louvor";
 
             return new MinisterioBLL().Grava(ministerio);
         }

@@ -56,8 +56,8 @@ namespace elroy.crusade.test
         public void BuscaAgendaPastoralporCodigo()
         {
             var agendaretorno = conexao.Grava(agenda);
-            agenda = conexao.BuscaPorCodigo(agendaretorno.id);
-            Assert.AreEqual(agendaretorno.id, agenda.id, "Não foi possivel localizar o usuário");
+            agenda = conexao.BuscaPorCodigo(agendaretorno.Id);
+            Assert.AreEqual(agendaretorno.Id, agenda.Id, "Não foi possivel localizar o usuário");
         }
 
         [TestMethod]

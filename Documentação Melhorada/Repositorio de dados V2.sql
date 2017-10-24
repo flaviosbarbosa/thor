@@ -145,7 +145,7 @@ CREATE TABLE BENEFICIARIO(
     NOME                 varchar(100)    NOT NULL,
     EMAIL                varchar(100)    NULL,
     TELEFONE             varchar(16)     NULL,
-    CEULAR               varchar(16)     NULL,
+    CELULAR               varchar(16)     NULL,
     DATACADASTRO         date            DEFAULT getdate() NOT NULL,
     TIPOBENEFICIARIO     varchar(10)     NULL,
     ATIVO                varchar(3)      DEFAULT 'sim' NOT NULL,

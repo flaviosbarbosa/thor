@@ -1,0 +1,6 @@
+E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.Aplicacao\bin\Release\elroy.crusade.Aplicacao.dll
+E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.Aplicacao\bin\Release\elroy.crusade.Aplicacao.pdb
+E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.Aplicacao\obj\Release\elroy.crusade.Aplicacao.csprojResolveAssemblyReference.cache
+E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.Aplicacao\obj\Release\elroy.crusade.Aplicacao.csproj.CoreCompileInputs.cache
+E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.Aplicacao\obj\Release\elroy.crusade.Aplicacao.dll
+E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.Aplicacao\obj\Release\elroy.crusade.Aplicacao.pdb

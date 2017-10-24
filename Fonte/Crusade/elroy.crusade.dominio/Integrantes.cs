@@ -1,32 +1,33 @@
-﻿using System;
+﻿using elroy.crusade.dominio.Enum;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace elroy.crusade.dominio
 {
     public class Integrantes
     {        
-        public int id { get; set; }
+        public int Id { get; set; }
 
-        public Ministerio ministerio { get; set; }
+        public Ministerio Ministerio { get; set; }
 
         [Required]        
         [Display(Name = "Ministério")]
-        public int codMinisterio { get; set; }               
+        public int CodMinisterio { get; set; }               
 
-        public Beneficiario beneficiario { get; set; }
+        public Beneficiario Beneficiario { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]        
         [Display(Name ="Beneficiário")]
-        public int codBeneficiario { get; set; }
+        public int CodBeneficiario { get; set; }
 
         [StringLength(20)]
         [Required(ErrorMessage ="O campo {0} não pode ser nulo")]
         [Display(Name ="Ativo")]
-        public string ativo { get; set; } 
+        public SimNao Ativo { get; set; } 
 
         public Integrantes()
         {
-            ativo = "S";
+            Ativo = SimNao.Sim;
         }
     }
 }

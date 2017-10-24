@@ -27,7 +27,7 @@ namespace elroy.crusade.API.Controllers
                 IntegrantesBLL integrantesbll = new IntegrantesBLL();
                 var Integrantes = integrantesbll.BuscaPorCodigo(id);
 
-                if (Integrantes.id != 0)
+                if (Integrantes.Id != 0)
                     return Request.CreateResponse(HttpStatusCode.OK, Integrantes);
                 else
                     throw new KeyNotFoundException();
@@ -79,7 +79,7 @@ namespace elroy.crusade.API.Controllers
             var integranteret = integrantesBll.Grava(integrantes);
 
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created);
-            string location = Url.Link("DefaultApi", new { Controller = "integrantes", id = integranteret.id });
+            string location = Url.Link("DefaultApi", new { Controller = "integrantes", id = integranteret.Id });
             response.Headers.Location = new Uri(location);
 
             return response;

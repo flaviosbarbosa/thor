@@ -27,7 +27,7 @@ namespace elroy.crusade.test
             var beneficiario = new BeneficiarioBLL().Grava(new Factory().CriaBeneficiario());
 
             ocorrencia.beneficiario = beneficiario;
-            ocorrencia.codbeneficiario = beneficiario.id;
+            ocorrencia.codbeneficiario = beneficiario.Id;
             ocorrencia.descricao = "Evento Social para a comunidade";
             ocorrencia.data = new DateTime(2017, 10, 12);
             ocorrencia.codigoorigem = 1;

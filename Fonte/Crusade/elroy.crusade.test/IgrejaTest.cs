@@ -20,19 +20,19 @@ namespace elroy.crusade.test
         public void CriaIgreja()
         {
             this.igreja = new Igreja();
-            igreja.id = 0;
-            igreja.razaosocial = "Igreja da Gloria";
-            igreja.nomefantasia= "Igreja da Gloria Divina";
-            igreja.cnpj = "07354222000160";
-            igreja.endereco = "Rua dos carvalhos, 123";
-            igreja.numero = "150";
-            igreja.telefone = "30251478";
-            igreja.celular = "992966012";
-            igreja.bairro = "Praia de Itapuã";
-            igreja.cidade = "Vila Velha";
+            igreja.Id = 0;
+            igreja.Razaosocial = "Igreja da Gloria";
+            igreja.Nomefantasia= "Igreja da Gloria Divina";
+            igreja.Cnpj = "07354222000160";
+            igreja.Endereco = "Rua dos carvalhos, 123";
+            igreja.Numero = "150";
+            igreja.Telefone = "30251478";
+            igreja.Celular = "992966012";
+            igreja.Bairro = "Praia de Itapuã";
+            igreja.Cidade = "Vila Velha";
             igreja.CEP = "29101595";
             igreja.Responsavel = "Marcos Nolasco";
-            igreja.uf = "ES";
+            igreja.UF = "ES";
 
             this.conexao = new IgrejaBLL();
         }
@@ -54,28 +54,28 @@ namespace elroy.crusade.test
         public void SalvandoIgreja()
         {
             var retorno = conexao.Grava(igreja);
-            Assert.IsNotNull(retorno.id, "Erro ao salvar igreja");
+            Assert.IsNotNull(retorno.Id, "Erro ao salvar igreja");
         }
 
         [TestMethod]
         public void BuscaIgrejaporCodigo()
         {
             var usuretorno = conexao.Grava(igreja);
-            igreja = conexao.BuscaPorCodigo(usuretorno.id);
-            Assert.AreEqual(usuretorno.id, igreja.id, "Não foi possivel localizar o igreja");
+            igreja = conexao.BuscaPorCodigo(usuretorno.Id);
+            Assert.AreEqual(usuretorno.Id, igreja.Id, "Não foi possivel localizar o igreja");
         }
 
         [TestMethod]
         public void AtualizaIgreja()
         {
             var usuretorno = conexao.Grava(igreja);
-            igreja = conexao.BuscaPorCodigo(usuretorno.id);
+            igreja = conexao.BuscaPorCodigo(usuretorno.Id);
 
             var fantasia = "alterando fantasia";
-            igreja.nomefantasia = fantasia;
+            igreja.Nomefantasia = fantasia;
             var retorno = conexao.Grava(igreja);
 
-            Assert.AreEqual(fantasia, retorno.nomefantasia, "Não foi possivel atualizar o igreja");
+            Assert.AreEqual(fantasia, retorno.Nomefantasia, "Não foi possivel atualizar o igreja");
         }
 
         [TestMethod]

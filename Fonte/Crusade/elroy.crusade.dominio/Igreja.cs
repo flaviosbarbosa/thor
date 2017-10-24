@@ -6,37 +6,37 @@ namespace elroy.crusade.dominio
     public class Igreja
     {              
         [Display(Description = "Código")]
-        public int id { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(60, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Fantasia")]
-        public string nomefantasia { get; set; }
+        public string Nomefantasia { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(5000, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Razão Social")]        
-        public string razaosocial { get; set; }
+        public string Razaosocial { get; set; }
                 
         [MaxLength(5000, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "CNPJ")]
-        public string cnpj { get; set; }
+        public string Cnpj { get; set; }
                 
         [MaxLength(100, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Endereço")]
-        public string endereco { get; set; }
+        public string Endereco { get; set; }
                 
         [MaxLength(8, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Numero")]
-        public string numero { get; set; }
+        public string Numero { get; set; }
                 
         [MaxLength(60, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Bairro")]
-        public string bairro { get; set; }
+        public string Bairro { get; set; }
                 
         [MaxLength(60, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Cidade")]
-        public string cidade { get; set; }
+        public string Cidade { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(10, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
@@ -46,15 +46,15 @@ namespace elroy.crusade.dominio
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(2, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "UF")]
-        public string uf { get; set; }
+        public string UF { get; set; }
                 
         [MaxLength(9, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Telefone")]
-        public string telefone { get; set; }
+        public string Telefone { get; set; }
                 
         [MaxLength(9, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Celular")]
-        public string celular { get; set; }
+        public string Celular { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(100, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]

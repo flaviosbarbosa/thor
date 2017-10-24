@@ -28,16 +28,16 @@ namespace elroy.crusade.test
             beneficiario = new BeneficiarioBLL().Grava(beneficiario);
 
             var ministerio = new Factory().CriaMinisterio();
-            ministerio.beneficiario = beneficiario;
-            ministerio.codResponsavel = beneficiario.id;
+            ministerio.Beneficiario = beneficiario;
+            ministerio.CodResponsavel = beneficiario.Id;
             ministerio = new MinisterioBLL().Grava(ministerio);
 
-            integrantes.id = 0;
-            integrantes.beneficiario = beneficiario;
-            integrantes.codBeneficiario = integrantes.beneficiario.id;
-            integrantes.ministerio = ministerio;
-            integrantes.codMinisterio = integrantes.ministerio.id;
-            integrantes.ativo = "S";            
+            integrantes.Id = 0;
+            integrantes.Beneficiario = beneficiario;
+            integrantes.CodBeneficiario = integrantes.Beneficiario.Id;
+            integrantes.Ministerio = ministerio;
+            integrantes.CodMinisterio = integrantes.Ministerio.Id;
+            integrantes.Ativo = "S";            
 
             this.conexao = new IntegrantesBLL();
         }
@@ -59,28 +59,28 @@ namespace elroy.crusade.test
         public void SalvandoIntegrantes()
         {
             var retorno = conexao.Grava(integrantes);
-            Assert.IsNotNull(retorno.id, "Erro ao salvar Integrante");
+            Assert.IsNotNull(retorno.Id, "Erro ao salvar Integrante");
         }
 
         [TestMethod]
         public void BuscaIntegrantesporCodigo()
         {
             var usuretorno = conexao.Grava(integrantes);
-            integrantes = conexao.BuscaPorCodigo(usuretorno.id);
-            Assert.AreEqual(usuretorno.id, integrantes.id, "Não foi possivel localizar o Integrante");
+            integrantes = conexao.BuscaPorCodigo(usuretorno.Id);
+            Assert.AreEqual(usuretorno.Id, integrantes.Id, "Não foi possivel localizar o Integrante");
         }
 
         [TestMethod]
         public void AtualizaIntegrantes()
         {
             var intretorno = conexao.Grava(integrantes);
-            integrantes = conexao.BuscaPorCodigo(intretorno.id);
+            integrantes = conexao.BuscaPorCodigo(intretorno.Id);
 
             var ativo = "N";
-            integrantes.ativo = ativo;
+            integrantes.Ativo = ativo;
             var retorno = conexao.Grava(integrantes);
 
-            Assert.AreEqual(ativo, retorno.ativo, "Não foi possivel atualizar o Integrantes");
+            Assert.AreEqual(ativo, retorno.Ativo, "Não foi possivel atualizar o Integrantes");
         }
 
         [TestMethod]

@@ -30,7 +30,7 @@ namespace elroy.crusade.API.Controllers
                 BeneficiarioBLL beneficiariobll = new BeneficiarioBLL();
                 var beneficiario = beneficiariobll.BuscaPorCodigo(id);
 
-                if (beneficiario.id != 0)
+                if (beneficiario.Id != 0)
                     return Request.CreateResponse(HttpStatusCode.OK, beneficiario);
                 else
                     throw new KeyNotFoundException();
@@ -84,7 +84,7 @@ namespace elroy.crusade.API.Controllers
             var beneret = beneficiarioBll.Grava(beneficiario);
 
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created);
-            string location = Url.Link("DefaultApi", new { Controller = "beneficiario", id = beneret.id });
+            string location = Url.Link("DefaultApi", new { Controller = "beneficiario", id = beneret.Id });
             response.Headers.Location = new Uri(location);
 
             return response;

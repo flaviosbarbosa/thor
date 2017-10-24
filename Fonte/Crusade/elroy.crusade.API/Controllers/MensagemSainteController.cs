@@ -27,7 +27,7 @@ namespace elroy.crusade.API.Controllers
                 MensagemSainteBLL mensagemsainteBLL = new MensagemSainteBLL();
                 var msgS = mensagemsainteBLL.BuscaPorCodigo(id);
 
-                if (msgS.id != 0)
+                if (msgS.Id != 0)
                     return Request.CreateResponse(HttpStatusCode.OK, msgS);
                 else
                     throw new KeyNotFoundException();
@@ -79,7 +79,7 @@ namespace elroy.crusade.API.Controllers
             var msgSret = MensagemSainteBLL.Grava(mensagemSainte);
 
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created);
-            string location = Url.Link("DefaultApi", new { Controller = "mensagemsainte", id = msgSret.id });
+            string location = Url.Link("DefaultApi", new { Controller = "mensagemsainte", id = msgSret.Id });
             response.Headers.Location = new Uri(location);
 
             return response;

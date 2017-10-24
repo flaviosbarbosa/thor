@@ -33,7 +33,7 @@ namespace elroy.crusade.API.Controllers
                 IgrejaBLL igrejaBLL = new IgrejaBLL();
                 var igreja = igrejaBLL.BuscaPorCodigo(id);
 
-                if (igreja.id != 0)
+                if (igreja.Id != 0)
                     return Request.CreateResponse(HttpStatusCode.OK, igreja);
                 else
                     throw new KeyNotFoundException();
@@ -92,7 +92,7 @@ namespace elroy.crusade.API.Controllers
             igreja = igrejaBLL.Grava(igreja);
 
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created);
-            string location = Url.Link("DefaultApi", new { Controller = "igreja", id = igreja.id });
+            string location = Url.Link("DefaultApi", new { Controller = "igreja", id = igreja.Id });
             response.Headers.Location = new Uri(location);
 
             return response;

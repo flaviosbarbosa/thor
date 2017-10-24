@@ -10,31 +10,28 @@ namespace elroy.crusade.dominio
     public class Ministerio
     {         
         
-        public int id { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(1000, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Descrição")]
-        public string descricao { get; set; }
+        public string Descricao { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(100, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Nome")]
-        public string nome { get; set; }
+        public string Nome { get; set; }
 
-        public Beneficiario beneficiario { get; set; }
+        public Beneficiario Beneficiario { get; set; }
 
-        public int codResponsavel { get; set; }
+        public int CodResponsavel { get; set; }
 
-        public virtual List<Integrantes> integrantes { get; set; }
-
-        public virtual List<Eventos> eventos { get; set; }
+        public virtual List<Integrantes> Integrantes { get; set; }
 
         public Ministerio()
         {
-            integrantes = new List<Integrantes>();
-            eventos = new List<Eventos>();
-            beneficiario = new Beneficiario();
+            Integrantes = new List<Integrantes>();
+            Beneficiario = new Beneficiario();
         }
     }
 }
