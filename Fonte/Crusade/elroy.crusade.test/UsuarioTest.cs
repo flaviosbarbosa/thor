@@ -5,6 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using elroy.crusade.dominio;
 using elroy.crusade.Infra;
 using System.Data.SqlClient;
+using elroy.crusade.dominio.Enum;
 
 namespace elroy.crusade.test
 {
@@ -33,7 +34,8 @@ namespace elroy.crusade.test
             usuario.login = "flavio.barbosa";
             usuario.senha = "123";
             usuario.email = "flavio@elroy.com.br";
-            usuario.cpf = "031.801.557-95";            
+            usuario.cpf = "03180155795";
+            usuario.ativo = SimNao.Sim;         
 
             this.conexao = new UsuarioBLL();
         }

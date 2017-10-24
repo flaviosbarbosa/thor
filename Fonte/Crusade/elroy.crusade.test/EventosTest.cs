@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using elroy.crusade.dominio;
 using elroy.crusade.Infra;
+using elroy.crusade.dominio.Enum;
 
 namespace elroy.crusade.test
 {
@@ -30,8 +31,8 @@ namespace elroy.crusade.test
             eventos.Data = new DateTime(2017, 10, 12);
             eventos.Local = "Igreja Presbiteriana Praia de Itapoã";
             eventos.horario = new DateTime(2017, 10, 12, 17, 00, 00);
-            eventos.PastorPresente = "S";
-            eventos.Privado = "N";
+            eventos.PastorPresente = SimNao.Sim;
+            eventos.Privado = SimNao.Nao;
             eventos.Ministerio = new Factory().CriaMinisterio();
             eventos.CodMinisterio = eventos.Ministerio.Id;
 
@@ -72,7 +73,7 @@ namespace elroy.crusade.test
             var usuretorno = conexao.Grava(eventos);
             eventos = conexao.BuscaPorCodigo(usuretorno.Id);
 
-            var pastorpresente = "S";
+            var pastorpresente = SimNao.Sim; 
             eventos.PastorPresente = pastorpresente;
             var retorno = conexao.Grava(eventos);
 

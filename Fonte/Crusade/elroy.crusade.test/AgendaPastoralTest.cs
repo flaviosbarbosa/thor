@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using elroy.crusade.dominio;
 using elroy.crusade.Infra;
 using System.Collections.Generic;
+using elroy.crusade.dominio.Enum;
 
 namespace elroy.crusade.test
 {
@@ -22,12 +23,12 @@ namespace elroy.crusade.test
         public void CriaAgenda()
         {
             this.agenda = new AgendaPastoral();
-            agenda.evento = "Culto Vespertino";
-            agenda.data =  DateTime.Now;
+            agenda.Evento = "Culto Vespertino";
+            agenda.Data =  DateTime.Now;
             //agenda.horarioInicial = DateTime.Now;
             //agenda.horarioFinal = DateTime.Today;
-            agenda.local = "IPPI";
-            agenda.privado = "S";
+            agenda.Local = "IPPI";
+            agenda.Privado = SimNao.Sim;
 
             this.conexao = new AgendaPastoralBLL();
         }
@@ -66,10 +67,10 @@ namespace elroy.crusade.test
             var agendaretorno = conexao.Grava(agenda);
                         
             var local = "cerimonial fechado";
-            agendaretorno.local = local;
+            agendaretorno.Local = local;
             var retorno = conexao.Grava(agendaretorno);
 
-            Assert.AreEqual(local, retorno.local, "Não foi possivel atualizar o AgendaPastoral");
+            Assert.AreEqual(local, retorno.Local, "Não foi possivel atualizar o AgendaPastoral");
         }
 
         [TestMethod]

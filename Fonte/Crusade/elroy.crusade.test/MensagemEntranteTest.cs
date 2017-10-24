@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using elroy.crusade.dominio;
 using elroy.crusade.Infra;
 using System.Collections.Generic;
+using elroy.crusade.dominio.Enum;
 
 namespace elroy.crusade.test
 {
@@ -19,14 +20,14 @@ namespace elroy.crusade.test
             
             mensagemEntrante.TipoMensagem = new TipoMensagemBLL().Grava(new Factory().CriaTipoMensagem());
                         
-            mensagemEntrante.CodTipoMensagem = mensagemEntrante.TipoMensagem.id;
+            mensagemEntrante.CodTipoMensagem = mensagemEntrante.TipoMensagem.Id;
             mensagemEntrante.DataContato = DateTime.Now;
-            mensagemEntrante.Assunto = "";
-            mensagemEntrante.EmailContato = "";
-            mensagemEntrante.Frequenta = "S";
+            mensagemEntrante.Assunto = "Pedido de Oração";
+            mensagemEntrante.EmailContato = "teste@teste.com.br";
+            mensagemEntrante.Frequenta = SimNao.Sim;
             mensagemEntrante.Mensagem = "Orem por mim";
             mensagemEntrante.NomeSolicitante = "Joaquim Jose da Silva Xavier";
-            mensagemEntrante.PermiteRetorno = "S";
+            mensagemEntrante.PermiteRetorno = SimNao.Sim;
             mensagemEntrante.TelefoneContato = "27992969013";
 
             this.conexao = new MensagemEntranteBLL();

@@ -34,9 +34,10 @@ namespace elroy.crusade.Infra
                                        @SENHA,
                                        @ATIVO,
                                        @CPF,
-                                       @EMAIL )", usuario);
+                                       @EMAIL)", usuario);
 
-                    return conn.QueryFirst<Usuario>(@"SELECT * FROM USUARIO",  usuario);
+                    return conn.QueryFirst<Usuario>(@"SELECT * FROM USUARIO WHERE Nome = @Nome", new { Nome = usuario.nome }); 
+                    //TODO: Verificar porque está retornando 'S' ao consultar e não 'SIM'
                     //}
                     //catch (Exception e)
                     //{

@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using elroy.crusade.dominio;
 using elroy.crusade.Infra;
 using System.Collections.Generic;
+using elroy.crusade.dominio.Enum;
 
 namespace elroy.crusade.test
 {
@@ -19,9 +20,9 @@ namespace elroy.crusade.test
         public void CriaTipoMensagem()
         {
             this.tipoMensagem = new TipoMensagem();
-            tipoMensagem.id = 0;
-            tipoMensagem.descricao = "Pedido de Oração";
-            tipoMensagem.tipo = "P";            
+            tipoMensagem.Id = 0;
+            tipoMensagem.Descricao = "Pedido de Oração";
+            tipoMensagem.Tipo = TrataMensagem.EntradaPedidoOracao;            
 
             this.conexao = new TipoMensagemBLL();
         }
@@ -43,28 +44,28 @@ namespace elroy.crusade.test
         public void SalvandoTipoMensagem()
         {
             var retorno = conexao.Grava(tipoMensagem);
-            Assert.IsNotNull(retorno.id, "Erro ao salvar TipoMensagem");
+            Assert.IsNotNull(retorno.Id, "Erro ao salvar TipoMensagem");
         }
 
         [TestMethod]
         public void BuscaTipoMensagemporCodigo()
         {
             var usuretorno = conexao.Grava(tipoMensagem);
-            tipoMensagem = conexao.BuscaPorCodigo(usuretorno.id);
-            Assert.AreEqual(usuretorno.id, tipoMensagem.id, "Não foi possivel localizar o TipoMensagem");
+            tipoMensagem = conexao.BuscaPorCodigo(usuretorno.Id);
+            Assert.AreEqual(usuretorno.Id, tipoMensagem.Id, "Não foi possivel localizar o TipoMensagem");
         }
 
         [TestMethod]
         public void AtualizaTipoMensagem()
         {
             var usuretorno = conexao.Grava(tipoMensagem);
-            tipoMensagem = conexao.BuscaPorCodigo(usuretorno.id);
+            tipoMensagem = conexao.BuscaPorCodigo(usuretorno.Id);
 
-            var tipo = "A";
-            tipoMensagem.tipo = tipo;
+            var tipo = TrataMensagem.EntradaContatoPastor;
+            tipoMensagem.Tipo = tipo;
             var retorno = conexao.Grava(tipoMensagem);
 
-            Assert.AreEqual(tipo, retorno.tipo, "Não foi possivel atualizar o TipoMensagem");
+            Assert.AreEqual(tipo, retorno.Tipo, "Não foi possivel atualizar o TipoMensagem");
         }
 
         [TestMethod]

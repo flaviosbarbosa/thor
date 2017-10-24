@@ -20,11 +20,11 @@ namespace elroy.crusade.test
         public void CriaMinisterio()
         {
             this.ministerio = new Ministerio();
-            ministerio.Beneficiario =  new BeneficiarioBLL().Grava(new Factory().CriaBeneficiario());
+            ministerio.Responsavel =  new BeneficiarioBLL().Grava(new Factory().CriaBeneficiario());
 
             ministerio.Id = 0;
             ministerio.Nome = "Louvor";
-            ministerio.CodResponsavel = ministerio.Beneficiario.Id;
+            ministerio.CodResponsavel = ministerio.Responsavel.Id;
             ministerio.Descricao = "Ministerio de Louvor";                       
 
             this.conexao = new MinisterioBLL();

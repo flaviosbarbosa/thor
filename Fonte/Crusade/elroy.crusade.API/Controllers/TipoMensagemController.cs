@@ -29,7 +29,7 @@ namespace elroy.crusade.API.Controllers
                 TipoMensagemBLL tipobll = new TipoMensagemBLL();
                 var tipomensagemret = tipobll.BuscaPorCodigo(id);
 
-                if (tipomensagemret.id != 0)
+                if (tipomensagemret.Id != 0)
                     return Request.CreateResponse(HttpStatusCode.OK, tipomensagemret);
                 else
                     throw new KeyNotFoundException();
@@ -82,7 +82,7 @@ namespace elroy.crusade.API.Controllers
             var tiporet = tipobll.Grava(tipo);
 
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created);
-            string location = Url.Link("DefaultApi", new { Controller = "tipomensagem", id = tiporet.id });
+            string location = Url.Link("DefaultApi", new { Controller = "tipomensagem", id = tiporet.Id });
             response.Headers.Location = new Uri(location);
 
             return response;

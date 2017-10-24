@@ -55,6 +55,8 @@
     <Compile Include="MinisterioBLL.cs" />
     <Compile Include="OcorrenciaBLL.cs" />
     <Compile Include="ParametrosBLL.cs" />
+    <Compile Include="ParticipanteBLL.cs" />
+    <Compile Include="PedidoOracao.cs" />
     <Compile Include="ProfissaoBLL.cs" />
     <Compile Include="ProgramacaoBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

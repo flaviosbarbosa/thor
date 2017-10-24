@@ -27,7 +27,7 @@ namespace elroy.crusade.API.Controllers
                 OcorrenciaBLL ocorrenciaBLL = new OcorrenciaBLL();
                 var Eventos = ocorrenciaBLL.BuscaPorCodigo(id);
 
-                if (Eventos.id != 0)
+                if (Eventos.Id != 0)
                     return Request.CreateResponse(HttpStatusCode.OK, Eventos);
                 else
                     throw new KeyNotFoundException();
@@ -73,13 +73,13 @@ namespace elroy.crusade.API.Controllers
         /// <remarks>Retorna ocorrencia registrada</remarks>
         [Route("API/GravaOcorrencia")]
         [HttpPost]
-        public HttpResponseMessage Post([FromBody] Ocorrencia ocorrencia)
+        public HttpResponseMessage Post([FromBody] OcorrenciaEntrante ocorrencia)
         {
             OcorrenciaBLL ocorrenciaBLL = new OcorrenciaBLL();
             var ocorrenciaret = ocorrenciaBLL.Grava(ocorrencia);
 
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created);
-            string location = Url.Link("DefaultApi", new { Controller = "eventos", id = ocorrenciaret.id });
+            string location = Url.Link("DefaultApi", new { Controller = "eventos", id = ocorrenciaret.Id });
             response.Headers.Location = new Uri(location);
 
             return response;
@@ -107,7 +107,7 @@ namespace elroy.crusade.API.Controllers
         /// <remarks>Retorna Ocorrencia atualizada</remarks>
         [Route("API/AtualizaOcorrencia/{id}")]
         [HttpPut]
-        public HttpResponseMessage Put([FromBody]Ocorrencia ocorrencia, [FromUri] int id)
+        public HttpResponseMessage Put([FromBody]OcorrenciaEntrante ocorrencia, [FromUri] int id)
         {
             OcorrenciaBLL OcorrenciaBLL = new OcorrenciaBLL();
 

@@ -19,10 +19,10 @@ namespace elroy.crusade.test
 
 
             this.programacao = new Programacao();
-            programacao.descricao = "Culto Vespertino";
-            programacao.titulo = "Noite de Louvour";
-            programacao.codIgreja = igrejaretorno.Id;
-            programacao.igreja = igrejaretorno;
+            programacao.Descricao = "Culto Vespertino";
+            programacao.Titulo = "Noite de Louvour";
+            programacao.CodIgreja = igrejaretorno.Id;
+            programacao.Igreja = igrejaretorno;
 
             this.conexao = new ProgramacaoBLL();
         }
@@ -52,8 +52,8 @@ namespace elroy.crusade.test
         public void BuscaProgramacaoporCodigo()
         {
             var agendaretorno = conexao.Grava(programacao);
-            programacao = conexao.BuscaPorCodigo(agendaretorno.id);
-            Assert.AreEqual(agendaretorno.id, programacao.id, "Não foi possivel localizar o registro");
+            programacao = conexao.BuscaPorCodigo(agendaretorno.Id);
+            Assert.AreEqual(agendaretorno.Id, programacao.Id, "Não foi possivel localizar o registro");
         }
 
         [TestMethod]
@@ -62,10 +62,10 @@ namespace elroy.crusade.test
             var agendaretorno = conexao.Grava(programacao);
 
             var descricao = "novo local";
-            agendaretorno.descricao = descricao;
+            agendaretorno.Descricao = descricao;
             var retorno = conexao.Grava(agendaretorno);
 
-            Assert.AreEqual(descricao, retorno.descricao, "Não foi possivel atualizar o Programacao");
+            Assert.AreEqual(descricao, retorno.Descricao, "Não foi possivel atualizar o Programacao");
         }
 
         [TestMethod]

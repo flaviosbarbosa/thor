@@ -20,7 +20,7 @@ namespace elroy.crusade.bll
                 {
                     try
                     {
-                        conn.Execute(@"INSERT INTO PROFISSAO (DESCRICAO) VALUES (@Descricao)", profissao);                                           
+                        conn.Execute(@"INSERT INTO PROFISSAO (DESCRICAO) VALUES (@Descricao)", profissao);
 
                         return this.Busca(profissao.Descricao);
                     }

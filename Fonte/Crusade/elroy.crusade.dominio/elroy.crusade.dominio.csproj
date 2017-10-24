@@ -44,7 +44,11 @@
   <ItemGroup>
     <Compile Include="AgendaPastoral.cs" />
     <Compile Include="Beneficiario.cs" />
+    <Compile Include="Enum\SituacaoMensagemEntrante.cs" />
+    <Compile Include="Enum\SituacaoParticipante.cs" />
+    <Compile Include="Enum\SituacaoPedidoOracao.cs" />
     <Compile Include="Enum\TipoBeneficiario.cs" />
+    <Compile Include="Enum\TrataMensagem.cs" />
     <Compile Include="Enum\TipoPessoa.cs" />
     <Compile Include="Eventos.cs" />
     <Compile Include="Igreja.cs" />
@@ -52,15 +56,15 @@
     <Compile Include="MensagemEntrante.cs" />
     <Compile Include="MensagemSainte.cs" />
     <Compile Include="Ministerio.cs" />
-    <Compile Include="Ocorrencia.cs" />
+    <Compile Include="OcorrenciaEntrante.cs" />
     <Compile Include="Parametros.cs" />
-    <Compile Include="Postagem.cs" />
+    <Compile Include="Participantes.cs" />
+    <Compile Include="PedidoOracao.cs" />
     <Compile Include="Profissao.cs" />
     <Compile Include="Programacao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Enum\SimNao.cs" />
     <Compile Include="TipoMensagem.cs" />
-    <Compile Include="Topico.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>

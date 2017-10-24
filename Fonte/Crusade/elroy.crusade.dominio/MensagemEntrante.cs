@@ -60,13 +60,14 @@ namespace elroy.crusade.dominio
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
         [Display(Name = "Situação")]
-        public DateTime Situacao{ get; set; }
+        public SituacaoMensagemEntrante Situacao{ get; set; }
 
         public MensagemEntrante()
         {
             PermiteRetorno = SimNao.Sim;
             DataContato = DateTime.Now;
             Frequenta = SimNao.Sim;
+            Situacao = SituacaoMensagemEntrante.Ativo;
             TipoMensagem = new TipoMensagem();
             Responsavel = new Beneficiario();
             Solicitante = new Beneficiario();

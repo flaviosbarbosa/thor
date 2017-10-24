@@ -1,4 +1,5 @@
-﻿using System;
+﻿using elroy.crusade.dominio.Enum;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -32,7 +33,7 @@ namespace elroy.crusade.dominio
         public string senha { get; set; }
 
         [Required(ErrorMessage = "O campo Ativo é obrigatório", AllowEmptyStrings = false)]        
-        public string ativo { get; set; }
+        public SimNao ativo { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(80, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
@@ -47,7 +48,7 @@ namespace elroy.crusade.dominio
         
         public Usuario()
         {
-            this.ativo = "S";            
+            this.ativo = SimNao.Sim;            
         }        
     }
 }

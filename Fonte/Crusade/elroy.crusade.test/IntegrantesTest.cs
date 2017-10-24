@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using elroy.crusade.dominio;
 using elroy.crusade.Infra;
 using System.Collections.Generic;
+using elroy.crusade.dominio.Enum;
 
 namespace elroy.crusade.test
 {
@@ -28,7 +29,7 @@ namespace elroy.crusade.test
             beneficiario = new BeneficiarioBLL().Grava(beneficiario);
 
             var ministerio = new Factory().CriaMinisterio();
-            ministerio.Beneficiario = beneficiario;
+            ministerio.Responsavel = beneficiario;
             ministerio.CodResponsavel = beneficiario.Id;
             ministerio = new MinisterioBLL().Grava(ministerio);
 
@@ -37,7 +38,7 @@ namespace elroy.crusade.test
             integrantes.CodBeneficiario = integrantes.Beneficiario.Id;
             integrantes.Ministerio = ministerio;
             integrantes.CodMinisterio = integrantes.Ministerio.Id;
-            integrantes.Ativo = "S";            
+            integrantes.Ativo = SimNao.Sim;            
 
             this.conexao = new IntegrantesBLL();
         }
@@ -76,7 +77,7 @@ namespace elroy.crusade.test
             var intretorno = conexao.Grava(integrantes);
             integrantes = conexao.BuscaPorCodigo(intretorno.Id);
 
-            var ativo = "N";
+            var ativo = SimNao.Sim;
             integrantes.Ativo = ativo;
             var retorno = conexao.Grava(integrantes);
 

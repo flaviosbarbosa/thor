@@ -59,8 +59,10 @@
     <Compile Include="MensagemEntranteTest.cs" />
     <Compile Include="MensagemSainteTest.cs" />
     <Compile Include="MinisterioTest.cs" />
-    <Compile Include="OcorrenciaTest.cs" />
+    <Compile Include="OcorrenciaEntranteTest.cs" />
     <Compile Include="ParametrosTest.cs" />
+    <Compile Include="ParticipanteTest.cs" />
+    <Compile Include="PedidoOracaoTest.cs" />
     <Compile Include="ProfissaoTest.cs" />
     <Compile Include="ProgramacaoTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,6 +83,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\elroy.crusade.Aplicacao\elroy.crusade.Aplicacao.csproj">
+      <Project>{9a10a618-69c9-4993-88f3-228f80dd1eb4}</Project>
+      <Name>elroy.crusade.Aplicacao</Name>
+    </ProjectReference>
     <ProjectReference Include="..\elroy.crusade.bll\elroy.crusade.Infra.csproj">
       <Project>{a6fc3105-5452-4eaf-957c-a10227b8a4ee}</Project>
       <Name>elroy.crusade.Infra</Name>

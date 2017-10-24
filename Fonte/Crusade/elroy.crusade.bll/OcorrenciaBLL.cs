@@ -11,12 +11,12 @@ namespace elroy.crusade.Infra
 {
     public class OcorrenciaBLL
     {
-        public Ocorrencia Grava(Ocorrencia ocorrencia)
+        public OcorrenciaEntrante Grava(OcorrenciaEntrante ocorrencia)
         {
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
 
-                if (ocorrencia.id == 0)
+                if (ocorrencia.Id == 0)
                 {
                     try
                     {
@@ -33,7 +33,7 @@ namespace elroy.crusade.Infra
                                                    @DATA, 
                                                    @DESCRICAO)", ocorrencia);
 
-                        return conn.QueryFirst<Ocorrencia>(@"SELECT ID,
+                        return conn.QueryFirst<OcorrenciaEntrante>(@"SELECT ID,
                                                                       CODBENEFICIARIO,
                                                                       TIPO,
                                                                       CODIGOORIGEM,
@@ -43,7 +43,7 @@ namespace elroy.crusade.Infra
                     }
                     catch (Exception )
                     {
-                        return new Ocorrencia();
+                        return new OcorrenciaEntrante();
                     }
                 }
                 else
@@ -58,7 +58,7 @@ namespace elroy.crusade.Infra
                                               DESCRICAO = @DESCRICAO
                                          WHERE id = @id", ocorrencia);
 
-                        return conn.QueryFirst<Ocorrencia>(@"SELECT ID,
+                        return conn.QueryFirst<OcorrenciaEntrante>(@"SELECT ID,
                                                                       CODBENEFICIARIO,
                                                                       TIPO,
                                                                       CODIGOORIGEM,
@@ -68,18 +68,18 @@ namespace elroy.crusade.Infra
                     }
                     catch (Exception)
                     {
-                        return new Ocorrencia();
+                        return new OcorrenciaEntrante();
                     }
             }
         }
 
-        public Ocorrencia BuscaPorCodigo(int id)
+        public OcorrenciaEntrante BuscaPorCodigo(int id)
         {
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
                 try
                 {
-                    return conn.QueryFirst<Ocorrencia>(@"SELECT ID,
+                    return conn.QueryFirst<OcorrenciaEntrante>(@"SELECT ID,
                                                                   CODBENEFICIARIO,
                                                                   TIPO,
                                                                   CODIGOORIGEM,
@@ -92,18 +92,18 @@ namespace elroy.crusade.Infra
                 catch (Exception)
                 {
 
-                    return new Ocorrencia();
+                    return new OcorrenciaEntrante();
                 }
             }
         }
 
-        public bool Deleta(Ocorrencia ocorrencia)
+        public bool Deleta(OcorrenciaEntrante ocorrencia)
         {
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
                 try
                 {
-                    conn.QueryFirst<Ocorrencia>(@"DELETE FROM OCORRENCIA                                                         
+                    conn.QueryFirst<OcorrenciaEntrante>(@"DELETE FROM OCORRENCIA                                                         
                                                         WHERE ID = @id", ocorrencia);
                     return true;
                 }
@@ -115,11 +115,11 @@ namespace elroy.crusade.Infra
             }
         }
 
-        public List<Ocorrencia> ListaOcorrencia()
+        public List<OcorrenciaEntrante> ListaOcorrencia()
         {
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
-                var retorno = conn.Query<Ocorrencia>(@"SELECT ID,
+                var retorno = conn.Query<OcorrenciaEntrante>(@"SELECT ID,
                                                               CODBENEFICIARIO,
                                                               TIPO,
                                                               CODIGOORIGEM,
@@ -127,7 +127,7 @@ namespace elroy.crusade.Infra
                                                               DESCRICAO
                                                           FROM OCORRENCIA");
 
-                return (List<Ocorrencia>)retorno;
+                return (List<OcorrenciaEntrante>)retorno;
             }
         }
     }

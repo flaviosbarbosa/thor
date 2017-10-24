@@ -1,4 +1,5 @@
-﻿using System;
+﻿using elroy.crusade.dominio.Enum;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace elroy.crusade.dominio
@@ -33,7 +34,7 @@ namespace elroy.crusade.dominio
 
         public AgendaPastoral()
         {
-            Privado = "S";
+            Privado = SimNao.Sim;
         }
     }
 }

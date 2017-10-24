@@ -22,16 +22,13 @@ namespace elroy.crusade.dominio
         [Display(Name = "Nome")]
         public string Nome { get; set; }
 
-        public Beneficiario Beneficiario { get; set; }
+        public Beneficiario Responsavel { get; set; }
 
         public int CodResponsavel { get; set; }
 
-        public virtual List<Integrantes> Integrantes { get; set; }
-
         public Ministerio()
-        {
-            Integrantes = new List<Integrantes>();
-            Beneficiario = new Beneficiario();
+        {            
+            Responsavel = new Beneficiario();
         }
     }
 }

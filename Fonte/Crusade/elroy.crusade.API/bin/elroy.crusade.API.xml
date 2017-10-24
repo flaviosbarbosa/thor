@@ -6,19 +6,13 @@
     <members>
         <member name="T:elroy.crusade.API.SwaggerConfig">
             <summary>
-            Configuração do Swagger
+            Configuração do SWAGGER
             </summary>
         </member>
         <member name="M:elroy.crusade.API.SwaggerConfig.Register">
             <summary>
-            Configuração do registro do Swagger
+            Configuração do Registro
             </summary>
-        </member>
-        <member name="M:elroy.crusade.API.SwaggerConfig.GetXmlCommentsPath">
-            <summary>
-            Definição do caminho do XML das Apis
-            </summary>
-            <returns></returns>
         </member>
         <member name="T:elroy.crusade.API.WebApiConfig">
             <summary>
@@ -366,7 +360,7 @@
             </summary>
             <remarks>Retorna uma lista de ocorrencias</remarks>
         </member>
-        <member name="M:elroy.crusade.API.Controllers.OcorrenciaController.Post(elroy.crusade.dominio.Ocorrencia)">
+        <member name="M:elroy.crusade.API.Controllers.OcorrenciaController.Post(elroy.crusade.dominio.OcorrenciaEntrante)">
             <summary>
             Insere uma nova ocorrencia
             </summary>
@@ -380,7 +374,7 @@
             <param name="id">Informe o codigo da ocorrência</param>
             <remarks>Retorna ocorrencia excluida</remarks>
         </member>
-        <member name="M:elroy.crusade.API.Controllers.OcorrenciaController.Put(elroy.crusade.dominio.Ocorrencia,System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.OcorrenciaController.Put(elroy.crusade.dominio.OcorrenciaEntrante,System.Int32)">
             <summary>
             Atualiza uma ocorrencia
             </summary>

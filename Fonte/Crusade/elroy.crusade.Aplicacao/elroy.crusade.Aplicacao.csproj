@@ -40,7 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BeneficiarioApp.cs" />
+    <Compile Include="PessoaFisica.cs" />
+    <Compile Include="PessoaJuridica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\elroy.crusade.bll\elroy.crusade.Infra.csproj">
+      <Project>{a6fc3105-5452-4eaf-957c-a10227b8a4ee}</Project>
+      <Name>elroy.crusade.Infra</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\elroy.crusade.dominio\elroy.crusade.dominio.csproj">
+      <Project>{d8430c07-cb0f-4843-be17-ea4a56725640}</Project>
+      <Name>elroy.crusade.dominio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

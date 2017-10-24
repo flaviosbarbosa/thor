@@ -51,9 +51,10 @@ namespace elroy.crusade.Infra
                                                                           FREQUENTA
                                                                       FROM MENSAGEMENTRANTE", mensagemEntrante);
                     }
-                    catch (Exception )
+                    catch (Exception e )
                     {
                         return new MensagemEntrante();
+                        throw new Exception(e.Message);
                     }
                 }
                 else

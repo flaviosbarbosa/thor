@@ -3,3 +3,8 @@ E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.Aplicacao\bin\Debug\elroy.cr
 E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.Aplicacao\obj\Debug\elroy.crusade.Aplicacao.csproj.CoreCompileInputs.cache
 E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.Aplicacao\obj\Debug\elroy.crusade.Aplicacao.dll
 E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.Aplicacao\obj\Debug\elroy.crusade.Aplicacao.pdb
+C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.Aplicacao\bin\Debug\elroy.crusade.Aplicacao.dll
+C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.Aplicacao\bin\Debug\elroy.crusade.Aplicacao.pdb
+C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.Aplicacao\obj\Debug\elroy.crusade.Aplicacao.csprojResolveAssemblyReference.cache
+C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.Aplicacao\obj\Debug\elroy.crusade.Aplicacao.dll
+C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.Aplicacao\obj\Debug\elroy.crusade.Aplicacao.pdb

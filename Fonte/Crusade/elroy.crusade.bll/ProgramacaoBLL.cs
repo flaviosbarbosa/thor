@@ -14,7 +14,7 @@ namespace elroy.crusade.Infra
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
 
-                if (Programacao.id == 0)
+                if (Programacao.Id == 0)
                 {
                     try
                     {

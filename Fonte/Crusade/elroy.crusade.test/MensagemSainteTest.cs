@@ -22,7 +22,7 @@ namespace elroy.crusade.test
             mensagemsainte.TipoMensagem = new TipoMensagemBLL().Grava(new Factory().CriaTipoMensagem());
 
             mensagemsainte.CodMinisterio = mensagemsainte.Ministerio.Id;
-            mensagemsainte.CodTipoMensagem = mensagemsainte.TipoMensagem.id;
+            mensagemsainte.CodTipoMensagem = mensagemsainte.TipoMensagem.Id;
             mensagemsainte.DataEnvio = DateTime.Now;
             mensagemsainte.Mensagem = "Ensaio no sabado";
 

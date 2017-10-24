@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace elroy.crusade.dominio
 {
@@ -59,7 +58,9 @@ namespace elroy.crusade.dominio
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(100, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Responsavel")]
-        public string Responsavel { get; set; }        
+        public string Responsavel { get; set; }
+
+        public string Localiczacao { get; set; }
 
         public Igreja()
         {

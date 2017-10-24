@@ -26,7 +26,7 @@ namespace elroy.crusade.Infra
                                           EMAIL,
                                           TELEFONE,
                                           DATACADASTRO,
-                                          TIPO,
+                                          TIPOBENEFICIARIO,
                                           ATIVO,
                                           TIPOPESSOA,
                                           DOCUMENTOI,
@@ -42,7 +42,7 @@ namespace elroy.crusade.Infra
                                           @EMAIL,
                                           @TELEFONE,
                                           @DATACADASTRO,
-                                          @TIPO,
+                                          @TIPOBENEFICIARIO,
                                           @ATIVO,
                                           @TIPOPESSOA,
                                           @DOCUMENTOI,
@@ -59,7 +59,7 @@ namespace elroy.crusade.Infra
                                                                       EMAIL,
                                                                       TELEFONE,
                                                                       DATACADASTRO,
-                                                                      TIPO,
+                                                                      TIPOBENEFICIARIO,
                                                                       ATIVO,
                                                                       TIPOPESSOA,
                                                                       DOCUMENTOI,
@@ -72,9 +72,11 @@ namespace elroy.crusade.Infra
                                                                       CELULAR
                                                                   FROM BENEFICIARIO", beneficiario);
                     }
-                    catch (Exception )
+                    catch (Exception e)
                     {
                         return new Beneficiario();
+                        throw new Exception(e.Message);
+                        
                     }
                 }
                 else
@@ -87,7 +89,7 @@ namespace elroy.crusade.Infra
                                               EMAIL = @EMAIL,
                                               TELEFONE = @TELEFONE,
                                               DATACADASTRO = @DATACADASTRO,
-                                              TIPO = @TIPO,
+                                              TIPOBENEFICIARIO = @TIPOBENEFICIARIO,
                                               ATIVO = @ATIVO,
                                               TIPOPESSOA = @TIPOPESSOA,
                                               DOCUMENTOI = @DOCUMENTOI,
@@ -105,7 +107,7 @@ namespace elroy.crusade.Infra
                                                                       EMAIL,
                                                                       TELEFONE,
                                                                       DATACADASTRO,
-                                                                      TIPO,
+                                                                      TIPOBENEFICIARIO,
                                                                       ATIVO,
                                                                       TIPOPESSOA,
                                                                       DOCUMENTOI,
@@ -136,7 +138,7 @@ namespace elroy.crusade.Infra
                                                                 EMAIL,
                                                                 TELEFONE,
                                                                 DATACADASTRO,
-                                                                TIPO,
+                                                                TIPOBENEFICIARIO,
                                                                 ATIVO,
                                                                 TIPOPESSOA,
                                                                 DOCUMENTOI,
@@ -184,7 +186,7 @@ namespace elroy.crusade.Infra
                                                                   EMAIL,
                                                                   TELEFONE,
                                                                   DATACADASTRO,
-                                                                  TIPO,
+                                                                  TIPOBENEFICIARIO,
                                                                   ATIVO,
                                                                   TIPOPESSOA,
                                                                   DOCUMENTOI,

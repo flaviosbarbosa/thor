@@ -27,7 +27,7 @@ namespace elroy.crusade.API.Controllers
                 ProgramacaoBLL progbll = new ProgramacaoBLL();
                 var programacao = progbll.BuscaPorCodigo(id);
 
-                if (programacao.id != 0)
+                if (programacao.Id != 0)
                     return Request.CreateResponse(HttpStatusCode.OK, programacao);
                 else
                     throw new KeyNotFoundException();
@@ -79,7 +79,7 @@ namespace elroy.crusade.API.Controllers
             var progret = PROGBll.Grava(programacao);
 
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created);
-            string location = Url.Link("DefaultApi", new { Controller = "programacao", id = progret.id });
+            string location = Url.Link("DefaultApi", new { Controller = "programacao", id = progret.Id });
             response.Headers.Location = new Uri(location);
 
             return response;

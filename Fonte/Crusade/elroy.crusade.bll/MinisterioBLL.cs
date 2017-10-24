@@ -75,10 +75,10 @@ namespace elroy.crusade.Infra
                                                                   DESCRICAO
                                                               FROM MINISTERIOS", new { Id = id });
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-
                     return new Ministerio();
+                    throw new Exception(e.Message);
                 }
             }
         }
@@ -90,12 +90,13 @@ namespace elroy.crusade.Infra
                 try
                 {
                     conn.QueryFirst<Ministerio>(@"DELETE FROM MINISTERIOS                                                         
-                                                        WHERE ID = @id", Ministerio);
+                                                        WHERE ID = @id", new { Id = Ministerio.Id });
                     return true;
                 }
-                catch (Exception )
+                catch (Exception e)
                 {
                     return false;
+                    throw new Exception(e.Message);                    
                 }
             }
         }
