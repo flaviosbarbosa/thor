@@ -40,8 +40,7 @@ namespace elroy.crusade.dominio
         [Display(Name = "e-Mail")]
         public string EmailContato { get; set; }
 
-        [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
-        [MaxLength(1, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
+        [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]        
         [Display(Name = "Permitir retorno")]
         public SimNao PermiteRetorno { get; set; }
                 
@@ -49,8 +48,7 @@ namespace elroy.crusade.dominio
         [Display(Name = "Telefone Contato")]
         public string TelefoneContato { get; set; }
                 
-        [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
-        [MaxLength(1, ErrorMessage = "Tamanho máximo para o campo {0} é de 1 caracter.")]
+        [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]        
         [Display(Name = "Frequenta?")]
         public SimNao Frequenta { get; set; }
 

@@ -28,18 +28,15 @@ namespace elroy.crusade.dominio
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]        
         [Display(Name = "Data Cadastro")]
         public DateTime DataCadastro { get; set; }
-        
-        [MaxLength(10, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
-        [Display(Name = "Tipo")]
+      
+        [Display(Name = "TipoBeneficiario")]
         public TipoBeneficiario TipoBeneficiario{ get; set;}
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
-        [MaxLength(1, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Ativo")]
         public SimNao Ativo { get; set;}
 
-        [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
-        [MaxLength(1, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
+        [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]        
         [Display(Name = "Tipo Pessoa")]
         public TipoPessoa TipoPessoa { get; set; }
                 

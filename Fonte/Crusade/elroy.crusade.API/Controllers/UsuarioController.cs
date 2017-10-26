@@ -35,6 +35,7 @@ namespace elroy.crusade.API.Controllers
             }
             catch (KeyNotFoundException )
             {
+                //TODO: Falha ao consultar um usuario que não existe. Revise isto.
                 string mensagem = string.Format("Não foi possivel localizar o usuário {0]", id);
                 HttpError error = new HttpError(mensagem);
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, error);

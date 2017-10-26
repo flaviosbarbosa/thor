@@ -98,7 +98,7 @@ namespace elroy.crusade.API.Controllers
         [Route("API/DeletaBeneficiario/{id}")]
         [HttpDelete]
         public HttpResponseMessage Delete([FromUri] int id)
-        {
+       {
             BeneficiarioBLL beneficiarioBll = new BeneficiarioBLL();
             beneficiarioBll.Deleta(beneficiarioBll.BuscaPorCodigo(id));
             return Request.CreateResponse(HttpStatusCode.OK);

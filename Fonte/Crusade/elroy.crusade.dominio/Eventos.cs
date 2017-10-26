@@ -30,8 +30,7 @@ namespace elroy.crusade.dominio
         
         public int? Banner {get; set;}
 
-        [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
-        [MaxLength(1, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
+        [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]        
         [Display(Name = "Privado")]
         public SimNao Privado {get; set;}
 
@@ -41,8 +40,7 @@ namespace elroy.crusade.dominio
         [Display(Name = "Ministério")]
         public int CodMinisterio { get; set; }
 
-        [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
-        [MaxLength(1, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
+        [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]        
         [Display(Name = "Pastor Presente")]
         public SimNao PastorPresente { get; set; }        
 

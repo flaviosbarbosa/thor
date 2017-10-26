@@ -2,8 +2,8 @@
 {
     public enum TipoBeneficiario
     {
-        Membro,
-        Participante,
-        Fornecedores 
+        Membro = 0,
+        Participante = 1,
+        Fornecedores = 2 
     }
 }

@@ -100,7 +100,7 @@ namespace elroy.crusade.Infra
                                               CIDADE = @CIDADE,
                                               UF = @UF,
                                               CELULAR = @CELULAR
-                                            WHERE id = @id", beneficiario);
+                                             WHERE ID = @ID", new { Id = beneficiario.Id});
 
                         return conn.QueryFirst<Beneficiario>(@"SELECT ID,
                                                                       NOME,
@@ -149,12 +149,13 @@ namespace elroy.crusade.Infra
                                                                 CIDADE,
                                                                 UF,
                                                                 CELULAR
-                                                            FROM BENEFICIARIO", new { Id = id });
+                                                            FROM BENEFICIARIO
+                                                           WHERE ID = @ID", new { Id = id });
                 }
-                catch (Exception)
+                catch (Exception e )
                 {
-
                     return new Beneficiario();
+                    throw new Exception(e.Message);
                 }
             }
         }
@@ -165,14 +166,14 @@ namespace elroy.crusade.Infra
             {
                 try
                 {
-                    conn.QueryFirst<Beneficiario>(@"DELETE FROM Beneficiario                                                         
+                    conn.Execute(@"DELETE FROM Beneficiario                                                         
                                                         WHERE ID = @id", beneficiario);
                     return true;
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-
                     return false;
+                    throw new Exception(e.Message);
                 }
             }
         }
