@@ -2,7 +2,6 @@
 using elroy.crusade.dominio;
 using elroy.crusade.Infra;
 using System.Collections.Generic;
-using elroy.crusade.Aplicacao;
 
 namespace elroy.crusade.test
 {
@@ -14,8 +13,6 @@ namespace elroy.crusade.test
         }
 
         private Beneficiario beneficiario;
-        private PessoaFisica membro;
-        private PessoaJuridica fornecedor;
         private BeneficiarioBLL conexao;
 
         /// <summary>
@@ -23,13 +20,9 @@ namespace elroy.crusade.test
         /// </summary>
         [TestInitialize()]
         public void CriaBeneficiario()
-        {
-            this.membro = new Factory().CriaBeneficiarioPF();
-
-            this.fornecedor = new Factory().CriaBeneficiarioPJ();
-
+        {      
             // Nao esqueca de remover esta cariavel
-            this.beneficiario = new Beneficiario();            
+            this.beneficiario = new Factory().CriaBeneficiario();            
 
             this.conexao = new BeneficiarioBLL();
         }
@@ -50,7 +43,7 @@ namespace elroy.crusade.test
         [TestMethod]
         public void SalvandoPessoaFisica()
         {
-            var retorno = conexao.Grava(membro);
+            var retorno = conexao.Grava(beneficiario);
             Assert.IsNotNull(retorno.Id, "Erro ao salvar usuário");
         }
 

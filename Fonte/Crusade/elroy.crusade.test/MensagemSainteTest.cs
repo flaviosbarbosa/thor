@@ -20,7 +20,8 @@ namespace elroy.crusade.test
 
             mensagemsainte.Ministerio = new MinisterioBLL().Grava(new Factory().CriaMinisterio());
             mensagemsainte.TipoMensagem = new TipoMensagemBLL().Grava(new Factory().CriaTipoMensagem());
-
+            mensagemsainte.MensagemEntrante = new MensagemEntranteBLL().Grava(new Factory().CriaMensagemEntrante());
+            mensagemsainte.CodMensagemEntrante = mensagemsainte.MensagemEntrante.Id;
             mensagemsainte.CodMinisterio = mensagemsainte.Ministerio.Id;
             mensagemsainte.CodTipoMensagem = mensagemsainte.TipoMensagem.Id;
             mensagemsainte.DataEnvio = DateTime.Now;

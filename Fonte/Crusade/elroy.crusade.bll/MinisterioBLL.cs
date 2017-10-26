@@ -35,9 +35,10 @@ namespace elroy.crusade.Infra
                                                                       DESCRICAO
                                                                   FROM MINISTERIOS", Ministerio);
                     }
-                    catch (Exception )
+                    catch (Exception e )
                     {
                         return new Ministerio();
+                        throw new Exception(e.Message);
                     }
                 }
                 else

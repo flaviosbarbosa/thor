@@ -35,7 +35,7 @@ namespace elroy.crusade.test
             usuario.senha = "123";
             usuario.email = "flavio@elroy.com.br";
             usuario.cpf = "03180155795";
-            usuario.ativo = SimNao.Sim;         
+            usuario.ativo = SimNao.Nao;         
 
             this.conexao = new UsuarioBLL();
         }

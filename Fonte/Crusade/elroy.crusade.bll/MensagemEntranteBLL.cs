@@ -18,40 +18,49 @@ namespace elroy.crusade.Infra
                     try
                     {
                         conn.Execute(@"INSERT INTO MENSAGEMENTRANTE
-                                           (CODTIPOMENSAGEM,
-                                           NOMESOLICITANTE,
-                                           ASSUNTO,
-                                           MENSAGEM,
-		                                   EMAILCONTATO,
-                                           PERMITERETORNO,
-                                           TELEFONECONTATO,
-		                                   DATACONTATO,
-                                           FREQUENTA)
+                                           (CODTIPOMENSAGEM
+                                           ,CODRESPONSAVEL
+                                           ,CODSOLICITANTE
+                                           ,NOMESOLICITANTE
+                                           ,ASSUNTO
+                                           ,MENSAGEM
+                                           ,EMAILCONTATO
+                                           ,PERMITERETORNO
+                                           ,TELEFONECONTATO
+                                           ,DATACONTATO
+                                           ,FREQUENTA
+                                           ,SITUACAO)
                                      VALUES
                                            (
-                                           @CODTIPOMENSAGEM,
-                                           @NOMESOLICITANTE,
-                                           @ASSUNTO,
-                                           @MENSAGEM,
-                                           @EMAILCONTATO,
-                                           @PERMITERETORNO,
-                                           @TELEFONECONTATO,
-                                           @DATACONTATO,
-                                           @FREQUENTA)", mensagemEntrante);
+                                           @CODTIPOMENSAGEM
+                                           ,@CODRESPONSAVEL
+                                           ,@CODSOLICITANTE
+                                           ,@NOMESOLICITANTE
+                                           ,@ASSUNTO
+                                           ,@MENSAGEM
+                                           ,@EMAILCONTATO
+                                           ,@PERMITERETORNO
+                                           ,@TELEFONECONTATO
+                                           ,@DATACONTATO
+                                           ,@FREQUENTA
+                                           ,@SITUACAO)", mensagemEntrante);
 
-                        return conn.QueryFirst<MensagemEntrante>(@"SELECT ID,
-                                                                          CODTIPOMENSAGEM,
-                                                                          NOMESOLICITANTE,
-                                                                          ASSUNTO,
-                                                                          MENSAGEM,
-                                                                          EMAILCONTATO,
-                                                                          PERMITERETORNO,
-                                                                          TELEFONECONTATO,
-                                                                          DATACONTATO,
-                                                                          FREQUENTA
+                        return conn.QueryFirst<MensagemEntrante>(@"SELECT ID
+                                                                        ,CODTIPOMENSAGEM
+                                                                        ,CODRESPONSAVEL
+                                                                        ,CODSOLICITANTE
+                                                                        ,NOMESOLICITANTE
+                                                                        ,ASSUNTO
+                                                                        ,MENSAGEM
+                                                                        ,EMAILCONTATO
+                                                                        ,PERMITERETORNO
+                                                                        ,TELEFONECONTATO
+                                                                        ,DATACONTATO
+                                                                        ,FREQUENTA
+                                                                        ,SITUACAO
                                                                       FROM MENSAGEMENTRANTE", mensagemEntrante);
                     }
-                    catch (Exception e )
+                    catch (Exception e)
                     {
                         return new MensagemEntrante();
                         throw new Exception(e.Message);
@@ -62,32 +71,39 @@ namespace elroy.crusade.Infra
                     {
                         var retorno =
                         conn.Execute(@"UPDATE MENSAGEMENTRANTE
-                                           SET CODTIPOMENSAGEM = @CODTIPOMENSAGEM,
-                                              NOMESOLICITANTE = @NOMESOLICITANTE,
-                                              ASSUNTO = @ASSUNTO,
-                                              MENSAGEM = @MENSAGEM,
-                                              EMAILCONTATO = @EMAILCONTATO,
-                                              PERMITERETORNO = @PERMITERETORNO,
-                                              TELEFONECONTATO = @TELEFONECONTATO, 
-                                              DATACONTATO = @DATACONTATO,
-                                              FREQUENTA = @FREQUENTA
+                                           SET CODTIPOMENSAGEM = @CODTIPOMENSAGEM
+                                              ,CODRESPONSAVEL = @CODRESPONSAVEL
+                                              ,CODSOLICITANTE = @CODSOLICITANTE
+                                              ,NOMESOLICITANTE = @NOMESOLICITANTE
+                                              ,ASSUNTO = @ASSUNTO
+                                              ,MENSAGEM = @MENSAGEM
+                                              ,EMAILCONTATO = @EMAILCONTATO
+                                              ,PERMITERETORNO = @PERMITERETORNO
+                                              ,TELEFONECONTATO = @TELEFONECONTATO
+                                              ,DATACONTATO = @DATACONTATO
+                                              ,FREQUENTA = @FREQUENTA
+                                              ,SITUACAO = @SITUACAO
                                          WHERE id = @id", mensagemEntrante);
 
-                        return conn.QueryFirst<MensagemEntrante>(@"SELECT ID,
-                                                                          CODTIPOMENSAGEM,
-                                                                          NOMESOLICITANTE,
-                                                                          ASSUNTO,
-                                                                          MENSAGEM,
-                                                                          EMAILCONTATO,
-                                                                          PERMITERETORNO,
-                                                                          TELEFONECONTATO,
-                                                                          DATACONTATO,
-                                                                          FREQUENTA
+                        return conn.QueryFirst<MensagemEntrante>(@"SELECT ID
+                                                                        ,CODTIPOMENSAGEM
+                                                                        ,CODRESPONSAVEL
+                                                                        ,CODSOLICITANTE
+                                                                        ,NOMESOLICITANTE
+                                                                        ,ASSUNTO
+                                                                        ,MENSAGEM
+                                                                        ,EMAILCONTATO
+                                                                        ,PERMITERETORNO
+                                                                        ,TELEFONECONTATO
+                                                                        ,DATACONTATO
+                                                                        ,FREQUENTA
+                                                                        ,SITUACAO
                                                                       FROM MENSAGEMENTRANTE", mensagemEntrante);
                     }
-                    catch (Exception )
+                    catch (Exception e)
                     {
                         return new MensagemEntrante();
+                        throw new Exception(e.Message);
                     }
             }
         }
@@ -98,16 +114,19 @@ namespace elroy.crusade.Infra
             {
                 try
                 {
-                    return conn.QueryFirst<MensagemEntrante>(@"SELECT ID,
-                                                                      CODTIPOMENSAGEM,
-                                                                      NOMESOLICITANTE,
-                                                                      ASSUNTO,
-                                                                      MENSAGEM,
-                                                                      EMAILCONTATO,
-                                                                      PERMITERETORNO,
-                                                                      TELEFONECONTATO,
-                                                                      DATACONTATO,
-                                                                      FREQUENTA
+                    return conn.QueryFirst<MensagemEntrante>(@"SELECT ID
+                                                                        ,CODTIPOMENSAGEM
+                                                                        ,CODRESPONSAVEL
+                                                                        ,CODSOLICITANTE
+                                                                        ,NOMESOLICITANTE
+                                                                        ,ASSUNTO
+                                                                        ,MENSAGEM
+                                                                        ,EMAILCONTATO
+                                                                        ,PERMITERETORNO
+                                                                        ,TELEFONECONTATO
+                                                                        ,DATACONTATO
+                                                                        ,FREQUENTA
+                                                                        ,SITUACAO
                                                                   FROM MENSAGEMENTRANTE", new { Id = id });
 
 
@@ -142,16 +161,19 @@ namespace elroy.crusade.Infra
         {
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
-                var retorno = conn.Query<MensagemEntrante>(@"SELECT ID,
-                                                                      CODTIPOMENSAGEM,
-                                                                      NOMESOLICITANTE,
-                                                                      ASSUNTO,
-                                                                      MENSAGEM,
-                                                                      EMAILCONTATO,
-                                                                      PERMITERETORNO,
-                                                                      TELEFONECONTATO,
-                                                                      DATACONTATO,
-                                                                      FREQUENTA
+                var retorno = conn.Query<MensagemEntrante>(@"SELECT  ID
+                                                                        ,CODTIPOMENSAGEM
+                                                                        ,CODRESPONSAVEL
+                                                                        ,CODSOLICITANTE
+                                                                        ,NOMESOLICITANTE
+                                                                        ,ASSUNTO
+                                                                        ,MENSAGEM
+                                                                        ,EMAILCONTATO
+                                                                        ,PERMITERETORNO
+                                                                        ,TELEFONECONTATO
+                                                                        ,DATACONTATO
+                                                                        ,FREQUENTA
+                                                                        ,SITUACAO
                                                                   FROM MENSAGEMENTRANTE");
 
                 return (List<MensagemEntrante>)retorno;

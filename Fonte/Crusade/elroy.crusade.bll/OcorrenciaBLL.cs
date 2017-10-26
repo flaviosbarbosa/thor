@@ -20,51 +20,47 @@ namespace elroy.crusade.Infra
                 {
                     try
                     {
-                        conn.Execute(@"INSERT INTO OCORRENCIA
-                                                   (CODBENEFICIARIO,
-                                                   TIPO,
-                                                   CODIGOORIGEM,
-                                                   DATA,
-                                                   DESCRICAO)
+                        conn.Execute(@"INSERT INTO OCORRENCIAENTRANTE
+                                                   ( CODMENSAGEMENTRANTE,
+                                                     CODRESPONSAVEL,
+                                                     DESCRICAO,
+                                                     DATA)
                                              VALUES
-                                                   (@CODBENEFICIARIO, 
-                                                   @TIPO, 
-                                                   @CODIGOORIGEM, 
-                                                   @DATA, 
-                                                   @DESCRICAO)", ocorrencia);
-
-                        return conn.QueryFirst<OcorrenciaEntrante>(@"SELECT ID,
-                                                                      CODBENEFICIARIO,
-                                                                      TIPO,
-                                                                      CODIGOORIGEM,
-                                                                      DATA,
-                                                                      DESCRICAO
-                                                                  FROM OCORRENCIA", ocorrencia);
+                                                   (@CODMENSAGEMENTRANTE,
+                                                    @CODRESPONSAVEL,
+                                                    @DESCRICAO,
+                                                    @DATA)", ocorrencia);                      
+                         
+                         return conn.QueryFirst<OcorrenciaEntrante>(@"SELECT ID,
+                                                                             CODMENSAGEMENTRANTE,
+                                                                             CODRESPONSAVEL,
+                                                                             DESCRICAO,
+                                                                             DATA
+                                                                        FROM OCORRENCIAENTRANTE", ocorrencia);
                     }
-                    catch (Exception )
+                    catch (Exception e)
                     {
                         return new OcorrenciaEntrante();
+                        throw new Exception(e.Message);
                     }
                 }
                 else
                     try
                     {
                         var retorno =
-                        conn.Execute(@"UPDATE OCORRENCIA
-                                           SET CODBENEFICIARIO = @CODBENEFICIARIO,
-                                              TIPO = @TIPO,
-                                              CODIGOORIGEM = @CODIGOORIGEM,
-                                              DATA = @DATA,
-                                              DESCRICAO = @DESCRICAO
+                        conn.Execute(@"UPDATE OCORRENCIAENTRANTE
+                                           SET CODMENSAGEMENTRANTE = @CODMENSAGEMENTRANTE,
+                                               CODRESPONSAVEL = @CODRESPONSAVEL,
+                                               DESCRICAO = @DESCRICAO,
+                                               DATA = @DATA
                                          WHERE id = @id", ocorrencia);
 
                         return conn.QueryFirst<OcorrenciaEntrante>(@"SELECT ID,
-                                                                      CODBENEFICIARIO,
-                                                                      TIPO,
-                                                                      CODIGOORIGEM,
-                                                                      DATA,
-                                                                      DESCRICAO
-                                                                  FROM OCORRENCIA", ocorrencia);
+                                                                             CODMENSAGEMENTRANTE,
+                                                                             CODRESPONSAVEL,
+                                                                             DESCRICAO,
+                                                                             DATA
+                                                                        FROM OCORRENCIAENTRANTE", ocorrencia);
                     }
                     catch (Exception)
                     {
@@ -80,12 +76,11 @@ namespace elroy.crusade.Infra
                 try
                 {
                     return conn.QueryFirst<OcorrenciaEntrante>(@"SELECT ID,
-                                                                  CODBENEFICIARIO,
-                                                                  TIPO,
-                                                                  CODIGOORIGEM,
-                                                                  DATA,
-                                                                  DESCRICAO
-                                                              FROM OCORRENCIA", new { Id = id });
+                                                                        CODMENSAGEMENTRANTE,
+                                                                        CODRESPONSAVEL,
+                                                                        DESCRICAO,
+                                                                        DATA
+                                                                FROM OCORRENCIAENTRANTE", new { Id = id });
 
 
                 }
@@ -103,7 +98,7 @@ namespace elroy.crusade.Infra
             {
                 try
                 {
-                    conn.QueryFirst<OcorrenciaEntrante>(@"DELETE FROM OCORRENCIA                                                         
+                    conn.QueryFirst<OcorrenciaEntrante>(@"DELETE FROM OCORRENCIAENTRANTE                                                         
                                                         WHERE ID = @id", ocorrencia);
                     return true;
                 }
@@ -120,12 +115,11 @@ namespace elroy.crusade.Infra
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
                 var retorno = conn.Query<OcorrenciaEntrante>(@"SELECT ID,
-                                                              CODBENEFICIARIO,
-                                                              TIPO,
-                                                              CODIGOORIGEM,
-                                                              DATA,
-                                                              DESCRICAO
-                                                          FROM OCORRENCIA");
+                                                                      CODMENSAGEMENTRANTE,
+                                                                      CODRESPONSAVEL,
+                                                                      DESCRICAO,
+                                                                      DATA
+                                                                FROM OCORRENCIAENTRANTE");
 
                 return (List<OcorrenciaEntrante>)retorno;
             }

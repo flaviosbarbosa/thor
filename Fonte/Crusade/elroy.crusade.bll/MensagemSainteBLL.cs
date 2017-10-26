@@ -21,23 +21,27 @@ namespace elroy.crusade.Infra
                                         (CODMINISTERIO,
                                         CODTIPOMENSAGEM,
                                         MENSAGEM,
-                                        DATAENVIO)
+                                        DATAENVIO,
+                                        CODMENSAGEMENTRANTE)
                                     VALUES
                                         (@CODMINISTERIO,
                                         @CODTIPOMENSAGEM,
                                         @MENSAGEM,
-                                        @DATAENVIO)", MensagemSainte);
+                                        @DATAENVIO,
+                                        @CODMENSAGEMENTRANTE)", MensagemSainte);
 
-                        return conn.QueryFirst<MensagemSainte>(@"SELECT ID,
-                                                                          CODMINISTERIO,
-                                                                          CODTIPOMENSAGEM,
-                                                                          MENSAGEM,
-                                                                          DATAENVIO
+                        return conn.QueryFirst<MensagemSainte>(@"SELECT ID
+                                                                      , CODMINISTERIO
+                                                                      , CODTIPOMENSAGEM
+                                                                      , MENSAGEM
+                                                                      , DATAENVIO
+                                                                      , CODMENSAGEMENTRANTE  
                                                                       FROM MENSAGEMSAINTE", MensagemSainte);
                     }
-                    catch (Exception )
+                    catch (Exception e )
                     {
                         return new MensagemSainte();
+                        throw new Exception(e.Message);
                     }
                 }
                 else
@@ -47,20 +51,23 @@ namespace elroy.crusade.Infra
                         conn.Execute(@"UPDATE MENSAGEMSAINTE
                                           SET CODMINISTERIO = @CODMINISTERIO,
                                               CODTIPOMENSAGEM = @CODTIPOMENSAGEM,
+                                              CODMENSAGEMENTRANTE = @CODMENSAGEMENTRANTE,
                                               MENSAGEM = @MENSAGEM,
                                               DATAENVIO = @DATAENVIO
                                         WHERE id = @id", MensagemSainte);
 
-                        return conn.QueryFirst<MensagemSainte>(@"SELECT ID,
-                                                                          CODMINISTERIO,
-                                                                          CODTIPOMENSAGEM,
-                                                                          MENSAGEM,
-                                                                          DATAENVIO
+                        return conn.QueryFirst<MensagemSainte>(@"SELECT ID
+                                                                      , CODMINISTERIO
+                                                                      , CODTIPOMENSAGEM
+                                                                      , MENSAGEM
+                                                                      , DATAENVIO
+                                                                      , CODMENSAGEMENTRANTE  
                                                                       FROM MENSAGEMSAINTE", MensagemSainte);
                     }
-                    catch (Exception )
+                    catch (Exception e)
                     {
                         return new MensagemSainte();
+                        throw new Exception(e.Message);
                     }
             }
         }
@@ -71,19 +78,20 @@ namespace elroy.crusade.Infra
             {
                 try
                 {
-                    return conn.QueryFirst<MensagemSainte>(@"SELECT ID,
-                                                                      CODMINISTERIO,
-                                                                      CODTIPOMENSAGEM,
-                                                                      MENSAGEM,
-                                                                      DATAENVIO
-                                                                  FROM MENSAGEMSAINTE", new { Id = id });
+                    return conn.QueryFirst<MensagemSainte>(@"SELECT ID
+                                                                    , CODMINISTERIO
+                                                                    , CODTIPOMENSAGEM
+                                                                    , MENSAGEM
+                                                                    , DATAENVIO
+                                                                    , CODMENSAGEMENTRANTE  
+                                                                    FROM MENSAGEMSAINTE", new { Id = id });
 
 
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-
                     return new MensagemSainte();
+                    throw new Exception(e.Message);
                 }
             }
         }
@@ -98,10 +106,10 @@ namespace elroy.crusade.Infra
                                                         WHERE ID = @id", MensagemSainte);
                     return true;
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-
                     return false;
+                    throw new Exception(e.Message);
                 }
             }
         }
@@ -110,12 +118,13 @@ namespace elroy.crusade.Infra
         {
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
-                var retorno = conn.Query<MensagemSainte>(@"SELECT ID,
-                                                                  CODMINISTERIO,
-                                                                  CODTIPOMENSAGEM,
-                                                                  MENSAGEM,
-                                                                  DATAENVIO
-                                                              FROM MENSAGEMSAINTE");
+                var retorno = conn.Query<MensagemSainte>(@"SELECT ID
+                                                                , CODMINISTERIO
+                                                                , CODTIPOMENSAGEM
+                                                                , MENSAGEM
+                                                                , DATAENVIO
+                                                                , CODMENSAGEMENTRANTE  
+                                                                FROM MENSAGEMSAINTE");
 
                 return (List<MensagemSainte>)retorno;
             }

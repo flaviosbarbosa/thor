@@ -1,4 +1,4 @@
-﻿using elroy.crusade.Aplicacao;
+﻿
 using elroy.crusade.dominio;
 using elroy.crusade.dominio.Enum;
 using elroy.crusade.Infra;
@@ -32,9 +32,9 @@ namespace elroy.crusade.test
             return new TipoMensagemBLL().Grava(tipomensagem);
         }
 
-        public PessoaFisica CriaBeneficiarioPF()
+        public Beneficiario CriaBeneficiario()
         {
-            var PF = new PessoaFisica();
+            var PF = new Beneficiario();
             PF.Id = 0;
             PF.Nome = "Flavio de Souza Barbosa";
             PF.Ativo = SimNao.Sim;
@@ -49,39 +49,16 @@ namespace elroy.crusade.test
             PF.Telefone = "30252812";
             PF.DataCadastro = DateTime.Now;
             PF.TipoPessoa = TipoPessoa.Fisica;
-            PF.CPF = "03180155795";
-            PF.RG = "1214494";            
+            PF.DocumentoI = "03180155795";
+            PF.DocumentoII = "1214494";            
 
             return PF;
         }
-
-        public PessoaJuridica CriaBeneficiarioPJ()
-        {
-            var PJ = new PessoaJuridica();
-            PJ.Id = 0;
-            PJ.Nome = "Industrias ACME SA";
-            PJ.Ativo = SimNao.Sim;
-            PJ.TipoBeneficiario = TipoBeneficiario.Fornecedores;
-            PJ.Endereco = "Rua das Empresas";
-            PJ.Numero = "1000";
-            PJ.Bairro = "Centro";
-            PJ.Cidade = "Vitória";
-            PJ.UF = "ES";
-            PJ.Email = "flavio@gmail.com.br";
-            PJ.Celular = "992969015";
-            PJ.Telefone = "30252811";
-            PJ.DataCadastro = DateTime.Now;
-            PJ.TipoPessoa = TipoPessoa.Juridica;
-            PJ.CNPJ = "09443333000160";
-            PJ.InscricaoEstadual = "ISENTO";
-
-            return PJ;
-        }
-
+        
         public Ministerio CriaMinisterio()
         {
             var ministerio = new Ministerio();
-            ministerio.Responsavel = this.CriaBeneficiario();
+            ministerio.Responsavel = new BeneficiarioBLL().Grava(this.CriaBeneficiario());
 
             ministerio.Id = 0;
             ministerio.Nome = "Louvor";
@@ -89,6 +66,29 @@ namespace elroy.crusade.test
             ministerio.Descricao = "Ministerio de Louvor";
 
             return new MinisterioBLL().Grava(ministerio);
+        }
+
+        public MensagemEntrante CriaMensagemEntrante()
+        {
+            var mensagemEntrante = new MensagemEntrante();
+
+            mensagemEntrante.TipoMensagem = new TipoMensagemBLL().Grava(this.CriaTipoMensagem());
+            mensagemEntrante.Responsavel = new BeneficiarioBLL().Grava(this.CriaBeneficiario());
+            mensagemEntrante.Solicitante = new BeneficiarioBLL().Grava(this.CriaBeneficiario());
+
+            mensagemEntrante.CodTipoMensagem = mensagemEntrante.TipoMensagem.Id;
+            mensagemEntrante.CodResponsavel = mensagemEntrante.Responsavel.Id;
+            mensagemEntrante.CodSolicitante = mensagemEntrante.Solicitante.Id;
+            mensagemEntrante.DataContato = DateTime.Now;
+            mensagemEntrante.Assunto = "Pedido de Oração";
+            mensagemEntrante.EmailContato = "teste@teste.com.br";
+            mensagemEntrante.Frequenta = SimNao.Sim;
+            mensagemEntrante.Mensagem = "Orem por mim";
+            mensagemEntrante.NomeSolicitante = "Joaquim Jose da Silva Xavier";
+            mensagemEntrante.PermiteRetorno = SimNao.Sim;
+            mensagemEntrante.TelefoneContato = "27992969013";
+
+            return mensagemEntrante;
         }
     }
 }

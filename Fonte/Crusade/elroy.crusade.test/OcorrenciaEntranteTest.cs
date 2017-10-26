@@ -24,14 +24,15 @@ namespace elroy.crusade.test
         {
             this.ocorrenciaEntrante = new OcorrenciaEntrante();
             ocorrenciaEntrante.Id = 0;
-            var beneficiario = new BeneficiarioBLL().Grava(new Factory().CriaBeneficiario());
+            
+            ocorrenciaEntrante.Responsavel = new BeneficiarioBLL().Grava(new Factory().CriaBeneficiario());
+            ocorrenciaEntrante.CodResponsavel = ocorrenciaEntrante.Responsavel.Id;
 
-            ocorrenciaEntrante.Responsavel = beneficiario;
-            ocorrenciaEntrante.CodResponsavel = beneficiario.Id;
+            ocorrenciaEntrante.MensagemEntrante = new MensagemEntranteBLL().Grava(new Factory().CriaMensagemEntrante());
+            ocorrenciaEntrante.CodMensagemEntrante = ocorrenciaEntrante.MensagemEntrante.Id;
             ocorrenciaEntrante.Descricao = "Evento Social para a comunidade";
             ocorrenciaEntrante.Data = new DateTime(2017, 10, 12);          
             
-
             this.conexao = new OcorrenciaBLL();
         }
 
@@ -66,8 +67,8 @@ namespace elroy.crusade.test
         [TestMethod]
         public void AtualizaOcorrencia()
         {
-            var usuretorno = conexao.Grava(ocorrenciaEntrante);
-            ocorrenciaEntrante = conexao.BuscaPorCodigo(usuretorno.Id);
+            var Ocorrenciaretorno = conexao.Grava(ocorrenciaEntrante);
+            ocorrenciaEntrante = conexao.BuscaPorCodigo(Ocorrenciaretorno.Id);
 
             var descricao = "Sem noção";
             ocorrenciaEntrante.Descricao = descricao;

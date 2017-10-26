@@ -16,20 +16,7 @@ namespace elroy.crusade.test
         [TestInitialize()]
         public void CriaMensagemEntrante()
         {
-            this.mensagemEntrante = new MensagemEntrante();
-            
-            mensagemEntrante.TipoMensagem = new TipoMensagemBLL().Grava(new Factory().CriaTipoMensagem());
-                        
-            mensagemEntrante.CodTipoMensagem = mensagemEntrante.TipoMensagem.Id;
-            mensagemEntrante.DataContato = DateTime.Now;
-            mensagemEntrante.Assunto = "Pedido de Oração";
-            mensagemEntrante.EmailContato = "teste@teste.com.br";
-            mensagemEntrante.Frequenta = SimNao.Sim;
-            mensagemEntrante.Mensagem = "Orem por mim";
-            mensagemEntrante.NomeSolicitante = "Joaquim Jose da Silva Xavier";
-            mensagemEntrante.PermiteRetorno = SimNao.Sim;
-            mensagemEntrante.TelefoneContato = "27992969013";
-
+            this.mensagemEntrante = new Factory().CriaMensagemEntrante();
             this.conexao = new MensagemEntranteBLL();
         }
 
