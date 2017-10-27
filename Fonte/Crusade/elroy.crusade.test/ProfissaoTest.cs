@@ -34,11 +34,11 @@ namespace elroy.crusade.test
         [ClassCleanup()]
         public static void ZeraTabela()
         {
-         /*   IEnumerable<Profissao> lista = new ProfissaoBLL().Busca();
+            IEnumerable<Profissao> lista = new ProfissaoBLL().Busca();
             foreach (var item in lista)
             {
                 new ProfissaoBLL().Deleta(item);
-            }*/
+            }
         }
 
         [TestMethod]
@@ -70,7 +70,7 @@ namespace elroy.crusade.test
         }
 
         [TestMethod]
-        public void BuscaListadeMinisterios()
+        public void BuscaListadeProfissoes()
         {
 
             conexao.Grava(profissao);

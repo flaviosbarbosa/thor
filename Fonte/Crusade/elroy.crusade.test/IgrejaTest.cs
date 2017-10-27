@@ -8,8 +8,7 @@ namespace elroy.crusade.test
 {
     [TestClass]
     public class IgrejaTest
-    {
-  
+    {  
         private Igreja igreja;
         private IgrejaBLL conexao;
 

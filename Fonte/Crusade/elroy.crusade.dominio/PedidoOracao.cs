@@ -26,7 +26,7 @@ namespace elroy.crusade.dominio
 
         public PedidoOracao()
         {
-            Situacao = SituacaoPedidoOracao.Ativo;
+            Situacao = SituacaoPedidoOracao.Ativo;            
         }        
     }
 }

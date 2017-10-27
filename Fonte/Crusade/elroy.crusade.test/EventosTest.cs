@@ -23,18 +23,7 @@ namespace elroy.crusade.test
         [TestInitialize()]
         public void CriaEventos()
         {
-            this.eventos = new Eventos();
-            eventos.Id = 0;
-            //eventos.banner = "Flavio";
-            eventos.Titulo = "Dia de Lazer e Cultura";
-            eventos.Descricao = "Evento Social para a comunidade";
-            eventos.Data = new DateTime(2017, 10, 12);
-            eventos.Local = "Igreja Presbiteriana Praia de Itapoã";            
-            eventos.PastorPresente = SimNao.Sim;
-            eventos.Privado = SimNao.Nao;
-            eventos.Ministerio = new Factory().CriaMinisterio();
-            eventos.CodMinisterio = eventos.Ministerio.Id;
-
+            this.eventos = new Factory().CriaEvento();           
             this.conexao = new EventosBLL();
         }
 

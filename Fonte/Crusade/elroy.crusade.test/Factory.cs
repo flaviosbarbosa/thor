@@ -1,8 +1,10 @@
 ﻿
+using elroy.crusade.bll;
 using elroy.crusade.dominio;
 using elroy.crusade.dominio.Enum;
 using elroy.crusade.Infra;
 using System;
+using System.Collections.Generic;
 
 namespace elroy.crusade.test
 {
@@ -89,6 +91,57 @@ namespace elroy.crusade.test
             mensagemEntrante.TelefoneContato = "27992969013";
 
             return mensagemEntrante;
+        }
+
+        public Eventos CriaEvento()
+        {
+            var evento = new Eventos();
+            evento.Id = 0;
+            //eventos.banner = "Flavio";
+            evento.Titulo = "Dia de Lazer e Cultura";
+            evento.Descricao = "Evento Social para a comunidade";
+            evento.Data = new DateTime(2017, 10, 12);
+            evento.Local = "Igreja Presbiteriana Praia de Itapoã";
+            evento.PastorPresente = SimNao.Sim;
+            evento.Privado = SimNao.Nao;
+            evento.Ministerio = this.CriaMinisterio();
+            evento.CodMinisterio = evento.Ministerio.Id;
+
+            return evento;
+        }
+
+        public Participantes CriaParticipantes()
+        {         
+            var p1 = new Participantes();
+            p1.Id = 0;
+            p1.Eventos = new EventosBLL().Grava(this.CriaEvento());
+            p1.CodEvento = p1.Eventos.Id;
+            p1.Membro = new BeneficiarioBLL().Grava(this.CriaBeneficiario());
+            p1.CodMembro = p1.Membro.Id;
+            p1.Situacao = SituacaoParticipante.Confirmada;
+            p1.Lembrete = SimNao.Sim;
+
+            return p1;
+        }
+
+        public PedidoOracao CriaPedidoOracao()
+        {
+            var pedidoOracao = new PedidoOracao();
+
+            pedidoOracao.Id = 0;
+            pedidoOracao.Assunto = "Motivo de Doença";
+            pedidoOracao.Descricao = "Meu irmão está doente e carece de suas orações";
+            pedidoOracao.DescricaoRevisada = "Favor orar pelo irmão";
+
+            pedidoOracao.MensagemEntrate = new MensagemEntranteBLL().Grava(this.CriaMensagemEntrante());
+            pedidoOracao.CodMensagemEntrante = pedidoOracao.MensagemEntrate.Id;
+            pedidoOracao.Solicitante = new BeneficiarioBLL().Grava(this.CriaBeneficiario());
+            pedidoOracao.CodSolicitante = pedidoOracao.Solicitante.Id;
+            pedidoOracao.DataSolicitacao = new DateTime(2017, 10, 12);
+            pedidoOracao.NomeSolicitante = pedidoOracao.Solicitante.Nome;
+            pedidoOracao.Situacao = SituacaoPedidoOracao.Ativo;
+
+            return pedidoOracao;
         }
     }
 }
