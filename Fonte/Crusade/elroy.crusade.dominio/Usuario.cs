@@ -15,40 +15,40 @@ namespace elroy.crusade.dominio
         /// Obtem ou define o Codigo da Empresa
         /// </summary>
         
-        public int id { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(100, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Nome")]
-        public string nome { get; set; }
+        public string Nome { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(15, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Login")]
-        public string login { get; set; }
+        public string Login { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(10, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Senha")]
-        public string senha { get; set; }
+        public string Senha { get; set; }
 
         [Required(ErrorMessage = "O campo Ativo é obrigatório", AllowEmptyStrings = false)]        
-        public SimNao ativo { get; set; }
+        public SimNao Ativo { get; set; }
+
+        [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
+        [MaxLength(14, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
+        [Display(Name = "CPF")]
+        public string Cpf { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(80, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "e-Mail")]
         [RegularExpression(@"^([0-9a-zA-Z]([\+\-_\.][0-9a-zA-Z]+)*)+@(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]*\.)+[a-zA-Z0-9]{2,3})$", ErrorMessage = "Informe um email válido.")]
-        public string email { get; set; }
-
-        [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
-        [MaxLength(14, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
-        [Display(Name = "CPF")]
-        public string cpf { get; set;}        
+        public string Email { get; set; }        
         
         public Usuario()
         {
-            this.ativo = SimNao.Sim;            
+            this.Ativo = SimNao.Sim;            
         }        
     }
 }

@@ -28,7 +28,7 @@ namespace elroy.crusade.API.Controllers
                 UsuarioBLL usuariobll = new UsuarioBLL();
                 var usuarios = usuariobll.BuscaPorCodigo(id);
 
-                if (usuarios.id != 0)
+                if (usuarios.Id != 0)
                     return Request.CreateResponse(HttpStatusCode.OK, usuarios);
                 else
                     throw new KeyNotFoundException();
@@ -36,7 +36,7 @@ namespace elroy.crusade.API.Controllers
             catch (KeyNotFoundException )
             {
                 //TODO: Falha ao consultar um usuario que não existe. Revise isto.
-                string mensagem = string.Format("Não foi possivel localizar o usuário {0]", id);
+                string mensagem = string.Format("Não foi possivel localizar o usuário {0]", id);                
                 HttpError error = new HttpError(mensagem);
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, error);
             }
@@ -81,7 +81,7 @@ namespace elroy.crusade.API.Controllers
             var usuret = UsuariosBll.Grava(usuario);
 
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created);
-            string location = Url.Link("DefaultApi", new { Controller = "usuarios", id = usuret.id });
+            string location = Url.Link("DefaultApi", new { Controller = "usuarios", id = usuret.Id });
             response.Headers.Location = new Uri(location);
 
             return response;

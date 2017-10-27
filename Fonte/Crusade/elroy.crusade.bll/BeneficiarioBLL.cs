@@ -81,11 +81,10 @@ namespace elroy.crusade.Infra
                 }
                 else
                     try
-                    {
-                        var retorno =
+                    {                       
                         conn.Execute(@"UPDATE BENEFICIARIO
                                            SET 
-                                              NOME =@NOME,
+                                              NOME = @NOME,
                                               EMAIL = @EMAIL,
                                               TELEFONE = @TELEFONE,
                                               DATACADASTRO = @DATACADASTRO,
@@ -100,7 +99,7 @@ namespace elroy.crusade.Infra
                                               CIDADE = @CIDADE,
                                               UF = @UF,
                                               CELULAR = @CELULAR
-                                             WHERE ID = @ID", new { Id = beneficiario.Id});
+                                             WHERE ID = @ID", beneficiario);
 
                         return conn.QueryFirst<Beneficiario>(@"SELECT ID,
                                                                       NOME,
@@ -118,11 +117,13 @@ namespace elroy.crusade.Infra
                                                                       CIDADE,
                                                                       UF,
                                                                       CELULAR
-                                                                  FROM BENEFICIARIO", beneficiario);
+                                                                    FROM BENEFICIARIO
+                                                                   WHERE ID = @ID", new { Id = beneficiario.Id });
                     }
-                    catch (Exception)
+                    catch (Exception e)
                     {
                         return new Beneficiario();
+                        throw new Exception(e.Message);
                     }
             }
         }

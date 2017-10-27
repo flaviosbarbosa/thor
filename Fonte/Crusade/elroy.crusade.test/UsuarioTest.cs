@@ -29,13 +29,13 @@ namespace elroy.crusade.test
         public void CriaUsuario()
         {
             this.usuario = new Usuario();
-            usuario.id = 0;
-            usuario.nome = "Flavio";
-            usuario.login = "flavio.barbosa";
-            usuario.senha = "123";
-            usuario.email = "flavio@elroy.com.br";
-            usuario.cpf = "03180155795";
-            usuario.ativo = SimNao.Nao;         
+            usuario.Id = 0;
+            usuario.Nome = "Flavio";
+            usuario.Login = "flavio.barbosa";
+            usuario.Senha = "123";
+            usuario.Email = "flavio@elroy.com.br";
+            usuario.Cpf = "03180155795";
+            usuario.Ativo = SimNao.Nao;         
 
             this.conexao = new UsuarioBLL();
         }
@@ -81,28 +81,28 @@ namespace elroy.crusade.test
         public void SalvandoUsuario()
         {                     
             var retorno = conexao.Grava(usuario);
-            Assert.IsNotNull(retorno.id, "Erro ao salvar usuário");
+            Assert.IsNotNull(retorno.Id, "Erro ao salvar usuário");
         }
 
         [TestMethod]
         public void BuscaUsuarioporCodigo()
         {
             var usuretorno = conexao.Grava(usuario);
-            usuario = conexao.BuscaPorCodigo(usuretorno.id);
-            Assert.AreEqual(usuretorno.id, usuario.id, "Não foi possivel localizar o usuário");
+            usuario = conexao.BuscaPorCodigo(usuretorno.Id);
+            Assert.AreEqual(usuretorno.Id, usuario.Id, "Não foi possivel localizar o usuário");
         }
 
         [TestMethod]
         public void AtualizaUsuario()
         {
             var usuretorno = conexao.Grava(usuario);
-            usuario = conexao.BuscaPorCodigo(usuretorno.id);
+            usuario = conexao.BuscaPorCodigo(usuretorno.Id);
 
             var email = "flavio.barbosa@autoglass.com.br";
-            usuario.email = email;
+            usuario.Email = email;
             var retorno = conexao.Grava(usuario);
 
-            Assert.AreEqual(email, retorno.email, "Não foi possivel atualizar o usuario");
+            Assert.AreEqual(email, retorno.Email, "Não foi possivel atualizar o usuario");
         }
 
         [TestMethod]

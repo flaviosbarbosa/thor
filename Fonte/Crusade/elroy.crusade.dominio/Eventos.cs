@@ -26,9 +26,9 @@ namespace elroy.crusade.dominio
         [Display(Name = "Local")]        
         public string Local { get; set; }
 
-        public DateTime? horario { get; set; }        
+        //public DateTime? horario { get; set; }        
         
-        public int? Banner {get; set;}
+        //public int? Banner {get; set;}
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]        
         [Display(Name = "Privado")]

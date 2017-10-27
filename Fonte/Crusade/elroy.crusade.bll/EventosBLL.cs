@@ -26,9 +26,7 @@ namespace elroy.crusade.Infra
                                               TITULO,
                                               DESCRICAO,
                                               DATA,
-                                              LOCAL,
-                                              HORARIO,
-                                              BANNER,
+                                              LOCAL,                                              
                                               PRIVADO,
                                               PASTORPRESENTE)
                                              VALUES
@@ -37,9 +35,7 @@ namespace elroy.crusade.Infra
                                               @TITULO,
                                               @DESCRICAO,
                                               @DATA,
-                                              @LOCAL,
-                                              @HORARIO,
-                                              @BANNER,
+                                              @LOCAL,                                              
                                               @PRIVADO,
                                               @PASTORPRESENTE)", eventos);
 
@@ -48,16 +44,15 @@ namespace elroy.crusade.Infra
                                                         TITULO,
                                                         DESCRICAO,
                                                         DATA,
-                                                        LOCAL,
-                                                        HORARIO,
-                                                        BANNER,
+                                                        LOCAL,                                                        
                                                         PRIVADO,
                                                         PASTORPRESENTE
                                                     FROM EVENTOS", eventos);
                     }
-                    catch (Exception )
+                    catch (Exception e )
                     {
                         return new Eventos();
+                        throw new Exception(e.Message);
                     }
                 }
                 else
@@ -69,9 +64,7 @@ namespace elroy.crusade.Infra
                                           TITULO = @TITULO,
                                           DESCRICAO = @DESCRICAO,
                                           DATA = @DATA,
-                                          LOCAL = @LOCAL,
-                                          HORARIO = @HORARIO,
-                                          BANNER = @BANNER,
+                                          LOCAL = @LOCAL,                                          
                                           PRIVADO = @PRIVADO,
                                           PASTORPRESENTE = @PASTORPRESENTE
                                      WHERE id = @id", eventos);
@@ -81,9 +74,7 @@ namespace elroy.crusade.Infra
                                                               TITULO,
                                                               DESCRICAO,
                                                               DATA,
-                                                              LOCAL,
-                                                              HORARIO,
-                                                              BANNER,
+                                                              LOCAL,                                                         
                                                               PRIVADO,
                                                               PASTORPRESENTE
                                                           FROM EVENTOS", eventos);
@@ -107,11 +98,10 @@ namespace elroy.crusade.Infra
                                                               DESCRICAO,
                                                               DATA,
                                                               LOCAL,
-                                                              HORARIO,
-                                                              BANNER,
                                                               PRIVADO,
                                                               PASTORPRESENTE
-                                                          FROM EVENTOS", new { Id = id });
+                                                          FROM EVENTOS
+                                                         WHERE id = @id", new { Id = id });
 
 
                 }
@@ -150,10 +140,7 @@ namespace elroy.crusade.Infra
                                                           TITULO,
                                                           DESCRICAO,
                                                           DATA,
-                                                          HORARIO
                                                           LOCAL,
-                                                          HORARIO,
-                                                          BANNER,
                                                           PRIVADO,
                                                           PASTORPRESENTE
                                                       FROM EVENTOS");

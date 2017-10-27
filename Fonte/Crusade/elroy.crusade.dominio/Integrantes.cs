@@ -20,7 +20,6 @@ namespace elroy.crusade.dominio
         [Display(Name ="Beneficiário")]
         public int CodBeneficiario { get; set; }
 
-        [StringLength(20)]
         [Required(ErrorMessage ="O campo {0} não pode ser nulo")]
         [Display(Name ="Ativo")]
         public SimNao Ativo { get; set; } 

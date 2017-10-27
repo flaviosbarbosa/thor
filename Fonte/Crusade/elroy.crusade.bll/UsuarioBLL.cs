@@ -14,7 +14,7 @@ namespace elroy.crusade.Infra
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
 
-                if (usuario.id == 0)
+                if (usuario.Id == 0)
                 {                    
                     //try
                     //{
@@ -36,7 +36,7 @@ namespace elroy.crusade.Infra
                                        @CPF,
                                        @EMAIL)", usuario);
 
-                    return conn.QueryFirst<Usuario>(@"SELECT * FROM USUARIO WHERE Nome = @Nome", new { Nome = usuario.nome }); 
+                    return conn.QueryFirst<Usuario>(@"SELECT * FROM USUARIO WHERE Nome = @Nome", new { Nome = usuario.Nome }); 
                     //TODO: Verificar porque está retornando 'S' ao consultar e não 'SIM'
                     //}
                     //catch (Exception e)
@@ -73,16 +73,14 @@ namespace elroy.crusade.Infra
             {
                 try
                 {
-                    return conn.QueryFirst<Usuario>(@"SELECT ID, NOME, LOGIN, SENHA, ATIVO, CPF, EMAIL, CPF 
+                    return conn.QueryFirst<Usuario>(@"SELECT ID, NOME, LOGIN, SENHA, ATIVO, CPF, EMAIL
                                                         FROM USUARIO
-                                                        WHERE ID = @ID", new { Id = id });
-
-
-                }
-                catch (Exception)
+                                                       WHERE ID = @ID", new { Id = id });
+                }                                
+                catch (Exception e)
                 {
-
                     return new Usuario();
+                    throw new Exception(e.Message);
                 }
             }
         }

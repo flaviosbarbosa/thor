@@ -1,8 +1,8 @@
 AgendaPastoral - testado sem falhas
 Beneficiario - testado sem falhas
-Eventos 
+Eventos - testado sem falhas
 Igreja - testado sem falhas
-Integrantes 
+Integrantes - testado sem falhas
 MensagemEntrante 
 MensagemSainte 
 Ministerio - testado sem falhas
@@ -11,3 +11,5 @@ Parametros - testado sem falhas
 Programacao - testado sem falhas
 TipoMensagem - Falha ao gravar novo registro por causa do enum;
 Usuario - Testado e com falha na consulta por código;
+PedidoOracao - deve ser implementado a partir da BLL
+Participantes - deve ser implementado a partir da BLL 

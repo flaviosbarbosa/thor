@@ -29,8 +29,7 @@ namespace elroy.crusade.test
             eventos.Titulo = "Dia de Lazer e Cultura";
             eventos.Descricao = "Evento Social para a comunidade";
             eventos.Data = new DateTime(2017, 10, 12);
-            eventos.Local = "Igreja Presbiteriana Praia de Itapoã";
-            eventos.horario = new DateTime(2017, 10, 12, 17, 00, 00);
+            eventos.Local = "Igreja Presbiteriana Praia de Itapoã";            
             eventos.PastorPresente = SimNao.Sim;
             eventos.Privado = SimNao.Nao;
             eventos.Ministerio = new Factory().CriaMinisterio();
