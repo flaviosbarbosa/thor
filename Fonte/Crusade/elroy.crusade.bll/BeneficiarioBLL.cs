@@ -21,7 +21,7 @@ namespace elroy.crusade.Infra
                 {
                     try
                     {
-                        conn.Execute(@"INSERT INTO BENEFICIARIO                                               
+                       beneficiario.Id = (int)conn.ExecuteScalar(@"INSERT INTO BENEFICIARIO                                               
                                          ( NOME,
                                           EMAIL,
                                           TELEFONE,
@@ -37,6 +37,7 @@ namespace elroy.crusade.Infra
                                           CIDADE,
                                           UF,
                                           CELULAR)
+                                          OUTPUT INSERTED.id
                                          VALUES                                               
                                           (@NOME,
                                           @EMAIL,
@@ -54,23 +55,7 @@ namespace elroy.crusade.Infra
                                           @UF,
                                           @CELULAR)", beneficiario);
 
-                        return conn.QueryFirst<Beneficiario>(@"SELECT ID,
-                                                                      NOME,
-                                                                      EMAIL,
-                                                                      TELEFONE,
-                                                                      DATACADASTRO,
-                                                                      TIPOBENEFICIARIO,
-                                                                      ATIVO,
-                                                                      TIPOPESSOA,
-                                                                      DOCUMENTOI,
-                                                                      DOCUMENTOII,
-                                                                      ENDERECO,
-                                                                      NUMERO,
-                                                                      BAIRRO,
-                                                                      CIDADE,
-                                                                      UF,
-                                                                      CELULAR
-                                                                  FROM BENEFICIARIO", beneficiario);
+                        return beneficiario;                            
                     }
                     catch (Exception e)
                     {

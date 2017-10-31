@@ -20,12 +20,13 @@ namespace elroy.crusade.bll
                 {
                     try
                     {
-                        conn.Execute(@"INSERT INTO PROFISSAO (DESCRICAO) VALUES (@Descricao)", profissao);
+                        profissao.Id = (int)conn.ExecuteScalar(@"INSERT INTO PROFISSAO (DESCRICAO) OUTPUT INSERTED.id VALUES (@Descricao)", profissao);
 
-                        return this.Busca(profissao.Descricao);
+                        return profissao;
                     }
                     catch (Exception e)
                     {
+                        return new Profissao();
                         throw new Exception(e.Message);
                     }
                 }                

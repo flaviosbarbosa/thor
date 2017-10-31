@@ -18,7 +18,7 @@ namespace elroy.crusade.bll
                 {
                     try
                     {
-                        conn.Execute(@"INSERT INTO PedidoOracao
+                        pedidoOracao.Id = (int)conn.ExecuteScalar(@"INSERT INTO PedidoOracao
 	    	                            (
                                         CodMensagemEntrante,
                                         CodSolicitante,
@@ -27,6 +27,7 @@ namespace elroy.crusade.bll
                                         Assunto,
                                         Descricao,
                                         DescricaoRevisada)
+                                        OUTPUT INSERTED.id
                                         VALUES
                                         (
                                         @CodMensagemEntrante,
@@ -37,16 +38,7 @@ namespace elroy.crusade.bll
                                         @Descricao,
                                         @DescricaoRevisada)", pedidoOracao);
 
-                        return conn.QueryFirst<PedidoOracao>(@"SELECT ID,   
-                                                                      CodMensagemEntrante,
-                                                                      CodSolicitante,
-                                                                      NomeSolicitante,
-                                                                      DataSolicitacao,
-                                                                      Assunto,
-                                                                      Descricao,
-                                                                      DescricaoRevisada
-                                                                      Lembrete 
-                                                                 FROM PedidoOracao", pedidoOracao);
+                        return pedidoOracao;
                     }
                     catch (Exception e)
                     {

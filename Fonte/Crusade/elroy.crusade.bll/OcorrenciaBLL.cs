@@ -20,23 +20,19 @@ namespace elroy.crusade.Infra
                 {
                     try
                     {
-                        conn.Execute(@"INSERT INTO OCORRENCIAENTRANTE
+                        ocorrencia.Id = (int)conn.ExecuteScalar(@"INSERT INTO OCORRENCIAENTRANTE
                                                    ( CODMENSAGEMENTRANTE,
                                                      CODRESPONSAVEL,
                                                      DESCRICAO,
                                                      DATA)
+                                                    OUTPUT INSERTED.id    
                                              VALUES
                                                    (@CODMENSAGEMENTRANTE,
                                                     @CODRESPONSAVEL,
                                                     @DESCRICAO,
                                                     @DATA)", ocorrencia);                      
                          
-                         return conn.QueryFirst<OcorrenciaEntrante>(@"SELECT ID,
-                                                                             CODMENSAGEMENTRANTE,
-                                                                             CODRESPONSAVEL,
-                                                                             DESCRICAO,
-                                                                             DATA
-                                                                        FROM OCORRENCIAENTRANTE", ocorrencia);
+                         return ocorrencia;
                     }
                     catch (Exception e)
                     {

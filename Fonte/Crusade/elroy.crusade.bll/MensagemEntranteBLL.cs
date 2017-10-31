@@ -17,7 +17,7 @@ namespace elroy.crusade.Infra
                 {
                     try
                     {
-                        conn.Execute(@"INSERT INTO MENSAGEMENTRANTE
+                        mensagemEntrante.Id = (int)conn.ExecuteScalar(@"INSERT INTO MENSAGEMENTRANTE
                                            (CODTIPOMENSAGEM
                                            ,CODRESPONSAVEL
                                            ,CODSOLICITANTE
@@ -30,6 +30,7 @@ namespace elroy.crusade.Infra
                                            ,DATACONTATO
                                            ,FREQUENTA
                                            ,SITUACAO)
+                                    OUTPUT INSERTED.id
                                      VALUES
                                            (
                                            @CODTIPOMENSAGEM
@@ -45,20 +46,7 @@ namespace elroy.crusade.Infra
                                            ,@FREQUENTA
                                            ,@SITUACAO)", mensagemEntrante);
 
-                        return conn.QueryFirst<MensagemEntrante>(@"SELECT ID
-                                                                        ,CODTIPOMENSAGEM
-                                                                        ,CODRESPONSAVEL
-                                                                        ,CODSOLICITANTE
-                                                                        ,NOMESOLICITANTE
-                                                                        ,ASSUNTO
-                                                                        ,MENSAGEM
-                                                                        ,EMAILCONTATO
-                                                                        ,PERMITERETORNO
-                                                                        ,TELEFONECONTATO
-                                                                        ,DATACONTATO
-                                                                        ,FREQUENTA
-                                                                        ,SITUACAO
-                                                                      FROM MENSAGEMENTRANTE", mensagemEntrante);
+                        return mensagemEntrante;
                     }
                     catch (Exception e)
                     {
@@ -127,7 +115,8 @@ namespace elroy.crusade.Infra
                                                                         ,DATACONTATO
                                                                         ,FREQUENTA
                                                                         ,SITUACAO
-                                                                  FROM MENSAGEMENTRANTE", new { Id = id });
+                                                                  FROM MENSAGEMENTRANTE
+                                                              WHERE id = @id", new { Id = id });
 
 
                 }

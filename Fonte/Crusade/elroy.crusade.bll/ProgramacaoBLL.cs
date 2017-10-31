@@ -8,35 +8,33 @@ namespace elroy.crusade.Infra
 {
     public class ProgramacaoBLL
     {
-        public Programacao Grava(Programacao Programacao)
+        public Programacao Grava(Programacao programacao)
         {
             // parei ontem criando a conexao com o banco
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
 
-                if (Programacao.Id == 0)
+                if (programacao.Id == 0)
                 {
                     try
                     {
-                        conn.Execute(@"INSERT INTO PROGRAMACAO
+                        programacao.Id = (int)conn.ExecuteScalar(@"INSERT INTO PROGRAMACAO
                                            (CODIGREJA,
                                            TITULO,
                                            DESCRICAO)
+                                           OUTPUT INSERTED.id 
                                      VALUES
                                            (
                                            @CODIGREJA,
                                            @TITULO,
-                                           @DESCRICAO)", Programacao);
+                                           @DESCRICAO)", programacao);
 
-                        return conn.QueryFirst<Programacao>(@"SELECT ID,
-                                                                    CODIGREJA,
-                                                                    TITULO,
-                                                                    DESCRICAO
-                                                               FROM Programacao", Programacao);
+                        return programacao;
                     }
-                    catch (Exception )
+                    catch (Exception e)
                     {
                         return new Programacao();
+                        throw new Exception(e.Message);
                     }
                 }
                 else
@@ -47,12 +45,12 @@ namespace elroy.crusade.Infra
                                           SET CODIGREJA = @CODIGREJA,
                                               TITULO = @TITULO,
                                               DESCRICAO = @DESCRICAO 
-                                            WHERE id = @id", Programacao);
+                                            WHERE id = @id", programacao);
 
                         return conn.QueryFirst<Programacao>(@"SELECT ID,
                                                                     CODIGREJA,
                                                                     TITULO,
-                                                                    DESCRICAO FROM Programacao", Programacao);
+                                                                    DESCRICAO FROM Programacao", programacao);
                     }
                     catch (Exception)
                     {

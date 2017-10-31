@@ -17,23 +17,22 @@ namespace elroy.crusade.Infra
                 {
                     try
                     {
-                        conn.Execute(@"INSERT INTO PARAMETROS
+                        parametros.id = (int)conn.ExecuteScalar(@"INSERT INTO PARAMETROS
                                         (
                                               LOCALIZACAO,
                                               EXIBIRLOCALIZACAO)
+                                            OUTPUT INSERTED.id
                                              VALUES
                                         (
                                               @LOCALIZACAO,
                                               @EXIBIRLOCALIZACAO)", parametros);
 
-                        return conn.QueryFirst<Parametros>(@"SELECT ID,
-                                                                   LOCALIZACAO,
-                                                                   EXIBIRLOCALIZACAO
-                                                    FROM PARAMETROS", parametros);
+                        return parametros;
                     }
-                    catch (Exception )
+                    catch (Exception e)
                     {
                         return new Parametros();
+                        throw new Exception(e.Message);
                     }
                 }
                 else
@@ -66,7 +65,8 @@ namespace elroy.crusade.Infra
                     return conn.QueryFirst<Parametros>(@"SELECT ID,
                                                                    LOCALIZACAO,
                                                                    EXIBIRLOCALIZACAO
-                                                    FROM PARAMETROS", new { Id = id });
+                                                           FROM PARAMETROS
+                                                           WHERE id = @id", new { Id = id });
 
 
                 }

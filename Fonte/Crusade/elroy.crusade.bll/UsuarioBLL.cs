@@ -9,17 +9,15 @@ namespace elroy.crusade.Infra
     public class UsuarioBLL
     {
         public Usuario Grava(Usuario usuario)
-        {
-            // parei ontem criando a conexao com o banco
+        {           
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
 
                 if (usuario.Id == 0)
-                {                    
-                    //try
-                    //{
-                    //conn.Query(@"INSERT INTO [dbo].[USUARIO]
-                    conn.Execute(@"INSERT INTO USUARIO
+                {
+                    try
+                    {        
+                        usuario.Id = (int)conn.ExecuteScalar(@"INSERT INTO USUARIO
                                        (
                                        NOME,
                                        LOGIN,
@@ -27,6 +25,7 @@ namespace elroy.crusade.Infra
                                        ATIVO,
                                        CPF,
                                        EMAIL)
+                                        OUTPUT INSERTED.id
                                  VALUES
                                        (
                                        @NOME,
@@ -36,13 +35,14 @@ namespace elroy.crusade.Infra
                                        @CPF,
                                        @EMAIL)", usuario);
 
-                    return conn.QueryFirst<Usuario>(@"SELECT * FROM USUARIO WHERE Nome = @Nome", new { Nome = usuario.Nome }); 
-                    //TODO: Verificar porque está retornando 'S' ao consultar e não 'SIM'
-                    //}
-                    //catch (Exception e)
-                    //{
-                    //    return new usuario();
-                    //}
+                    return usuario;
+                        //TODO: Verificar porque está retornando 'S' ao consultar e não 'SIM'
+                    }
+                    catch (Exception e)
+                    {
+                        return new Usuario();
+                        throw new Exception(e.Message);
+                    }
                 }
                 else
                     try

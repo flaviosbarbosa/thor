@@ -17,22 +17,21 @@ namespace elroy.crusade.Infra
                 {
                     try
                     {
-                        conn.Execute(@"INSERT INTO TIPOMENSAGEM
+                        tipoMensagem.Id = (int) conn.ExecuteScalar(@"INSERT INTO TIPOMENSAGEM
                                                (TIPO,
                                                DESCRICAO)
+                                              OUTPUT INSERTED.id  
                                          VALUES
                                                (
                                                @TIPO,
                                                @DESCRICAO)", tipoMensagem);
 
-                        return conn.QueryFirst<TipoMensagem>(@"SELECT ID,
-                                                                      TIPO,
-                                                                      DESCRICAO
-                                                                  FROM TIPOMENSAGEM", tipoMensagem);
+                        return tipoMensagem;
                     }
-                    catch (Exception )
+                    catch (Exception e )
                     {
                         return new TipoMensagem();
+                        throw new Exception(e.Message);
                     }
                 }
                 else
@@ -65,7 +64,8 @@ namespace elroy.crusade.Infra
                     return conn.QueryFirst<TipoMensagem>(@"SELECT ID,
                                                                   TIPO,
                                                                   DESCRICAO
-                                                              FROM TIPOMENSAGEM", new { Id = id });
+                                                              FROM TIPOMENSAGEM
+                                                              WHERE id = @id", new { Id = id });
 
 
                 }

@@ -17,20 +17,17 @@ namespace elroy.crusade.Infra
                 {
                     try
                     {
-                        conn.Execute(@"INSERT INTO INTEGRANTES
+                        integrantes.Id = (int)conn.ExecuteScalar(@"INSERT INTO INTEGRANTES
                                                (CODBENEFICIARIO,
                                                CODMINISTERIO,
                                                ATIVO)
+                                          OUTPUT INSERTED.id  
                                          VALUES
                                                (@CODBENEFICIARIO,
                                                 @CODMINISTERIO,
                                                 @ATIVO)", integrantes);
 
-                        return conn.QueryFirst<Integrantes>(@"SELECT ID,
-                                                                     CODBENEFICIARIO,
-                                                                     CODMINISTERIO,
-                                                                     ATIVO
-                                                                FROM INTEGRANTES", integrantes);
+                        return integrantes;
                     }
                     catch (Exception )
                     {

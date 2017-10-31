@@ -8,32 +8,29 @@ namespace elroy.crusade.Infra
 {
     public class MinisterioBLL
     {
-        public Ministerio Grava(Ministerio Ministerio)
+        public Ministerio Grava(Ministerio ministerio)
         {
             // parei ontem criando a conexao com o banco
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
 
-                if (Ministerio.Id == 0)
+                if (ministerio.Id == 0)
                 {
                     try
                     {
-                        conn.Execute(@"INSERT INTO MINISTERIOS
+                        ministerio.Id = (int)conn.ExecuteScalar(@"INSERT INTO MINISTERIOS
                                            (
                                            CODRESPONSAVEL,
                                            NOME,
                                            DESCRICAO)
+                                           OUTPUT INSERTED.id
                                      VALUES
                                            (
                                            @CODRESPONSAVEL,
                                            @NOME,
-                                           @DESCRICAO)", Ministerio);
+                                           @DESCRICAO)", ministerio);
 
-                        return conn.QueryFirst<Ministerio>(@"SELECT ID,
-                                                                      CODRESPONSAVEL,
-                                                                      NOME,
-                                                                      DESCRICAO
-                                                                  FROM MINISTERIOS", Ministerio);
+                        return ministerio;
                     }
                     catch (Exception e )
                     {
@@ -49,13 +46,13 @@ namespace elroy.crusade.Infra
                                        SET CODRESPONSAVEL = @CODRESPONSAVEL,
                                           NOME = @NOME,
                                           DESCRICAO = @DESCRICAO
-                                            WHERE id = @id", Ministerio);
+                                            WHERE id = @id", ministerio);
 
                         return conn.QueryFirst<Ministerio>(@"SELECT ID,
                                                                       CODRESPONSAVEL,
                                                                       NOME,
                                                                       DESCRICAO
-                                                                  FROM MINISTERIOS", Ministerio);
+                                                                  FROM MINISTERIOS", ministerio);
                     }
                     catch (Exception)
                     {
@@ -74,7 +71,8 @@ namespace elroy.crusade.Infra
                                                                   CODRESPONSAVEL,
                                                                   NOME,
                                                                   DESCRICAO
-                                                              FROM MINISTERIOS", new { Id = id });
+                                                              FROM MINISTERIOS
+                                                            where ID = @id", new { Id = id });
                 }
                 catch (Exception e)
                 {

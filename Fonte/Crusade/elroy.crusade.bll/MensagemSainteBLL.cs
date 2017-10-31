@@ -8,35 +8,30 @@ namespace elroy.crusade.Infra
 {
     public class MensagemSainteBLL
     {
-        public MensagemSainte Grava(MensagemSainte MensagemSainte)
+        public MensagemSainte Grava(MensagemSainte mensagemSainte)
         {
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
 
-                if (MensagemSainte.Id == 0)
+                if (mensagemSainte.Id == 0)
                 {
                     try
                     {
-                        conn.Execute(@"INSERT INTO MENSAGEMSAINTE
+                        mensagemSainte.Id = (int)conn.ExecuteScalar(@"INSERT INTO MENSAGEMSAINTE
                                         (CODMINISTERIO,
                                         CODTIPOMENSAGEM,
                                         MENSAGEM,
                                         DATAENVIO,
                                         CODMENSAGEMENTRANTE)
+                                    OUTPUT INSERTED.id
                                     VALUES
                                         (@CODMINISTERIO,
                                         @CODTIPOMENSAGEM,
                                         @MENSAGEM,
                                         @DATAENVIO,
-                                        @CODMENSAGEMENTRANTE)", MensagemSainte);
+                                        @CODMENSAGEMENTRANTE)", mensagemSainte);
 
-                        return conn.QueryFirst<MensagemSainte>(@"SELECT ID
-                                                                      , CODMINISTERIO
-                                                                      , CODTIPOMENSAGEM
-                                                                      , MENSAGEM
-                                                                      , DATAENVIO
-                                                                      , CODMENSAGEMENTRANTE  
-                                                                      FROM MENSAGEMSAINTE", MensagemSainte);
+                        return mensagemSainte;
                     }
                     catch (Exception e )
                     {
@@ -54,7 +49,7 @@ namespace elroy.crusade.Infra
                                               CODMENSAGEMENTRANTE = @CODMENSAGEMENTRANTE,
                                               MENSAGEM = @MENSAGEM,
                                               DATAENVIO = @DATAENVIO
-                                        WHERE id = @id", MensagemSainte);
+                                        WHERE id = @id", mensagemSainte);
 
                         return conn.QueryFirst<MensagemSainte>(@"SELECT ID
                                                                       , CODMINISTERIO
@@ -62,7 +57,7 @@ namespace elroy.crusade.Infra
                                                                       , MENSAGEM
                                                                       , DATAENVIO
                                                                       , CODMENSAGEMENTRANTE  
-                                                                      FROM MENSAGEMSAINTE", MensagemSainte);
+                                                                      FROM MENSAGEMSAINTE", mensagemSainte);
                     }
                     catch (Exception e)
                     {

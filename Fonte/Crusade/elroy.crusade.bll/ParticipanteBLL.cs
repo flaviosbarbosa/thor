@@ -17,13 +17,14 @@ namespace elroy.crusade.bll
                 if (participante.Id == 0)
                 {
                     try
-                    {                      
-                    conn.Execute(@"INSERT INTO Participantes
+                    {
+                        participante.Id = (int)conn.ExecuteScalar(@"INSERT INTO Participantes
 	    	                            (
                                         Situacao,
                                         CodMembro,
                                         CodEvento,
                                         Lembrete)
+                                        OUTPUT INSERTED.id        
                                         VALUES
                                         (
                                         @Situacao,
@@ -31,11 +32,7 @@ namespace elroy.crusade.bll
                                         @CodEvento,
                                         @Lembrete)", participante);
 
-                    return conn.QueryFirst<Participantes>(@"SELECT ID,   
-                                                                   Situacao,
-                                                                   CodMembro,
-                                                                   CodEvento,
-                                                                   Lembrete FROM Participantes", participante);
+                        return participante;
                     }
                     catch (Exception e)
                     {

@@ -11,18 +11,17 @@ namespace elroy.crusade.Infra
 {
     public class IgrejaBLL
     {
-        public Igreja Grava(Igreja Igreja)
+        public Igreja Grava(Igreja igreja)
         {
             // parei ontem criando a conexao com o banco
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
 
-                if (Igreja.Id == 0)
+                if (igreja.Id == 0)
                 {
-                    //try
-                    //{
-                    //conn.Query(@"INSERT INTO [dbo].[Igreja]
-                    conn.Execute(@"INSERT INTO IGREJA
+                    try
+                    {                        
+                    igreja.Id  = (int)conn.ExecuteScalar(@"INSERT INTO IGREJA
 	    	                                    (
                                                 RAZAOSOCIAL,
                                                 NOMEFANTASIA,
@@ -36,6 +35,7 @@ namespace elroy.crusade.Infra
                                                 TELEFONE,
                                                 CELULAR,
                                                 RESPONSAVEL)
+                                                OUTPUT INSERTED.id
                                             VALUES
                                                 (
                                                 @RAZAOSOCIAL,
@@ -49,17 +49,19 @@ namespace elroy.crusade.Infra
                                                 @CEP,
                                                 @TELEFONE,
                                                 @CELULAR,
-                                                @RESPONSAVEL)", Igreja);
+                                                @RESPONSAVEL)", igreja);                  
 
-                    return conn.QueryFirst<Igreja>(@"SELECT * FROM Igreja", Igreja);
-                    //}
-                    //catch (Exception e)
-                    //{
-                    //    return new Igreja();
-                    //}
+                    return igreja;
+                        //conn.QueryFirst<Igreja>(@"SELECT * FROM Igreja", igreja);
+                    }
+                    catch (Exception e)
+                    {
+                        return new Igreja();
+                        throw new Exception(e.Message);
+                    }
                 }
                 else
-                    //try
+                    try
                     {
                         var retorno =
                         conn.Execute(@"UPDATE IGREJA
@@ -76,14 +78,15 @@ namespace elroy.crusade.Infra
                                             TELEFONE = @TELEFONE,
                                             CELULAR = @CELULAR,
                                             RESPONSAVEL = @RESPONSAVEL
-                                        WHERE id = @id", Igreja);
+                                        WHERE id = @id", igreja);
 
-                        return conn.QueryFirst<Igreja>(@"SELECT * FROM Igreja", Igreja);
+                        return conn.QueryFirst<Igreja>(@"SELECT * FROM Igreja", igreja);
                     }
-                    //catch (Exception)
-                    //{
-                    //    return new Igreja();
-                    //}
+                    catch (Exception e)
+                    {
+                        return new Igreja();
+                        throw new Exception(e.Message);
+                    }
             }
         }
 

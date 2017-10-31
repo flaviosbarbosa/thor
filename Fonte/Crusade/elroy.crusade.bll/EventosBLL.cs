@@ -19,8 +19,8 @@ namespace elroy.crusade.Infra
                 if (eventos.Id == 0)
                 {
                     try
-                    {                        
-                        conn.Execute(@"INSERT INTO EVENTOS
+                    {
+                        eventos.Id = (int)conn.ExecuteScalar(@"INSERT INTO EVENTOS
                                         (
                                               CODMINISTERIO,
                                               TITULO,
@@ -29,6 +29,7 @@ namespace elroy.crusade.Infra
                                               LOCAL,                                              
                                               PRIVADO,
                                               PASTORPRESENTE)
+                                              OUTPUT INSERTED.id
                                              VALUES
                                         (
                                               @CODMINISTERIO,
@@ -39,15 +40,7 @@ namespace elroy.crusade.Infra
                                               @PRIVADO,
                                               @PASTORPRESENTE)", eventos);
 
-                    return conn.QueryFirst<Eventos>(@"SELECT ID,
-                                                        CODMINISTERIO,
-                                                        TITULO,
-                                                        DESCRICAO,
-                                                        DATA,
-                                                        LOCAL,                                                        
-                                                        PRIVADO,
-                                                        PASTORPRESENTE
-                                                    FROM EVENTOS", eventos);
+                    return eventos;
                     }
                     catch (Exception e )
                     {
