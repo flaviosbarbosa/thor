@@ -107,6 +107,8 @@
     <Compile Include="Controllers\MinisterioController.cs" />
     <Compile Include="Controllers\OcorrenciaController.cs" />
     <Compile Include="Controllers\ParametrosController.cs" />
+    <Compile Include="Controllers\ParticipantesController.cs" />
+    <Compile Include="Controllers\PedidoOracaoController.cs" />
     <Compile Include="Controllers\ProgramacaoController.cs" />
     <Compile Include="Controllers\TipoMensagemController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />

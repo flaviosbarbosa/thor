@@ -52,7 +52,8 @@ namespace elroy.crusade.Infra
                                                                       CODRESPONSAVEL,
                                                                       NOME,
                                                                       DESCRICAO
-                                                                  FROM MINISTERIOS", ministerio);
+                                                               FROM MINISTERIOS
+                                                              WHERE id = @id", ministerio);
                     }
                     catch (Exception)
                     {

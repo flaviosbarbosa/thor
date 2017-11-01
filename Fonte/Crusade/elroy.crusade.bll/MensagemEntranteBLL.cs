@@ -86,7 +86,8 @@ namespace elroy.crusade.Infra
                                                                         ,DATACONTATO
                                                                         ,FREQUENTA
                                                                         ,SITUACAO
-                                                                      FROM MENSAGEMENTRANTE", mensagemEntrante);
+                                                                      FROM MENSAGEMENTRANTE
+                                                                     WHERE id = @id", mensagemEntrante); 
                     }
                     catch (Exception e)
                     {

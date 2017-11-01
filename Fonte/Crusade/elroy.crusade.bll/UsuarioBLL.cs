@@ -58,7 +58,8 @@ namespace elroy.crusade.Infra
                                               EMAIL = @EMAIL
                                          WHERE id = @id", usuario);                        
                         
-                        return conn.QueryFirst<Usuario>(@"SELECT * FROM USUARIO", usuario);
+                        return conn.QueryFirst<Usuario>(@"SELECT * FROM USUARIO 
+                                                             where id = @id", usuario);
                     }
                     catch (Exception)
                     {

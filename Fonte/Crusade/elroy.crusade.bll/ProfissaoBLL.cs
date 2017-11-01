@@ -55,7 +55,7 @@ namespace elroy.crusade.bll
                 {
                     return conn.QueryFirst<Profissao>(@"SELECT ID,
                                                                DESCRICAO
-                                                          FROM PROFISSAO", new { id = id});
+                                                          FROM PROFISSAO where id = @id", new { id = id});
                 }
                 catch (Exception)
                 {

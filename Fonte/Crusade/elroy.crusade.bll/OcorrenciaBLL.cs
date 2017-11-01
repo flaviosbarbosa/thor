@@ -56,11 +56,14 @@ namespace elroy.crusade.Infra
                                                                              CODRESPONSAVEL,
                                                                              DESCRICAO,
                                                                              DATA
-                                                                        FROM OCORRENCIAENTRANTE", ocorrencia);
+                                                                        FROM OCORRENCIAENTRANTE
+                                                                  where id = @id", new { id = ocorrencia.Id });                        
                     }
-                    catch (Exception)
+                    catch (Exception e)
                     {
                         return new OcorrenciaEntrante();
+                        throw new Exception(e.Message);
+
                     }
             }
         }

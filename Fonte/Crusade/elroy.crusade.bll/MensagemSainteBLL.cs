@@ -51,13 +51,15 @@ namespace elroy.crusade.Infra
                                               DATAENVIO = @DATAENVIO
                                         WHERE id = @id", mensagemSainte);
 
-                        return conn.QueryFirst<MensagemSainte>(@"SELECT ID
-                                                                      , CODMINISTERIO
-                                                                      , CODTIPOMENSAGEM
-                                                                      , MENSAGEM
-                                                                      , DATAENVIO
-                                                                      , CODMENSAGEMENTRANTE  
-                                                                      FROM MENSAGEMSAINTE", mensagemSainte);
+                        return conn.QueryFirst<MensagemSainte>(@"SELECT ID,
+                                                                        CODMINISTERIO,
+                                                                        CODTIPOMENSAGEM,
+                                                                        MENSAGEM,
+                                                                        DATAENVIO,
+                                                                        CODMENSAGEMENTRANTE  
+                                                                   FROM MENSAGEMSAINTE
+                                                                  where id = @id", new { id = mensagemSainte.Id });
+                        //WHERE ID = @ID", mensagemSainte.Id);
                     }
                     catch (Exception e)
                     {
@@ -79,7 +81,8 @@ namespace elroy.crusade.Infra
                                                                     , MENSAGEM
                                                                     , DATAENVIO
                                                                     , CODMENSAGEMENTRANTE  
-                                                                    FROM MENSAGEMSAINTE", new { Id = id });
+                                                                    FROM MENSAGEMSAINTE
+                                                             where id = @id", new { Id = id });
 
 
                 }

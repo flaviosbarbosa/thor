@@ -12,8 +12,10 @@ E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.bll\obj\Debug\elroy.crusade.
 C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.bll\bin\Debug\elroy.crusade.bll.dll.config
 C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.bll\bin\Debug\elroy.crusade.bll.dll
 C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.bll\bin\Debug\elroy.crusade.bll.pdb
+C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.bll\bin\Debug\Dapper.dll
 C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.bll\bin\Debug\elroy.crusade.dominio.dll
 C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.bll\bin\Debug\elroy.crusade.dominio.pdb
+C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.bll\bin\Debug\Dapper.xml
 C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.bll\obj\Debug\elroy.crusade.Infra.csprojResolveAssemblyReference.cache
 C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.bll\obj\Debug\elroy.crusade.bll.dll
 C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.bll\obj\Debug\elroy.crusade.bll.pdb

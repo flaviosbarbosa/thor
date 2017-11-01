@@ -38,6 +38,7 @@ C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.test\bin\Debug\elroy.crusade
 C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.test\bin\Debug\elroy.crusade.dominio.pdb
 C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
 C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.test\bin\Debug\Dapper.xml
 C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.test\obj\Debug\elroy.crusade.test.csprojResolveAssemblyReference.cache
 C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.test\obj\Debug\elroy.crusade.test.dll
 C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.test\obj\Debug\elroy.crusade.test.pdb

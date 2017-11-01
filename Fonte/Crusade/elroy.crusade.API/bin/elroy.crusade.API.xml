@@ -429,6 +429,86 @@
             <param name="id">Informe o codigo</param>
             <remarks>Parametros atualizados</remarks>
         </member>
+        <member name="T:elroy.crusade.API.Controllers.ParticipantesController">
+            <summary>
+            Registra os participantes que confirmam presença nos eventos
+            </summary>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.ParticipantesController.Get(System.Int32)">
+            <summary>
+            Retorna um Participante por codigo
+            </summary>
+            <param name="id">Informe o codigo</param>
+            <remarks>Retorna Participante do Evento</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.ParticipantesController.Get">
+            <summary>
+            Retorna lista de Participantes de Eventos
+            </summary>
+            <remarks>Retorna lista de Participantes de Eventos</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.ParticipantesController.Post(elroy.crusade.dominio.Participantes)">
+            <summary>
+            Insere uma novo Participante
+            </summary>
+            <param name="participantes">Informe os dados a serem incluidos</param>
+            <remarks>Retorna participantes de um evento</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.ParticipantesController.Delete(System.Int32)">
+            <summary>
+            Exclui Participante 
+            </summary>
+            <param name="id">Informe o codigo do Particioante</param>
+            <remarks>Retorna Participantes excluido</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.ParticipantesController.Put(elroy.crusade.dominio.Participantes,System.Int32)">
+            <summary>
+            Atualiza Participante 
+            </summary>
+            <param name="participantes">Informe os dados do Participante</param>
+            <param name="id">Informe o código</param>
+            <remarks>Retorna Participante</remarks>
+        </member>
+        <member name="T:elroy.crusade.API.Controllers.PedidoOracaoController">
+            <summary>
+            Registram os pedidos de oração enviados pela app mobile
+            </summary>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.PedidoOracaoController.Get(System.Int32)">
+            <summary>
+            Retorna um Pedido de Oração por codigo
+            </summary>
+            <param name="id">Informe o codigo</param>
+            <remarks>Retorna Pedido de Oração</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.PedidoOracaoController.Get">
+            <summary>
+            Retorna lista de Pedidos de Oração 
+            </summary>
+            <remarks>Retorna lista de Pedidos de Oração</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.PedidoOracaoController.Post(elroy.crusade.dominio.PedidoOracao)">
+            <summary>
+            Insere uma novo Pedido de Oração 
+            </summary>
+            <param name="pedidoOracao">Informe os dados a serem incluidos</param>
+            <remarks>Retorna pedidos registrada</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.PedidoOracaoController.Delete(System.Int32)">
+            <summary>
+            Exclui Pedido de Oração
+            </summary>
+            <param name="id">Informe o codigo do Pedido de Oração</param>
+            <remarks>Retorna Pedido de Oração excluido</remarks>
+        </member>
+        <member name="M:elroy.crusade.API.Controllers.PedidoOracaoController.Put(elroy.crusade.dominio.PedidoOracao,System.Int32)">
+            <summary>
+            Atualiza Pedido Oração
+            </summary>
+            <param name="pedidoOracao">Informe os dados do Pedido de Oração</param>
+            <param name="id">Informe o código</param>
+            <remarks>Retorna Pedido de Oração atualizados</remarks>
+        </member>
         <member name="T:elroy.crusade.API.Controllers.ProgramacaoController">
             <summary>
             Registro da programação da igreja a ser enviada via mensagem para a app mobile

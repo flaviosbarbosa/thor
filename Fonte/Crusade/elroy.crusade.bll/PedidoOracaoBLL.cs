@@ -68,9 +68,9 @@ namespace elroy.crusade.bll
                                                                       DataSolicitacao,
                                                                       Assunto,
                                                                       Descricao,
-                                                                      DescricaoRevisada
-                                                                
-                                                              FROM PedidoOracao", pedidoOracao);
+                                                                      DescricaoRevisada                                                                
+                                                              FROM PedidoOracao
+                                                             where id = @id", pedidoOracao);
                     }
                     catch (Exception e)
                     {

@@ -57,7 +57,9 @@ namespace elroy.crusade.bll
                                                                    CodMembro,
                                                                    CodEvento,
                                                                    Lembrete 
-                                                              FROM Participantes", participante);
+                                                              FROM Participantes
+                                                                  where id = @id", new { id = participante.Id });
+                        
                 }
                 catch (Exception e)
                 {

@@ -48,7 +48,8 @@ namespace elroy.crusade.Infra
                                                                      CODBENEFICIARIO,
                                                                      CODMINISTERIO,
                                                                      ATIVO
-                                                                FROM INTEGRANTES", integrantes);
+                                                                FROM INTEGRANTES
+                                                                  where id = @id", new { id = integrantes.Id });                        
                     }
                     catch (Exception)
                     {

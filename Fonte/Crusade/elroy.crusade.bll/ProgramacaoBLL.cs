@@ -50,7 +50,9 @@ namespace elroy.crusade.Infra
                         return conn.QueryFirst<Programacao>(@"SELECT ID,
                                                                     CODIGREJA,
                                                                     TITULO,
-                                                                    DESCRICAO FROM Programacao", programacao);
+                                                                    DESCRICAO 
+                                                                FROM Programacao
+                                                             where id = @id", programacao);
                     }
                     catch (Exception)
                     {
