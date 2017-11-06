@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_lista_alunos"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btnnovo_perfil"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/fundo"
+        android:elevation="6dp"
+        android:stateListAnimator="@null"
+        android:text="+"
+        android:textColor="#fff"
+        android:textSize="40sp" />
+
+    <EditText
+        android:id="@+id/txtTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:ems="10"
+        android:inputType="none"
+        android:scrollbarSize="60sp"
+        android:text="Perfil"
+        android:textSize="30sp"/>
+
+    <EditText
+        android:id="@+id/txtNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/txtTitulo"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:hint="Informe seu nome"
+        android:inputType="textPersonName"/>
+
+    <EditText
+        android:id="@+id/txtemail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/txtNome"
+        android:ems="10"
+        android:hint="Informe seu e-mail"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/txtProfissao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/txtemail"
+        android:ems="10"
+        android:hint="Informe sua profissao"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/txtDataNascimento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/txtProfissao"
+        android:ems="10"
+        android:inputType="date" />
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/rdgGenero"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/txtDataNascimento">
+
+        <RadioButton
+            android:id="@+id/rdgMasculino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/txtDataNascimento"
+            android:checked="true"
+            android:text="Masculino" />
+
+        <RadioButton
+            android:id="@+id/rdgFeminino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/txtDataNascimento"
+            android:layout_centerHorizontal="true"
+            android:checked="false"
+            android:text="Feminino" />
+    </RadioGroup>
+
+    <CheckBox
+        android:id="@+id/ckbMembro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="15dp"
+        android:text="É membro?"
+        android:layout_below="@+id/rdgGenero"
+        android:layout_alignParentStart="true" />
+
+    <CheckBox
+        android:id="@+id/ckbContato"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/ckbMembro"
+        android:layout_below="@+id/ckbMembro"
+        android:text="Permite contato sobre os Pedidos de Oração?" />
+
+    <CheckBox
+        android:id="@+id/ckbDivulgacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/ckbContato"
+        android:layout_below="@+id/ckbContato"
+        android:text="Permite divulgar sua profissão para a comunidade?" />
+
+</RelativeLayout>

@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Crusade Mobile</string>
+    <string name="title_home">Início</string>
+    <string name="title_notifications">Notificaçōes</string>
+    <string name="title_pedidooracao">Pedido Oração</string>
+    <string name="title_eventos">Eventos</string>
+    <string name="title_AgendaPastoral">Agenda Pastoral</string>
+    <string name="title_boletim">Boletim</string>
+    <string name="title_perfil">Perfil</string>
+    <string name="proximos_eventos">Meus próximos eventos</string>
+    <string name="title_activity_perfil">PerfilActivity</string>
+    <string name="Titulo_Eventos">Próximos Eventos</string>
+    <string name="Periodo_Evento">Selecione o Período</string>
+    <string name="Titulo_Eventosdetalhado">Detalhes do Evento</string>
+    <string name="Titulo">Título</string>
+    <string name="Descricao">Descricao do Evento</string>
+    <string name="Data">Data</string>
+    <string name="Horario">Horário</string>
+    <string name="Local">Local</string>
+</resources>
