@@ -20,14 +20,14 @@ namespace elroy.crusade.API.Controllers
         /// <remarks>Retorna Programacao</remarks>
         [Route("API/BuscaProgramacao/{id}")]
         [HttpGet]
-        public HttpResponseMessage Get(int id)
+        public HttpResponseMessage Get(String id)
         {
             try
             {
                 ProgramacaoBLL progbll = new ProgramacaoBLL();
                 var programacao = progbll.BuscaPorCodigo(id);
 
-                if (programacao.Id != 0)
+                if (!String.IsNullOrEmpty(programacao.Id))
                     return Request.CreateResponse(HttpStatusCode.OK, programacao);
                 else
                     throw new KeyNotFoundException();
@@ -92,7 +92,7 @@ namespace elroy.crusade.API.Controllers
         /// <remarks>Retorna Programação excluida</remarks>
         [Route("API/DeletaProgramacao/{id}")]
         [HttpDelete]
-        public HttpResponseMessage Delete([FromUri] int id)
+        public HttpResponseMessage Delete([FromUri] String id)
         {
             ProgramacaoBLL PROGBll = new ProgramacaoBLL();
             PROGBll.Deleta(PROGBll.BuscaPorCodigo(id));

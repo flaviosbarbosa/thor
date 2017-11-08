@@ -19,7 +19,7 @@ namespace elroy.crusade.test
         public void CriaIgreja()
         {
             this.igreja = new Igreja();
-            igreja.Id = 0;
+            igreja.Id = new FuncoesAuxiliaresBLL().GeraGuid();
             igreja.Razaosocial = "Igreja da Gloria";
             igreja.Nomefantasia= "Igreja da Gloria Divina";
             igreja.Cnpj = "07354222000160";
@@ -60,7 +60,7 @@ namespace elroy.crusade.test
         public void BuscaIgrejaporCodigo()
         {
             var usuretorno = conexao.Grava(igreja);
-            igreja = conexao.BuscaPorCodigo(usuretorno.Id);
+            igreja = conexao.Busca(usuretorno.Id);
             Assert.AreEqual(usuretorno.Id, igreja.Id, "Não foi possivel localizar o igreja");
         }
 
@@ -68,7 +68,7 @@ namespace elroy.crusade.test
         public void AtualizaIgreja()
         {
             var usuretorno = conexao.Grava(igreja);
-            igreja = conexao.BuscaPorCodigo(usuretorno.Id);
+            igreja = conexao.Busca(usuretorno.Id);
 
             var fantasia = "alterando fantasia";
             igreja.Nomefantasia = fantasia;

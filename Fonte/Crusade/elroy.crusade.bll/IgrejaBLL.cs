@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using elroy.crusade.dominio;
+using elroy.crusade.Infra.Enum;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -10,19 +11,35 @@ using System.Threading.Tasks;
 namespace elroy.crusade.Infra
 {
     public class IgrejaBLL
-    {
+    {     
+        
         public Igreja Grava(Igreja igreja)
         {
+            string acao;
+            FuncoesAuxiliaresBLL funcoes = new FuncoesAuxiliaresBLL();
+
             // parei ontem criando a conexao com o banco
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
+                // se ID não for nulo
+                if (!string.IsNullOrEmpty(igreja.Id))
+                {
+                    acao = funcoes.DefineAcao(this.GetType().Name, igreja.Id);
+                }
+                else
+                {
+                    igreja.Id = funcoes.GeraGuid();
+                    acao = Acoes.Inserir.ToString();
+                }
 
-                if (igreja.Id == 0)
+
+                if (acao == Acoes.Inserir.ToString())
                 {
                     try
                     {                        
-                    igreja.Id  = (int)conn.ExecuteScalar(@"INSERT INTO IGREJA
+                    conn.Execute(@"INSERT INTO IGREJA
 	    	                                    (
+                                                ID,
                                                 RAZAOSOCIAL,
                                                 NOMEFANTASIA,
                                                 CNPJ,
@@ -35,9 +52,9 @@ namespace elroy.crusade.Infra
                                                 TELEFONE,
                                                 CELULAR,
                                                 RESPONSAVEL)
-                                                OUTPUT INSERTED.id
                                             VALUES
-                                                (
+                                                (   
+                                                @ID,
                                                 @RAZAOSOCIAL,
                                                 @NOMEFANTASIA,
                                                 @CNPJ,
@@ -50,9 +67,7 @@ namespace elroy.crusade.Infra
                                                 @TELEFONE,
                                                 @CELULAR,
                                                 @RESPONSAVEL)", igreja);                  
-
-                    return igreja;
-                        //conn.QueryFirst<Igreja>(@"SELECT * FROM Igreja", igreja);
+                    return igreja;                        
                     }
                     catch (Exception e)
                     {
@@ -90,7 +105,7 @@ namespace elroy.crusade.Infra
             }
         }
 
-        public Igreja BuscaPorCodigo(int id)
+        public Igreja Busca(string id)
         {
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {

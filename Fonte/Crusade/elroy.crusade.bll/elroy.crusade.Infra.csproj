@@ -45,9 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enum\Acoes.cs" />
     <Compile Include="AgendaPastoralBLL.cs" />
     <Compile Include="BeneficiarioBLL.cs" />
     <Compile Include="EventosBLL.cs" />
+    <Compile Include="FuncoesAuxiliaresBLL.cs" />
     <Compile Include="IgrejaBLL.cs" />
     <Compile Include="IntegrantesBLL.cs" />
     <Compile Include="MensagemEntranteBLL.cs" />

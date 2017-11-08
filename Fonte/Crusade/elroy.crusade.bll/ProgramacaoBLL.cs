@@ -14,11 +14,11 @@ namespace elroy.crusade.Infra
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
 
-                if (programacao.Id == 0)
+                if (programacao.Id == "0")
                 {
                     try
                     {
-                        programacao.Id = (int)conn.ExecuteScalar(@"INSERT INTO PROGRAMACAO
+                        programacao.Id = (String)conn.ExecuteScalar(@"INSERT INTO PROGRAMACAO
                                            (CODIGREJA,
                                            TITULO,
                                            DESCRICAO)
@@ -61,7 +61,7 @@ namespace elroy.crusade.Infra
             }
         }
 
-        public Programacao BuscaPorCodigo(int id)
+        public Programacao BuscaPorCodigo(String id)
         {
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {

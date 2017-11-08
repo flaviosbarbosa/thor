@@ -5,12 +5,12 @@ namespace elroy.crusade.dominio
 {
    public class Programacao
     {       
-       public int Id { get; set; }
+       public String Id { get; set; }
 
         public Igreja Igreja { get; set; }
                 
         [Display(Name = "Igreja")]
-        public int CodIgreja { get; set; }
+        public String CodIgreja { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(500, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]

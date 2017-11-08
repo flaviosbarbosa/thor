@@ -150,7 +150,7 @@
             Controle sobre as ações da Igreja
             </summary>
         </member>
-        <member name="M:elroy.crusade.API.Controllers.IgrejaController.Get(System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.IgrejaController.Get(System.String)">
             <summary>
             Retorna uma igreja pelo codigo
             </summary>
@@ -176,7 +176,7 @@
             <response code="400">Falha ao enviar os dados ao servidor</response>
             <response code="500">Não foi possível salvar os dados no servidor</response>        
         </member>
-        <member name="M:elroy.crusade.API.Controllers.IgrejaController.Delete(System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.IgrejaController.Delete(System.String)">
             <summary>
             Exclui Igreja
             </summary>
@@ -514,7 +514,7 @@
             Registro da programação da igreja a ser enviada via mensagem para a app mobile
             </summary>
         </member>
-        <member name="M:elroy.crusade.API.Controllers.ProgramacaoController.Get(System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.ProgramacaoController.Get(System.String)">
             <summary>
             Retorna uma Programacao por codigo
             </summary>
@@ -534,7 +534,7 @@
             <param name="programacao">Informe os dados a serem incluidos</param>
             <remarks>Retorna programa registrada</remarks>
         </member>
-        <member name="M:elroy.crusade.API.Controllers.ProgramacaoController.Delete(System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.ProgramacaoController.Delete(System.String)">
             <summary>
             Exclui programação
             </summary>

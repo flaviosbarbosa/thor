@@ -26,14 +26,14 @@ namespace elroy.crusade.API.Controllers
         [Route("{id:int}")]
         [ResponseType(typeof(int))]
         [HttpGet]
-        public HttpResponseMessage Get(int id)
+        public HttpResponseMessage Get(string id)
         {
             try
             {
                 IgrejaBLL igrejaBLL = new IgrejaBLL();
-                var igreja = igrejaBLL.BuscaPorCodigo(id);
+                var igreja = igrejaBLL.Busca(id);
 
-                if (igreja.Id != 0)
+                if (!string.IsNullOrEmpty(igreja.Id))
                     return Request.CreateResponse(HttpStatusCode.OK, igreja);
                 else
                     throw new KeyNotFoundException();
@@ -107,10 +107,10 @@ namespace elroy.crusade.API.Controllers
         /// <response code="500">Não foi possível excluir os dados no servidor</response>        
         [Route("{id:int}")]        
         [HttpDelete]
-        public HttpResponseMessage Delete([FromUri] int id)
+        public HttpResponseMessage Delete([FromUri] String id)
         {
             IgrejaBLL igrejaBLL = new IgrejaBLL();            
-            igrejaBLL.Deleta(igrejaBLL.BuscaPorCodigo(id));
+            igrejaBLL.Deleta(igrejaBLL.Busca(id));
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
