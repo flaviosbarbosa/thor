@@ -23,7 +23,7 @@ namespace elroy.crusade.test
         public void CriaOcorrencia()
         {
             this.ocorrenciaEntrante = new OcorrenciaEntrante();
-            ocorrenciaEntrante.Id = 0;
+            ocorrenciaEntrante.Id = "";
             
             ocorrenciaEntrante.Responsavel = new BeneficiarioBLL().Grava(new Factory().CriaBeneficiario());
             ocorrenciaEntrante.CodResponsavel = ocorrenciaEntrante.Responsavel.Id;
@@ -60,7 +60,7 @@ namespace elroy.crusade.test
         public void BuscaOcorrenciaporCodigo()
         {
             var usuretorno = conexao.Grava(ocorrenciaEntrante);
-            ocorrenciaEntrante = conexao.BuscaPorCodigo(usuretorno.Id);
+            ocorrenciaEntrante = conexao.Busca(usuretorno.Id);
             Assert.AreEqual(usuretorno.Id, ocorrenciaEntrante.Id, "Não foi possivel localizar o Ocorrencia");
         }
 
@@ -68,7 +68,7 @@ namespace elroy.crusade.test
         public void AtualizaOcorrencia()
         {
             var Ocorrenciaretorno = conexao.Grava(ocorrenciaEntrante);
-            ocorrenciaEntrante = conexao.BuscaPorCodigo(Ocorrenciaretorno.Id);
+            ocorrenciaEntrante = conexao.Busca(Ocorrenciaretorno.Id);
 
             var descricao = "Sem noção";
             ocorrenciaEntrante.Descricao = descricao;

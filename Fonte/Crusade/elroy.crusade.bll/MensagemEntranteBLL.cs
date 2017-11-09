@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using elroy.crusade.dominio;
+using elroy.crusade.Infra.Enum;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -10,15 +11,27 @@ namespace elroy.crusade.Infra
     {
         public MensagemEntrante Grava(MensagemEntrante mensagemEntrante)
         {
+            string acao;
+            FuncoesAuxiliaresBLL funcoes = new FuncoesAuxiliaresBLL();
+
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
+                // se ID não for nulo
+                if (!string.IsNullOrEmpty(mensagemEntrante.Id))
+                    acao = funcoes.DefineAcao(this.GetType().Name, mensagemEntrante.Id);
+                else
+                {
+                    mensagemEntrante.Id = funcoes.GeraGuid();
+                    acao = Acoes.Inserir.ToString();
+                }
 
-                if (mensagemEntrante.Id == 0)
+                if (acao == Acoes.Inserir.ToString())
+
                 {
                     try
                     {
-                        mensagemEntrante.Id = (int)conn.ExecuteScalar(@"INSERT INTO MENSAGEMENTRANTE
-                                           (CODTIPOMENSAGEM
+                        conn.Execute(@"INSERT INTO MENSAGEMENTRANTE
+                                           (ID,CODTIPOMENSAGEM
                                            ,CODRESPONSAVEL
                                            ,CODSOLICITANTE
                                            ,NOMESOLICITANTE
@@ -29,10 +42,9 @@ namespace elroy.crusade.Infra
                                            ,TELEFONECONTATO
                                            ,DATACONTATO
                                            ,FREQUENTA
-                                           ,SITUACAO)
-                                    OUTPUT INSERTED.id
+                                           ,SITUACAO)                                    
                                      VALUES
-                                           (
+                                           (@ID,
                                            @CODTIPOMENSAGEM
                                            ,@CODRESPONSAVEL
                                            ,@CODSOLICITANTE
@@ -97,7 +109,7 @@ namespace elroy.crusade.Infra
             }
         }
 
-        public MensagemEntrante BuscaPorCodigo(int id)
+        public MensagemEntrante Busca(String id)
         {
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {

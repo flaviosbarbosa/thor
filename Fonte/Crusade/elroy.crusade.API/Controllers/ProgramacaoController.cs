@@ -25,7 +25,7 @@ namespace elroy.crusade.API.Controllers
             try
             {
                 ProgramacaoBLL progbll = new ProgramacaoBLL();
-                var programacao = progbll.BuscaPorCodigo(id);
+                var programacao = progbll.Busca(id);
 
                 if (!String.IsNullOrEmpty(programacao.Id))
                     return Request.CreateResponse(HttpStatusCode.OK, programacao);
@@ -95,7 +95,7 @@ namespace elroy.crusade.API.Controllers
         public HttpResponseMessage Delete([FromUri] String id)
         {
             ProgramacaoBLL PROGBll = new ProgramacaoBLL();
-            PROGBll.Deleta(PROGBll.BuscaPorCodigo(id));
+            PROGBll.Deleta(PROGBll.Busca(id));
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 

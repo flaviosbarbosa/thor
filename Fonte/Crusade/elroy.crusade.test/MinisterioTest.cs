@@ -22,7 +22,7 @@ namespace elroy.crusade.test
             this.ministerio = new Ministerio();
             ministerio.Responsavel =  new BeneficiarioBLL().Grava(new Factory().CriaBeneficiario());
 
-            ministerio.Id = 0;
+            ministerio.Id = "";
             ministerio.Nome = "Louvor";
             ministerio.CodResponsavel = ministerio.Responsavel.Id;
             ministerio.Descricao = "Ministerio de Louvor";                       
@@ -54,7 +54,7 @@ namespace elroy.crusade.test
         public void BuscaMinisterioporCodigo()
         {
             var ministerioretorno = conexao.Grava(ministerio);
-            ministerio = conexao.BuscaPorCodigo(ministerioretorno.Id);
+            ministerio = conexao.Busca(ministerioretorno.Id);
             Assert.AreEqual(ministerioretorno.Id, ministerio.Id, "Não foi possivel localizar o ministerior");
         }
 
@@ -62,7 +62,7 @@ namespace elroy.crusade.test
         public void AtualizaMinisterio()
         {
             var usuretorno = conexao.Grava(ministerio);
-            ministerio = conexao.BuscaPorCodigo(usuretorno.Id);
+            ministerio = conexao.Busca(usuretorno.Id);
 
             var nome = "flavio.barbosa@autoglass.com.br";
             ministerio.Nome = nome;

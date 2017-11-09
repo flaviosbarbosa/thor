@@ -53,7 +53,7 @@ namespace elroy.crusade.test
             //TODO: Revisar todos os retornos da BLL para em caso de erro não retonar um objeto nulo mas retorna outra coisa
             // que permita executarmos um teste válido.
             var partiretorno = conexao.Grava(participante);
-            participante = conexao.BuscaPorCodigo(partiretorno.Id);
+            participante = conexao.Busca(partiretorno.Id);
             Assert.AreEqual(partiretorno.Id, participante.Id, "Não foi possivel localizar o participante");
         }
 
@@ -61,7 +61,7 @@ namespace elroy.crusade.test
         public void AtualizaParticipante()
         {
             var partiretorno = conexao.Grava(participante);
-            participante = conexao.BuscaPorCodigo(partiretorno.Id);
+            participante = conexao.Busca(partiretorno.Id);
 
             var lembrete = SimNao.Nao;
             participante.Lembrete = lembrete;

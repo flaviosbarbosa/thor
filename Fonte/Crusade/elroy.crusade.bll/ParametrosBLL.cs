@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using elroy.crusade.dominio;
+using elroy.crusade.Infra.Enum;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -10,20 +11,31 @@ namespace elroy.crusade.Infra
     {
         public Parametros Grava(Parametros parametros)
         {
+            string acao;
+            FuncoesAuxiliaresBLL funcoes = new FuncoesAuxiliaresBLL();
+
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
+                // se ID não for nulo
+                if (!string.IsNullOrEmpty(parametros.Id))
+                    acao = funcoes.DefineAcao(this.GetType().Name, parametros.Id);
+                else
+                {
+                    parametros.Id = funcoes.GeraGuid();
+                    acao = Acoes.Inserir.ToString();
+                }
 
-                if (parametros.id == 0)
+                if (acao == Acoes.Inserir.ToString())
+
                 {
                     try
                     {
-                        parametros.id = (int)conn.ExecuteScalar(@"INSERT INTO PARAMETROS
-                                        (
+                        conn.Execute(@"INSERT INTO PARAMETROS
+                                        (ID,
                                               LOCALIZACAO,
-                                              EXIBIRLOCALIZACAO)
-                                            OUTPUT INSERTED.id
+                                              EXIBIRLOCALIZACAO)                    
                                              VALUES
-                                        (
+                                        (@ID,
                                               @LOCALIZACAO,
                                               @EXIBIRLOCALIZACAO)", parametros);
 
@@ -56,7 +68,7 @@ namespace elroy.crusade.Infra
             }
         }
 
-        public Parametros BuscaPorCodigo(int id)
+        public Parametros Busca(String id)
         {
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {

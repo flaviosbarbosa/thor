@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using elroy.crusade.dominio;
+using elroy.crusade.Infra.Enum;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -10,28 +11,41 @@ namespace elroy.crusade.Infra
     {
         public Integrantes Grava(Integrantes integrantes)
         {
+            string acao;
+            FuncoesAuxiliaresBLL funcoes = new FuncoesAuxiliaresBLL();
+
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
+                // se ID não for nulo
+                if (!string.IsNullOrEmpty(integrantes.Id))
+                    acao = funcoes.DefineAcao(this.GetType().Name, integrantes.Id);
+                else
+                {
+                    integrantes.Id = funcoes.GeraGuid();
+                    acao = Acoes.Inserir.ToString();
+                }
 
-                if (integrantes.Id == 0)
+                if (acao == Acoes.Inserir.ToString())
+
                 {
                     try
                     {
-                        integrantes.Id = (int)conn.ExecuteScalar(@"INSERT INTO INTEGRANTES
-                                               (CODBENEFICIARIO,
+                        conn.Execute(@"INSERT INTO INTEGRANTES
+                                               (ID, CODBENEFICIARIO,
                                                CODMINISTERIO,
                                                ATIVO)
                                           OUTPUT INSERTED.id  
                                          VALUES
-                                               (@CODBENEFICIARIO,
+                                               (@ID, @CODBENEFICIARIO,
                                                 @CODMINISTERIO,
                                                 @ATIVO)", integrantes);
 
                         return integrantes;
                     }
-                    catch (Exception )
+                    catch (Exception e)
                     {
                         return new Integrantes();
+                        throw new Exception(e.Message);
                     }
                 }
                 else
@@ -51,14 +65,15 @@ namespace elroy.crusade.Infra
                                                                 FROM INTEGRANTES
                                                                   where id = @id", new { id = integrantes.Id });                        
                     }
-                    catch (Exception)
+                    catch (Exception e)
                     {
                         return new Integrantes();
+                        throw new Exception(e.Message);
                     }
             }
         }
 
-        public Integrantes BuscaPorCodigo(int id)
+        public Integrantes Busca(String id)
         {
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
@@ -72,10 +87,10 @@ namespace elroy.crusade.Infra
 
 
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-
                     return new Integrantes();
+                    throw new Exception(e.Message);
                 }
             }
         }
@@ -90,10 +105,10 @@ namespace elroy.crusade.Infra
                                                         WHERE ID = @id", Integrantes);
                     return true;
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-
                     return false;
+                    throw new Exception(e.Message);                    
                 }
             }
         }

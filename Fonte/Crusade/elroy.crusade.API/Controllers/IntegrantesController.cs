@@ -20,14 +20,14 @@ namespace elroy.crusade.API.Controllers
         /// <remarks>Retorna o integrante solicitado</remarks>
         [Route("API/BuscaIntegrante/{id}")]
         [HttpGet]
-        public HttpResponseMessage Get(int id)
+        public HttpResponseMessage Get(String id)
         {
             try
             {
                 IntegrantesBLL integrantesbll = new IntegrantesBLL();
-                var Integrantes = integrantesbll.BuscaPorCodigo(id);
+                var Integrantes = integrantesbll.Busca(id);
 
-                if (Integrantes.Id != 0)
+                if (!String.IsNullOrEmpty(Integrantes.Id))
                     return Request.CreateResponse(HttpStatusCode.OK, Integrantes);
                 else
                     throw new KeyNotFoundException();
@@ -92,10 +92,10 @@ namespace elroy.crusade.API.Controllers
         /// <remarks>Retorna integrante excluido</remarks>
         [Route("API/DeletaIntegrante/{id}")]
         [HttpDelete]
-        public HttpResponseMessage Delete([FromUri] int id)
+        public HttpResponseMessage Delete([FromUri] String id)
         {
             IntegrantesBLL integrantesBll = new IntegrantesBLL();
-            integrantesBll.Deleta(integrantesBll.BuscaPorCodigo(id));
+            integrantesBll.Deleta(integrantesBll.Busca(id));
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 

@@ -1,6 +1,7 @@
 ﻿
 using Dapper;
 using elroy.crusade.dominio;
+using elroy.crusade.Infra.Enum;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -11,25 +12,36 @@ namespace elroy.crusade.Infra
     {
         public Eventos Grava(Eventos eventos)
         {
+            string acao;
+            FuncoesAuxiliaresBLL funcoes = new FuncoesAuxiliaresBLL();
+
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
+                // se ID não for nulo
+                if (!string.IsNullOrEmpty(eventos.Id))
+                    acao = funcoes.DefineAcao(this.GetType().Name, eventos.Id);
+                else
+                {
+                    eventos.Id = funcoes.GeraGuid();
+                    acao = Acoes.Inserir.ToString();
+                }
 
-                if (eventos.Id == 0)
+                if (acao == Acoes.Inserir.ToString())
+
                 {
                     try
                     {
-                        eventos.Id = (int)conn.ExecuteScalar(@"INSERT INTO EVENTOS
-                                        (
+                        conn.Execute(@"INSERT INTO EVENTOS
+                                        (ID,
                                               CODMINISTERIO,
                                               TITULO,
                                               DESCRICAO,
                                               DATA,
                                               LOCAL,                                              
                                               PRIVADO,
-                                              PASTORPRESENTE)
-                                              OUTPUT INSERTED.id
+                                              PASTORPRESENTE)                                              
                                              VALUES
-                                        (
+                                             (@ID,
                                               @CODMINISTERIO,
                                               @TITULO,
                                               @DESCRICAO,
@@ -38,19 +50,19 @@ namespace elroy.crusade.Infra
                                               @PRIVADO,
                                               @PASTORPRESENTE)", eventos);
 
-                    return eventos;
+                        return eventos;
                     }
-                    catch (Exception e )
+                    catch (Exception e)
                     {
                         return new Eventos();
                         throw new Exception(e.Message);
                     }
                 }
                 else
-                try
-                {
-                    var retorno =
-                    conn.Execute(@"UPDATE EVENTOS
+                    try
+                    {
+                        var retorno =
+                        conn.Execute(@"UPDATE EVENTOS
                                        SET CODMINISTERIO = @CODMINISTERIO,
                                           TITULO = @TITULO,
                                           DESCRICAO = @DESCRICAO,
@@ -60,7 +72,7 @@ namespace elroy.crusade.Infra
                                           PASTORPRESENTE = @PASTORPRESENTE
                                      WHERE id = @id", eventos);
 
-                    return conn.QueryFirst<Eventos>(@"SELECT ID,
+                        return conn.QueryFirst<Eventos>(@"SELECT ID,
                                                               CODMINISTERIO,
                                                               TITULO,
                                                               DESCRICAO,
@@ -69,15 +81,16 @@ namespace elroy.crusade.Infra
                                                               PRIVADO,
                                                               PASTORPRESENTE
                                                           FROM EVENTOS", eventos);
-                }
-                catch (Exception)
-                {
-                    return new Eventos();
-                }
-            }
+                    }
+                    catch (Exception e)
+                    {
+                        return new Eventos();
+                        throw new Exception(e.Message);
+                    }
+            }                      
         }
 
-        public Eventos BuscaPorCodigo(int id)
+        public Eventos Busca(String id)
         {
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
@@ -96,10 +109,11 @@ namespace elroy.crusade.Infra
 
 
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-
                     return new Eventos();
+                    throw new Exception(e.Message);
+
                 }
             }
         }

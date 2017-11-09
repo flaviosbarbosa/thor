@@ -22,14 +22,14 @@ namespace elroy.crusade.API.Controllers
         /// <remarks>Retorna um Tipo de Mensaagem</remarks>
         [Route("API/BuscaTipoMensagem/{id}")]
         [HttpGet]
-        public HttpResponseMessage Get(int id)
+        public HttpResponseMessage Get(String id)
         {
             try
             {
                 TipoMensagemBLL tipobll = new TipoMensagemBLL();
-                var tipomensagemret = tipobll.BuscaPorCodigo(id);
+                var tipomensagemret = tipobll.Busca(id);
 
-                if (tipomensagemret.Id != 0)
+                if (!String.IsNullOrEmpty(tipomensagemret.Id))
                     return Request.CreateResponse(HttpStatusCode.OK, tipomensagemret);
                 else
                     throw new KeyNotFoundException();
@@ -95,10 +95,10 @@ namespace elroy.crusade.API.Controllers
         /// <remarks>Retorna tipo mensagem excluída</remarks>
         [Route("API/DeletaTipoMensagem/{id}")]
         [HttpDelete]
-        public HttpResponseMessage Delete([FromUri] int id)
+        public HttpResponseMessage Delete([FromUri] String id)
         {
             TipoMensagemBLL tipobll = new TipoMensagemBLL();
-            tipobll.Deleta(tipobll.BuscaPorCodigo(id));
+            tipobll.Deleta(tipobll.Busca(id));
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 

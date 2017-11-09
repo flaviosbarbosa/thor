@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using elroy.crusade.dominio;
 using elroy.crusade.Infra;
+using elroy.crusade.Infra.Enum;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -12,24 +13,36 @@ namespace elroy.crusade.bll
         //DONE: Implementar
         public PedidoOracao Grava(PedidoOracao pedidoOracao)
         {
+            string acao;
+            FuncoesAuxiliaresBLL funcoes = new FuncoesAuxiliaresBLL();
+
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
-                if (pedidoOracao.Id == 0)
+                // se ID não for nulo
+                if (!string.IsNullOrEmpty(pedidoOracao.Id))
+                    acao = funcoes.DefineAcao(this.GetType().Name, pedidoOracao.Id);
+                else
+                {
+                    pedidoOracao.Id = funcoes.GeraGuid();
+                    acao = Acoes.Inserir.ToString();
+                }
+
+                if (acao == Acoes.Inserir.ToString())
+
                 {
                     try
                     {
-                        pedidoOracao.Id = (int)conn.ExecuteScalar(@"INSERT INTO PedidoOracao
-	    	                            (
+                        conn.Execute(@"INSERT INTO PedidoOracao
+	    	                            (ID,
                                         CodMensagemEntrante,
                                         CodSolicitante,
                                         NomeSolicitante,
                                         DataSolicitacao,
                                         Assunto,
                                         Descricao,
-                                        DescricaoRevisada)
-                                        OUTPUT INSERTED.id
+                                        DescricaoRevisada)                                    
                                         VALUES
-                                        (
+                                        (@ID,
                                         @CodMensagemEntrante,
                                         @CodSolicitante,
                                         @NomeSolicitante,
@@ -80,7 +93,7 @@ namespace elroy.crusade.bll
             }
         }
 
-        public PedidoOracao BuscaPorCodigo(int id)
+        public PedidoOracao Busca(String id)
         {
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {

@@ -23,10 +23,10 @@ namespace elroy.crusade.test
         public void CriaParametro()
         {
             this.parametro = new Parametros();
-            parametro.id = 0;
+            parametro.Id = "";
             //Parametro.banner = "Flavio";
-            parametro.exibirLocalizacao = "S";
-            parametro.localizacao = "509040 809040";            
+            parametro.ExibirLocalizacao = "S";
+            parametro.Localizacao = "509040 809040";            
 
             this.conexao = new ParametroBLL();
         }
@@ -40,9 +40,8 @@ namespace elroy.crusade.test
             IEnumerable<Parametros> lista = new ParametroBLL().ListaParametro();
             foreach (var item in lista)
             {
-                // mantem um registro de parametro
-                if (item.id > 1)
-                  new ParametroBLL().Deleta(item);
+                // mantem um registro de parametro                
+                new ParametroBLL().Deleta(item);
             }
         }
 
@@ -50,28 +49,28 @@ namespace elroy.crusade.test
         public void SalvandoParametro()
         {
             var retorno = conexao.Grava(parametro);
-            Assert.IsNotNull(retorno.id, "Erro ao salvar Parametro");
+            Assert.IsNotNull(retorno.Id, "Erro ao salvar Parametro");
         }
 
         [TestMethod]
         public void BuscaParametroporCodigo()
         {
             var usuretorno = conexao.Grava(parametro);
-            parametro = conexao.BuscaPorCodigo(usuretorno.id);
-            Assert.AreEqual(usuretorno.id, parametro.id, "Não foi possivel localizar o Parametro");
+            parametro = conexao.Busca(usuretorno.Id);
+            Assert.AreEqual(usuretorno.Id, parametro.Id, "Não foi possivel localizar o Parametro");
         }
 
         [TestMethod]
         public void AtualizaParametro()
         {
             var usuretorno = conexao.Grava(parametro);
-            parametro = conexao.BuscaPorCodigo(usuretorno.id);
+            parametro = conexao.Busca(usuretorno.Id);
 
             var exibir = "N";
-            parametro.exibirLocalizacao = exibir;
+            parametro.ExibirLocalizacao = exibir;
             var retorno = conexao.Grava(parametro);
 
-            Assert.AreEqual(exibir, retorno.exibirLocalizacao, "Não foi possivel atualizar o Parametro");
+            Assert.AreEqual(exibir, retorno.ExibirLocalizacao, "Não foi possivel atualizar o Parametro");
         }
 
         [TestMethod]

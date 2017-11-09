@@ -6,7 +6,7 @@ namespace elroy.crusade.dominio
 {
     public class Beneficiario
     {         
-        public int Id { get; set; }
+        public string Id { get; set; }
                 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(100, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
@@ -71,7 +71,7 @@ namespace elroy.crusade.dominio
 
         public Profissao Profissao { get; set; }
 
-        public int CodProfissao { get; set; }
+        public string CodProfissao { get; set; }
 
         public SimNao AutorizaProfissao { get; set; }
 

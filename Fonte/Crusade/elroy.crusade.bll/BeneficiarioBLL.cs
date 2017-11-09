@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using elroy.crusade.dominio;
+using elroy.crusade.Infra.Enum;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -13,16 +14,27 @@ namespace elroy.crusade.Infra
     {
         public Beneficiario Grava(Beneficiario beneficiario)
         {
-            // parei ontem criando a conexao com o banco
+            string acao;
+            FuncoesAuxiliaresBLL funcoes = new FuncoesAuxiliaresBLL();
+
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
+                // se ID não for nulo
+                if (!string.IsNullOrEmpty(beneficiario.Id))
+                    acao = funcoes.DefineAcao(this.GetType().Name, beneficiario.Id);
+                else
+                {
+                    beneficiario.Id = funcoes.GeraGuid();
+                    acao = Acoes.Inserir.ToString();
+                }
 
-                if (beneficiario.Id == 0)
+                if (acao == Acoes.Inserir.ToString())
                 {
                     try
                     {
-                       beneficiario.Id = (int)conn.ExecuteScalar(@"INSERT INTO BENEFICIARIO                                               
-                                         ( NOME,
+                       conn.Execute(@"INSERT INTO BENEFICIARIO                                               
+                                         ( ID,
+                                          NOME,
                                           EMAIL,
                                           TELEFONE,
                                           DATACADASTRO,
@@ -36,10 +48,10 @@ namespace elroy.crusade.Infra
                                           BAIRRO,
                                           CIDADE,
                                           UF,
-                                          CELULAR)
-                                          OUTPUT INSERTED.id
+                                          CELULAR,
+                                          CODPROFISSAO)                                   
                                          VALUES                                               
-                                          (@NOME,
+                                          (@ID, @NOME,
                                           @EMAIL,
                                           @TELEFONE,
                                           @DATACADASTRO,
@@ -53,7 +65,8 @@ namespace elroy.crusade.Infra
                                           @BAIRRO,
                                           @CIDADE,
                                           @UF,
-                                          @CELULAR)", beneficiario);
+                                          @CELULAR,
+                                          @CODPROFISSAO)", beneficiario);
 
                         return beneficiario;                            
                     }
@@ -83,7 +96,8 @@ namespace elroy.crusade.Infra
                                               BAIRRO = @BAIRRO,
                                               CIDADE = @CIDADE,
                                               UF = @UF,
-                                              CELULAR = @CELULAR
+                                              CELULAR = @CELULAR,
+                                              CODPROFISSAO = @CODPROFISSAO
                                              WHERE ID = @ID", beneficiario);
 
                         return conn.QueryFirst<Beneficiario>(@"SELECT ID,
@@ -101,7 +115,7 @@ namespace elroy.crusade.Infra
                                                                       BAIRRO,
                                                                       CIDADE,
                                                                       UF,
-                                                                      CELULAR
+                                                                      CELULAR, CODPROFISSAO
                                                                     FROM BENEFICIARIO
                                                                    WHERE ID = @ID", new { Id = beneficiario.Id });
                     }
@@ -113,7 +127,7 @@ namespace elroy.crusade.Infra
             }
         }
 
-        public Beneficiario BuscaPorCodigo(int id)
+        public Beneficiario Busca(String id)
         {
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
@@ -134,7 +148,7 @@ namespace elroy.crusade.Infra
                                                                 BAIRRO,
                                                                 CIDADE,
                                                                 UF,
-                                                                CELULAR
+                                                                CELULAR, CODPROFISSAO
                                                             FROM BENEFICIARIO
                                                            WHERE ID = @ID", new { Id = id });
                 }
@@ -183,7 +197,7 @@ namespace elroy.crusade.Infra
                                                                   BAIRRO,
                                                                   CIDADE,
                                                                   UF,
-                                                                  CELULAR
+                                                                  CELULAR, CODPROFISSAO
                                                               FROM BENEFICIARIO ");
                 return (List<Beneficiario>)retorno;
             }

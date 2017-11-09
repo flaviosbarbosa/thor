@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using elroy.crusade.dominio;
+using elroy.crusade.Infra.Enum;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -10,19 +11,30 @@ namespace elroy.crusade.Infra
     {
         public TipoMensagem Grava(TipoMensagem tipoMensagem)
         {
+            string acao;
+            FuncoesAuxiliaresBLL funcoes = new FuncoesAuxiliaresBLL();
+
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
+                // se ID não for nulo
+                if (!string.IsNullOrEmpty(tipoMensagem.Id))
+                    acao = funcoes.DefineAcao(this.GetType().Name, tipoMensagem.Id);
+                else
+                {
+                    tipoMensagem.Id = funcoes.GeraGuid();
+                    acao = Acoes.Inserir.ToString();
+                }
 
-                if (tipoMensagem.Id == 0)
+                if (acao == Acoes.Inserir.ToString())
+
                 {
                     try
                     {
-                        tipoMensagem.Id = (int) conn.ExecuteScalar(@"INSERT INTO TIPOMENSAGEM
-                                               (TIPO,
-                                               DESCRICAO)
-                                              OUTPUT INSERTED.id  
+                        conn.Execute(@"INSERT INTO TIPOMENSAGEM
+                                               (ID,TIPO,
+                                               DESCRICAO)                                    
                                          VALUES
-                                               (
+                                               (@ID,
                                                @TIPO,
                                                @DESCRICAO)", tipoMensagem);
 
@@ -55,7 +67,7 @@ namespace elroy.crusade.Infra
             }
         }
 
-        public TipoMensagem BuscaPorCodigo(int id)
+        public TipoMensagem Busca(String id)
         {
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {

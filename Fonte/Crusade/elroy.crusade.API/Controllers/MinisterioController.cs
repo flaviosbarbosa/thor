@@ -20,14 +20,14 @@ namespace elroy.crusade.API.Controllers
         /// <remarks>Retorna um Ministerio</remarks>
         [Route("API/BuscaMinisterio/{id}")]
         [HttpGet]
-        public HttpResponseMessage Get(int id)
+        public HttpResponseMessage Get(String id)
         {
             try
             {
                 MinisterioBLL ministerioBLL = new MinisterioBLL();
-                var ministerio = ministerioBLL.BuscaPorCodigo(id);
+                var ministerio = ministerioBLL.Busca(id);
 
-                if (ministerio.Id != 0)
+                if (!String.IsNullOrEmpty(ministerio.Id))
                     return Request.CreateResponse(HttpStatusCode.OK, ministerio);
                 else
                     throw new KeyNotFoundException();
@@ -92,10 +92,10 @@ namespace elroy.crusade.API.Controllers
         /// <remarks>Retor4na ministério excluído</remarks>
         [Route("API/DeletaMinisterio/{id}")]
         [HttpDelete]
-        public HttpResponseMessage Delete([FromUri] int id)
+        public HttpResponseMessage Delete([FromUri] String id)
         {
             MinisterioBLL MinisterioBLL = new MinisterioBLL();
-            MinisterioBLL.Deleta(MinisterioBLL.BuscaPorCodigo(id));
+            MinisterioBLL.Deleta(MinisterioBLL.Busca(id));
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 

@@ -6,7 +6,7 @@ namespace elroy.crusade.dominio
 {
     public class Eventos
     {        
-        public int Id {get; set;}
+        public string Id {get; set;}
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(500, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
@@ -38,7 +38,7 @@ namespace elroy.crusade.dominio
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]        
         [Display(Name = "Ministério")]
-        public int CodMinisterio { get; set; }
+        public string CodMinisterio { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]        
         [Display(Name = "Pastor Presente")]

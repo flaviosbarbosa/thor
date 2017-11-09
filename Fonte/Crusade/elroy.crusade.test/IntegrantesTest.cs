@@ -33,7 +33,7 @@ namespace elroy.crusade.test
             ministerio.CodResponsavel = beneficiario.Id;
             ministerio = new MinisterioBLL().Grava(ministerio);
 
-            integrantes.Id = 0;
+            integrantes.Id = "";
             integrantes.Beneficiario = beneficiario;
             integrantes.CodBeneficiario = integrantes.Beneficiario.Id;
             integrantes.Ministerio = ministerio;
@@ -67,7 +67,7 @@ namespace elroy.crusade.test
         public void BuscaIntegrantesporCodigo()
         {
             var usuretorno = conexao.Grava(integrantes);
-            integrantes = conexao.BuscaPorCodigo(usuretorno.Id);
+            integrantes = conexao.Busca(usuretorno.Id);
             Assert.AreEqual(usuretorno.Id, integrantes.Id, "Não foi possivel localizar o Integrante");
         }
 
@@ -75,7 +75,7 @@ namespace elroy.crusade.test
         public void AtualizaIntegrantes()
         {
             var intretorno = conexao.Grava(integrantes);
-            integrantes = conexao.BuscaPorCodigo(intretorno.Id);
+            integrantes = conexao.Busca(intretorno.Id);
 
             var ativo = SimNao.Sim;
             integrantes.Ativo = ativo;

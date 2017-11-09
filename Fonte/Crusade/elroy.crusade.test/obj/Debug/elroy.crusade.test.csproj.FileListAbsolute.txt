@@ -21,8 +21,6 @@ C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.test\bin\Debug\Dapper.xml
 C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.test\obj\Debug\elroy.crusade.test.csprojResolveAssemblyReference.cache
 C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.test\obj\Debug\elroy.crusade.test.dll
 C:\Arquivos\GitHub\thor\Fonte\Crusade\elroy.crusade.test\obj\Debug\elroy.crusade.test.pdb
-E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.test\obj\Debug\elroy.crusade.test.csprojResolveAssemblyReference.cache
-E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.test\obj\Debug\elroy.crusade.test.csproj.CoreCompileInputs.cache
 E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
@@ -40,5 +38,7 @@ E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.test\bin\Debug\elroy.crusade
 E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
 E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
 E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.test\bin\Debug\Dapper.xml
+E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.test\obj\Debug\elroy.crusade.test.csprojResolveAssemblyReference.cache
+E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.test\obj\Debug\elroy.crusade.test.csproj.CoreCompileInputs.cache
 E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.test\obj\Debug\elroy.crusade.test.dll
 E:\Projetos\GitHub\thor\Fonte\Crusade\elroy.crusade.test\obj\Debug\elroy.crusade.test.pdb

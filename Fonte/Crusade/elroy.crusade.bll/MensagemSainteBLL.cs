@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using elroy.crusade.dominio;
+using elroy.crusade.Infra.Enum;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -10,22 +11,33 @@ namespace elroy.crusade.Infra
     {
         public MensagemSainte Grava(MensagemSainte mensagemSainte)
         {
+            string acao;
+            FuncoesAuxiliaresBLL funcoes = new FuncoesAuxiliaresBLL();
+
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
+                // se ID não for nulo
+                if (!string.IsNullOrEmpty(mensagemSainte.Id))
+                    acao = funcoes.DefineAcao(this.GetType().Name, mensagemSainte.Id);
+                else
+                {
+                    mensagemSainte.Id = funcoes.GeraGuid();
+                    acao = Acoes.Inserir.ToString();
+                }
 
-                if (mensagemSainte.Id == 0)
+                if (acao == Acoes.Inserir.ToString())
+
                 {
                     try
                     {
-                        mensagemSainte.Id = (int)conn.ExecuteScalar(@"INSERT INTO MENSAGEMSAINTE
-                                        (CODMINISTERIO,
+                        conn.Execute(@"INSERT INTO MENSAGEMSAINTE
+                                        (ID,CODMINISTERIO,
                                         CODTIPOMENSAGEM,
                                         MENSAGEM,
                                         DATAENVIO,
-                                        CODMENSAGEMENTRANTE)
-                                    OUTPUT INSERTED.id
+                                        CODMENSAGEMENTRANTE)                                    
                                     VALUES
-                                        (@CODMINISTERIO,
+                                        (@ID, @CODMINISTERIO,
                                         @CODTIPOMENSAGEM,
                                         @MENSAGEM,
                                         @DATAENVIO,
@@ -69,7 +81,7 @@ namespace elroy.crusade.Infra
             }
         }
 
-        public MensagemSainte BuscaPorCodigo(int id)
+        public MensagemSainte Busca(String id)
         {
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {

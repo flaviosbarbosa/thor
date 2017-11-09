@@ -17,15 +17,12 @@ namespace elroy.crusade.Infra
         {
             string acao;
             FuncoesAuxiliaresBLL funcoes = new FuncoesAuxiliaresBLL();
-
-            // parei ontem criando a conexao com o banco
+            
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
                 // se ID não for nulo
                 if (!string.IsNullOrEmpty(igreja.Id))
-                {
-                    acao = funcoes.DefineAcao(this.GetType().Name, igreja.Id);
-                }
+                    acao = funcoes.DefineAcao(this.GetType().Name, igreja.Id);                
                 else
                 {
                     igreja.Id = funcoes.GeraGuid();

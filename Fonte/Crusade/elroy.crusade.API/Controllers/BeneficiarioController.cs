@@ -23,14 +23,14 @@ namespace elroy.crusade.API.Controllers
         [Route("Api/BuscaBeneficiario/{id}")]
         [ResponseType(typeof(int))]
         [HttpGet]
-        public HttpResponseMessage Get(int id)
+        public HttpResponseMessage Get(String id)
         {
             try
             {
                 BeneficiarioBLL beneficiariobll = new BeneficiarioBLL();
-                var beneficiario = beneficiariobll.BuscaPorCodigo(id);
+                var beneficiario = beneficiariobll.Busca(id);
 
-                if (beneficiario.Id != 0)
+                if (!String.IsNullOrEmpty(beneficiario.Id))
                     return Request.CreateResponse(HttpStatusCode.OK, beneficiario);
                 else
                     throw new KeyNotFoundException();
@@ -97,10 +97,10 @@ namespace elroy.crusade.API.Controllers
         /// <remarks>Retorna Beneficiario excluido</remarks>
         [Route("API/DeletaBeneficiario/{id}")]
         [HttpDelete]
-        public HttpResponseMessage Delete([FromUri] int id)
+        public HttpResponseMessage Delete([FromUri] String id)
        {
             BeneficiarioBLL beneficiarioBll = new BeneficiarioBLL();
-            beneficiarioBll.Deleta(beneficiarioBll.BuscaPorCodigo(id));
+            beneficiarioBll.Deleta(beneficiarioBll.Busca(id));
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 

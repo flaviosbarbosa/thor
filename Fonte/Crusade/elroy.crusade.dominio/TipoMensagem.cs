@@ -7,7 +7,7 @@ namespace elroy.crusade.dominio
 {
     public class TipoMensagem
     {        
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]        
         [Display(Name = "Tipo")]

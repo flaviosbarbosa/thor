@@ -44,7 +44,7 @@ namespace elroy.crusade.test
         public void BuscaMensagemEntranteporCodigo()
         {
             var MensagemEntranteretorno = conexao.Grava(mensagemEntrante);
-            mensagemEntrante = conexao.BuscaPorCodigo(MensagemEntranteretorno.Id);
+            mensagemEntrante = conexao.Busca(MensagemEntranteretorno.Id);
             Assert.AreEqual(MensagemEntranteretorno.Id, mensagemEntrante.Id, "Não foi possivel localizar o MensagemEntranter");
         }
 
@@ -52,7 +52,7 @@ namespace elroy.crusade.test
         public void AtualizaMensagemEntrante()
         {
             var MEretorno = conexao.Grava(mensagemEntrante);
-            mensagemEntrante = conexao.BuscaPorCodigo(MEretorno.Id);
+            mensagemEntrante = conexao.Busca(MEretorno.Id);
 
             var mensagem = "Dia de lazer e cultura";
             mensagemEntrante.Mensagem = mensagem;

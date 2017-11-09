@@ -21,14 +21,14 @@ namespace elroy.crusade.API.Controllers
         /// <remarks>Retorna um objeto usuario</remarks>        
         [Route("API/BuscaUsuario/{id}")]
         [HttpGet]
-        public HttpResponseMessage Get(int id)
+        public HttpResponseMessage Get(String id)
         {
             try
             {
                 UsuarioBLL usuariobll = new UsuarioBLL();
-                var usuarios = usuariobll.BuscaPorCodigo(id);
+                var usuarios = usuariobll.Busca(id);
 
-                if (usuarios.Id != 0)
+                if (String.IsNullOrEmpty(usuarios.Id))
                     return Request.CreateResponse(HttpStatusCode.OK, usuarios);
                 else
                     throw new KeyNotFoundException();
@@ -95,10 +95,10 @@ namespace elroy.crusade.API.Controllers
         /// <remarks>Retorna usuario inserido</remarks>
         [Route("API/DeletaUsuario/{id}")]
         [HttpDelete]
-        public HttpResponseMessage Delete([FromUri] int id)
+        public HttpResponseMessage Delete([FromUri] String id)
         {
             UsuarioBLL usuariosBll = new UsuarioBLL();
-            usuariosBll.Deleta(usuariosBll.BuscaPorCodigo(id));
+            usuariosBll.Deleta(usuariosBll.Busca(id));
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 

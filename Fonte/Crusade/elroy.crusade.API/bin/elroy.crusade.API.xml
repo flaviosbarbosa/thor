@@ -30,7 +30,7 @@
             Controle das ações da Agenda Pastoral
             </summary>
         </member>
-        <member name="M:elroy.crusade.API.Controllers.AgendaPastoralController.Get(System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.AgendaPastoralController.Get(System.String)">
             <summary>
             Retorna um evento da agenda pastoral por código do evento
             </summary>
@@ -50,7 +50,7 @@
             <param name="agenda">Informe um objeto agenda</param>
             <remarks>Insere um evento na agenda pastoral</remarks>        
         </member>
-        <member name="M:elroy.crusade.API.Controllers.AgendaPastoralController.Delete(System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.AgendaPastoralController.Delete(System.String)">
             <summary>
             Exclui um evento da agenda pastoral
             </summary>
@@ -70,7 +70,7 @@
             Registro de beneficiarios (Membros, Pastor e Fornecedores de Serviços
             </summary>
         </member>
-        <member name="M:elroy.crusade.API.Controllers.BeneficiarioController.Get(System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.BeneficiarioController.Get(System.String)">
             <summary>
             Retorna um beneficíario por código
             </summary>
@@ -90,7 +90,7 @@
             <param name="beneficiario"></param>        
             <remarks>Retorna Beneficiario criado</remarks>        
         </member>
-        <member name="M:elroy.crusade.API.Controllers.BeneficiarioController.Delete(System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.BeneficiarioController.Delete(System.String)">
             <summary>
             Exclui um beneficiario
             </summary>
@@ -110,7 +110,7 @@
             Registro dos Eventos da igreja
             </summary>
         </member>
-        <member name="M:elroy.crusade.API.Controllers.EventosController.Get(System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.EventosController.Get(System.String)">
             <summary>
             Retorna um Evento agendado por código
             </summary>
@@ -130,7 +130,7 @@
             <param name="eventos">Informe o evento a ser inserido</param>
             <remarks>Retorna Evento criado</remarks>
         </member>
-        <member name="M:elroy.crusade.API.Controllers.EventosController.Delete(System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.EventosController.Delete(System.String)">
             <summary>
             Exclui e evento
             </summary>
@@ -200,7 +200,7 @@
             Registro dos Beneficiarios que participam de Ministerios
             </summary>
         </member>
-        <member name="M:elroy.crusade.API.Controllers.IntegrantesController.Get(System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.IntegrantesController.Get(System.String)">
             <summary>
             Retorna um integrande por código
             </summary>
@@ -220,7 +220,7 @@
             <param name="integrantes">Informe o integrante a ser inserido</param>
             <remarks>Retona integrante inserido</remarks>
         </member>
-        <member name="M:elroy.crusade.API.Controllers.IntegrantesController.Delete(System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.IntegrantesController.Delete(System.String)">
             <summary>
             Exclui integrante
             </summary>
@@ -240,7 +240,7 @@
             Registro das mensagens que foram enviadas pela App Mobile
             </summary>
         </member>
-        <member name="M:elroy.crusade.API.Controllers.MensagemEntranteController.Get(System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.MensagemEntranteController.Get(System.String)">
             <summary>
             Retorna uma Mensagem Entrante por código
             </summary>
@@ -260,7 +260,7 @@
             <param name="mensagemEntrante">Informe a nova mensagem</param>
             <remarks>Retorna mensagem entrante</remarks>
         </member>
-        <member name="M:elroy.crusade.API.Controllers.MensagemEntranteController.Delete(System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.MensagemEntranteController.Delete(System.String)">
             <summary>
             Excluir Mensagem Entrante
             </summary>
@@ -280,7 +280,7 @@
             Registro das mensagens que são enviadas pela Igreja para a app mobile
             </summary>
         </member>
-        <member name="M:elroy.crusade.API.Controllers.MensagemSainteController.Get(System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.MensagemSainteController.Get(System.String)">
             <summary>
             Retorna uma mensagem sainte por código
             </summary>
@@ -300,7 +300,7 @@
             <param name="mensagemSainte">Informe os dados da mensagens sainte</param>
             <remarks>Retorna mensagem inserida</remarks>
         </member>
-        <member name="M:elroy.crusade.API.Controllers.MensagemSainteController.Delete(System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.MensagemSainteController.Delete(System.String)">
             <summary>
             Exclui Mensagem Sainte
             </summary>
@@ -320,7 +320,7 @@
             Registro dos ministérios existentes na igreja
             </summary>
         </member>
-        <member name="M:elroy.crusade.API.Controllers.MinisterioController.Get(System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.MinisterioController.Get(System.String)">
             <summary>
             Retorna um ministerio por código
             </summary>
@@ -340,7 +340,7 @@
             <param name="ministerio">Informe os dados do novo ministério</param>
             <remarks>Retorna ministerior registrado</remarks>
         </member>
-        <member name="M:elroy.crusade.API.Controllers.MinisterioController.Delete(System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.MinisterioController.Delete(System.String)">
             <summary>
             Exclui um Ministério
             </summary>
@@ -360,7 +360,7 @@
             Registro de ocorrencias durante o tratamento das mensagens
             </summary>
         </member>
-        <member name="M:elroy.crusade.API.Controllers.OcorrenciaController.Get(System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.OcorrenciaController.Get(System.String)">
             <summary>
             Retorna uma ocorrencia por código
             </summary>
@@ -380,7 +380,7 @@
             <param name="ocorrencia">Informe os dados da nova ocorrencia</param>
             <remarks>Retorna ocorrencia registrada</remarks>
         </member>
-        <member name="M:elroy.crusade.API.Controllers.OcorrenciaController.Delete(System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.OcorrenciaController.Delete(System.String)">
             <summary>
             Exclui uma ocorrência
             </summary>
@@ -400,7 +400,7 @@
              Registro dos parametros utilizados pela igreja no sistema
             </summary>
         </member>
-        <member name="M:elroy.crusade.API.Controllers.ParametrosController.Get(System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.ParametrosController.Get(System.String)">
             <summary>
             Retorna um registro de parametro por codigo
             </summary>
@@ -414,7 +414,7 @@
             <param name="parametros">Informe os dados do parametro</param>
             <remarks>Retorna parametro registrado</remarks>
         </member>
-        <member name="M:elroy.crusade.API.Controllers.ParametrosController.Delete(System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.ParametrosController.Delete(System.String)">
             <summary>
             Exclui um parametro
             </summary>
@@ -434,7 +434,7 @@
             Registra os participantes que confirmam presença nos eventos
             </summary>
         </member>
-        <member name="M:elroy.crusade.API.Controllers.ParticipantesController.Get(System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.ParticipantesController.Get(System.String)">
             <summary>
             Retorna um Participante por codigo
             </summary>
@@ -454,7 +454,7 @@
             <param name="participantes">Informe os dados a serem incluidos</param>
             <remarks>Retorna participantes de um evento</remarks>
         </member>
-        <member name="M:elroy.crusade.API.Controllers.ParticipantesController.Delete(System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.ParticipantesController.Delete(System.String)">
             <summary>
             Exclui Participante 
             </summary>
@@ -474,7 +474,7 @@
             Registram os pedidos de oração enviados pela app mobile
             </summary>
         </member>
-        <member name="M:elroy.crusade.API.Controllers.PedidoOracaoController.Get(System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.PedidoOracaoController.Get(System.String)">
             <summary>
             Retorna um Pedido de Oração por codigo
             </summary>
@@ -494,7 +494,7 @@
             <param name="pedidoOracao">Informe os dados a serem incluidos</param>
             <remarks>Retorna pedidos registrada</remarks>
         </member>
-        <member name="M:elroy.crusade.API.Controllers.PedidoOracaoController.Delete(System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.PedidoOracaoController.Delete(System.String)">
             <summary>
             Exclui Pedido de Oração
             </summary>
@@ -554,7 +554,7 @@
             Classificação das mensagens entrantes e saintes
             </summary>
         </member>
-        <member name="M:elroy.crusade.API.Controllers.TipoMensagemController.Get(System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.TipoMensagemController.Get(System.String)">
             <summary>
             Retorna por código
             </summary>
@@ -574,7 +574,7 @@
             <param name="tipo">Informe os dados do novo registro</param>
             <remarks>Retorna Tipo de Mensagem inserido</remarks>
         </member>
-        <member name="M:elroy.crusade.API.Controllers.TipoMensagemController.Delete(System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.TipoMensagemController.Delete(System.String)">
             <summary>
             Exclui registro
             </summary>
@@ -594,7 +594,7 @@
             Registro dos usuarios do sistema
             </summary>
         </member>
-        <member name="M:elroy.crusade.API.Controllers.UsuarioController.Get(System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.UsuarioController.Get(System.String)">
             <summary>
             Busca um usuário por ID
             </summary>               
@@ -614,7 +614,7 @@
             <param name="usuario">Informe os dados</param>
             <remarks>Retorna usuario inserido</remarks>
         </member>
-        <member name="M:elroy.crusade.API.Controllers.UsuarioController.Delete(System.Int32)">
+        <member name="M:elroy.crusade.API.Controllers.UsuarioController.Delete(System.String)">
             <summary>
             Exclui usuario
             </summary>

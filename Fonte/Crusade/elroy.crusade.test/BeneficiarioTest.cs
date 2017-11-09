@@ -51,7 +51,7 @@ namespace elroy.crusade.test
         public void BuscaBeneficiarioporCodigo()
         {
             var usuretorno = conexao.Grava(beneficiario);
-            beneficiario = conexao.BuscaPorCodigo(usuretorno.Id);
+            beneficiario = conexao.Busca(usuretorno.Id);
             Assert.AreEqual(usuretorno.Id, beneficiario.Id, "Não foi possivel localizar o usuário");
         }
 
@@ -59,7 +59,7 @@ namespace elroy.crusade.test
         public void AtualizaBeneficiario()
         {
             var usuretorno = conexao.Grava(beneficiario);
-            beneficiario = conexao.BuscaPorCodigo(usuretorno.Id);
+            beneficiario = conexao.Busca(usuretorno.Id);
 
             var email = "flavio.barbosa@autoglass.com.br";
             beneficiario.Email = email;

@@ -54,7 +54,7 @@ namespace elroy.crusade.test
         public void BuscaMensagemSainteporCodigo()
         {
             var MensagemSainteretorno = conexao.Grava(mensagemsainte);
-            mensagemsainte = conexao.BuscaPorCodigo(MensagemSainteretorno.Id);
+            mensagemsainte = conexao.Busca(MensagemSainteretorno.Id);
             Assert.AreEqual(MensagemSainteretorno.Id, mensagemsainte.Id, "Não foi possivel localizar o MensagemSainter");
         }
 
@@ -62,7 +62,7 @@ namespace elroy.crusade.test
         public void AtualizaMensagemSainte()
         {
             var usuretorno = conexao.Grava(mensagemsainte);
-            mensagemsainte = conexao.BuscaPorCodigo(usuretorno.Id);
+            mensagemsainte = conexao.Busca(usuretorno.Id);
 
             var mensagem = "Dia de lazer e cultura";
             mensagemsainte.Mensagem = mensagem;

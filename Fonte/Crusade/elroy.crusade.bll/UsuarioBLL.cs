@@ -3,31 +3,44 @@ using elroy.crusade.dominio;
 using System.Data.SqlClient;
 using Dapper;
 using System.Collections.Generic;
+using elroy.crusade.Infra.Enum;
 
 namespace elroy.crusade.Infra
 {
     public class UsuarioBLL
     {
         public Usuario Grava(Usuario usuario)
-        {           
+        {
+            string acao;
+            FuncoesAuxiliaresBLL funcoes = new FuncoesAuxiliaresBLL();
+
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
+                // se ID não for nulo
+                if (!string.IsNullOrEmpty(usuario.Id))
+                    acao = funcoes.DefineAcao(this.GetType().Name, usuario.Id);
+                else
+                {
+                    usuario.Id = funcoes.GeraGuid();
+                    acao = Acoes.Inserir.ToString();
+                }
 
-                if (usuario.Id == 0)
+                if (acao == Acoes.Inserir.ToString())
+
                 {
                     try
                     {        
-                        usuario.Id = (int)conn.ExecuteScalar(@"INSERT INTO USUARIO
-                                       (
+                        conn.Execute(@"INSERT INTO USUARIO
+                                       (ID,
                                        NOME,
                                        LOGIN,
                                        SENHA,
                                        ATIVO,
                                        CPF,
                                        EMAIL)
-                                        OUTPUT INSERTED.id
+                                        
                                  VALUES
-                                       (
+                                       (@ID,
                                        @NOME,
                                        @LOGIN,
                                        @SENHA,
@@ -35,8 +48,7 @@ namespace elroy.crusade.Infra
                                        @CPF,
                                        @EMAIL)", usuario);
 
-                    return usuario;
-                        //TODO: Verificar porque está retornando 'S' ao consultar e não 'SIM'
+                    return usuario;                        
                     }
                     catch (Exception e)
                     {
@@ -68,7 +80,7 @@ namespace elroy.crusade.Infra
             }
         }
 
-        public Usuario BuscaPorCodigo(int id)
+        public Usuario Busca(String id)
         {
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {

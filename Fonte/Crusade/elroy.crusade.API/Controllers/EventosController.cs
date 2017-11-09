@@ -20,14 +20,14 @@ namespace elroy.crusade.API.Controllers
         /// <remarks>Retorna o evento informado</remarks>
         [Route("API/BuscaEvento/{id}")]
         [HttpGet]
-        public HttpResponseMessage Get(int id)
+        public HttpResponseMessage Get(String id)
         {
             try
             {
                 EventosBLL eventosbll = new EventosBLL();
-                var Eventos = eventosbll.BuscaPorCodigo(id);
+                var Eventos = eventosbll.Busca(id);
 
-                if (Eventos.Id != 0)
+                if (!String.IsNullOrEmpty(Eventos.Id))
                     return Request.CreateResponse(HttpStatusCode.OK, Eventos);
                 else
                     throw new KeyNotFoundException();
@@ -93,10 +93,10 @@ namespace elroy.crusade.API.Controllers
         /// <remarks>Retorna Evento excluido</remarks>
         [Route("API/DeleteEvento/{id}")]
         [HttpDelete]
-        public HttpResponseMessage Delete([FromUri] int id)
+        public HttpResponseMessage Delete([FromUri] String id)
         {
             EventosBLL eventosBll = new EventosBLL();
-            eventosBll.Deleta(eventosBll.BuscaPorCodigo(id));
+            eventosBll.Deleta(eventosBll.Busca(id));
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 

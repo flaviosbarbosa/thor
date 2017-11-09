@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using elroy.crusade.dominio;
+using elroy.crusade.Infra.Enum;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -13,21 +14,31 @@ namespace elroy.crusade.Infra
     {
         public OcorrenciaEntrante Grava(OcorrenciaEntrante ocorrencia)
         {
+            string acao;
+            FuncoesAuxiliaresBLL funcoes = new FuncoesAuxiliaresBLL();
+
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
+                // se ID não for nulo
+                if (!string.IsNullOrEmpty(ocorrencia.Id))
+                    acao = funcoes.DefineAcao(this.GetType().Name, ocorrencia.Id);
+                else
+                {
+                    ocorrencia.Id = funcoes.GeraGuid();
+                    acao = Acoes.Inserir.ToString();
+                }
 
-                if (ocorrencia.Id == 0)
+                if (acao == Acoes.Inserir.ToString())
                 {
                     try
                     {
-                        ocorrencia.Id = (int)conn.ExecuteScalar(@"INSERT INTO OCORRENCIAENTRANTE
-                                                   ( CODMENSAGEMENTRANTE,
+                        conn.Execute(@"INSERT INTO OCORRENCIAENTRANTE
+                                                   ( ID, CODMENSAGEMENTRANTE,
                                                      CODRESPONSAVEL,
                                                      DESCRICAO,
-                                                     DATA)
-                                                    OUTPUT INSERTED.id    
+                                                     DATA)                                                    
                                              VALUES
-                                                   (@CODMENSAGEMENTRANTE,
+                                                   (@ID, @CODMENSAGEMENTRANTE,
                                                     @CODRESPONSAVEL,
                                                     @DESCRICAO,
                                                     @DATA)", ocorrencia);                      
@@ -68,7 +79,7 @@ namespace elroy.crusade.Infra
             }
         }
 
-        public OcorrenciaEntrante BuscaPorCodigo(int id)
+        public OcorrenciaEntrante Busca(String id)
         {
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {

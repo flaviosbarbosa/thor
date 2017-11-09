@@ -5,24 +5,24 @@ namespace elroy.crusade.dominio
 {
     public class Parametros
     {                       
-        public int id { get; set; }
+        public string Id { get; set; }
                 
         [MaxLength(200, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Localização")]
-        public string localizacao { get; set; }
+        public string Localizacao { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(1, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
         [Display(Name = "Assunto")]
-        public string exibirLocalizacao { get; set; }
+        public string ExibirLocalizacao { get; set; }
 
         public Beneficiario Pastor { get; set; }
 
-        public int CodPastor { get; set; }
+        public string CodPastor { get; set; }
 
         public Beneficiario AtendenteNivelUm { get; set; }
 
-        public int CodAtedenteNivelUm { get; set; }
+        public string CodAtedenteNivelUm { get; set; }
 
         public string EmailEntrante { get; set; }
 
@@ -30,7 +30,7 @@ namespace elroy.crusade.dominio
 
         public Parametros()
         {
-            exibirLocalizacao = "S";
+            ExibirLocalizacao = "S";
             Pastor = new Beneficiario();
             AtendenteNivelUm = new Beneficiario();
         }      

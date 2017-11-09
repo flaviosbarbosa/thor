@@ -20,14 +20,14 @@ namespace elroy.crusade.API.Controllers
         /// <remarks>Retorna uma Mensagem Entrante </remarks>
         [Route("API/BuscaMensagemEntrante/{id}")]
         [HttpGet]
-        public HttpResponseMessage Get(int id)
+        public HttpResponseMessage Get(String id)
         {
             try
             {
                 MensagemEntranteBLL mensagementranteBLL = new MensagemEntranteBLL();
-                var msgE = mensagementranteBLL.BuscaPorCodigo(id);
+                var msgE = mensagementranteBLL.Busca(id);
 
-                if (msgE.Id != 0)
+                if (!String.IsNullOrEmpty(msgE.Id))
                     return Request.CreateResponse(HttpStatusCode.OK, msgE);
                 else
                     throw new KeyNotFoundException();
@@ -92,10 +92,10 @@ namespace elroy.crusade.API.Controllers
         /// <remarks>Retorna mensagem excluida</remarks>
         [Route("API/DeletaMensagemEntrante/{id}")]
         [HttpDelete]
-        public HttpResponseMessage Delete([FromUri] int id)
+        public HttpResponseMessage Delete([FromUri] String id)
         {
             MensagemEntranteBLL mensagemEntranteBLL = new MensagemEntranteBLL();
-            mensagemEntranteBLL.Deleta(mensagemEntranteBLL.BuscaPorCodigo(id));
+            mensagemEntranteBLL.Deleta(mensagemEntranteBLL.Busca(id));
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 

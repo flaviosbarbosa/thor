@@ -20,7 +20,7 @@ namespace elroy.crusade.test
         public void CriaTipoMensagem()
         {
             this.tipoMensagem = new TipoMensagem();
-            tipoMensagem.Id = 0;
+            tipoMensagem.Id = "";
             tipoMensagem.Descricao = "Pedido de Oração";
             tipoMensagem.Tipo = TrataMensagem.EntradaPedidoOracao;            
 
@@ -51,7 +51,7 @@ namespace elroy.crusade.test
         public void BuscaTipoMensagemporCodigo()
         {
             var usuretorno = conexao.Grava(tipoMensagem);
-            tipoMensagem = conexao.BuscaPorCodigo(usuretorno.Id);
+            tipoMensagem = conexao.Busca(usuretorno.Id);
             Assert.AreEqual(usuretorno.Id, tipoMensagem.Id, "Não foi possivel localizar o TipoMensagem");
         }
 
@@ -59,7 +59,7 @@ namespace elroy.crusade.test
         public void AtualizaTipoMensagem()
         {
             var usuretorno = conexao.Grava(tipoMensagem);
-            tipoMensagem = conexao.BuscaPorCodigo(usuretorno.Id);
+            tipoMensagem = conexao.Busca(usuretorno.Id);
 
             var tipo = TrataMensagem.EntradaContatoPastor;
             tipoMensagem.Tipo = tipo;

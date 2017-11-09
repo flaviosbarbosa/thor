@@ -1,6 +1,7 @@
 ﻿
 using Dapper;
 using elroy.crusade.dominio;
+using elroy.crusade.Infra.Enum;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -11,37 +12,43 @@ namespace elroy.crusade.Infra
     {
         public AgendaPastoral Grava(AgendaPastoral AgendaPastoral)
         {
-            // parei ontem criando a conexao com o banco
+            string acao;
+            FuncoesAuxiliaresBLL funcoes = new FuncoesAuxiliaresBLL();
+
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
-
-                if (AgendaPastoral.Id == 0)
+                // se ID não for nulo
+                if (!string.IsNullOrEmpty(AgendaPastoral.Id))
+                    acao = funcoes.DefineAcao(this.GetType().Name, AgendaPastoral.Id);
+                else
+                {
+                    AgendaPastoral.Id = funcoes.GeraGuid();
+                    acao = Acoes.Inserir.ToString();
+                }
+                
+                if (acao == Acoes.Inserir.ToString())
                 {
                     try
                     {                        
                     conn.Execute(@"INSERT INTO AGENDAPASTORAL
-                                           (
+                                           (ID,
                                            EVENTO,
                                            DATA,                                           
                                            LOCAL,
                                            PRIVADO)
                                      VALUES
-                                           (
+                                           (@ID,
                                            @EVENTO,
                                            @DATA,                                           
                                            @LOCAL,
                                            @PRIVADO)", AgendaPastoral);
 
-                    return conn.QueryFirst<AgendaPastoral>(@"SELECT ID,
-                                                                    EVENTO,
-                                                                    DATA,                                           
-                                                                    LOCAL,
-                                                                    PRIVADO
-                                                               FROM AGENDAPASTORAL", AgendaPastoral);
+                        return AgendaPastoral;
                     }
-                    catch (Exception )
+                    catch (Exception e )
                     {
                         return new AgendaPastoral();
+                        throw new Exception(e.Message);
                     }
                 }
                 else
@@ -57,14 +64,15 @@ namespace elroy.crusade.Infra
 
                         return conn.QueryFirst<AgendaPastoral>(@"SELECT * FROM AgendaPastoral", AgendaPastoral);
                     }
-                    catch (Exception)
+                    catch (Exception e)
                     {
                         return new AgendaPastoral();
+                        throw new Exception(e.Message);
                     }
             }
         }
 
-        public AgendaPastoral BuscaPorCodigo(int id)
+        public AgendaPastoral Busca(String id)
         {
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
@@ -78,10 +86,11 @@ namespace elroy.crusade.Infra
                                                                 FROM AGENDAPASTORAL
                                                         WHERE ID = @ID", new { Id = id });
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-
                     return new AgendaPastoral();
+                    throw new Exception(e.Message);
+
                 }
             }
         }
@@ -96,10 +105,10 @@ namespace elroy.crusade.Infra
                                                         WHERE ID = @id", AgendaPastoral);
                     return true;
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-
                     return false;
+                    throw new Exception(e.Message);
                 }
             }
         }

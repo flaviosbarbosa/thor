@@ -42,8 +42,9 @@ namespace elroy.crusade.Infra
                 }
                 catch (Exception e)
                 {
-                    throw new Exception(e.Message);
                     return "";
+                    throw new Exception(e.Message);
+                    
                 }
             }
         }            

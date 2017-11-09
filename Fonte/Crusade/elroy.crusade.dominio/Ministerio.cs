@@ -10,7 +10,7 @@ namespace elroy.crusade.dominio
     public class Ministerio
     {         
         
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(1000, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
@@ -24,7 +24,7 @@ namespace elroy.crusade.dominio
 
         public Beneficiario Responsavel { get; set; }
 
-        public int CodResponsavel { get; set; }
+        public string CodResponsavel { get; set; }
 
         public Ministerio()
         {            

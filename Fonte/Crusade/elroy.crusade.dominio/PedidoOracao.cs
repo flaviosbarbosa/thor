@@ -9,13 +9,13 @@ namespace elroy.crusade.dominio
 {
     public class PedidoOracao
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public MensagemEntrante MensagemEntrate { get; set; }
-        public int CodMensagemEntrante { get; set; }
+        public string CodMensagemEntrante { get; set; }
 
         public Beneficiario Solicitante { get; set; }
-        public int CodSolicitante { get; set; }
+        public string CodSolicitante { get; set; }
 
         public string NomeSolicitante { get; set; }
         public DateTime DataSolicitacao { get; set; }

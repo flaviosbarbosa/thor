@@ -21,14 +21,14 @@ namespace elroy.crusade.API.Controllers
         /// <remarks>Retorna Participante do Evento</remarks>
         [Route("API/BuscaParticipante/{id}")]
         [HttpGet]
-        public HttpResponseMessage Get(int id)
+        public HttpResponseMessage Get(String id)
         {
             try
             {
                 ParticipanteBLL participantebll = new ParticipanteBLL();
-                var participante = participantebll.BuscaPorCodigo(id);
+                var participante = participantebll.Busca(id);
 
-                if (participante.Id != 0)
+                if (!string.IsNullOrEmpty(participante.Id))
                     return Request.CreateResponse(HttpStatusCode.OK, participante);
                 else
                     throw new KeyNotFoundException();
@@ -93,10 +93,10 @@ namespace elroy.crusade.API.Controllers
         /// <remarks>Retorna Participantes excluido</remarks>
         [Route("API/DeletaParticipante/{id}")]
         [HttpDelete]
-        public HttpResponseMessage Delete([FromUri] int id)
+        public HttpResponseMessage Delete([FromUri] String id)
         {
             ParticipanteBLL PedidoBLL = new ParticipanteBLL();
-            PedidoBLL.Deleta(PedidoBLL.BuscaPorCodigo(id));
+            PedidoBLL.Deleta(PedidoBLL.Busca(id));
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 

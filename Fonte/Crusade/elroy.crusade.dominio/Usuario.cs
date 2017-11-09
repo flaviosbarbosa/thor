@@ -15,7 +15,7 @@ namespace elroy.crusade.dominio
         /// Obtem ou define o Codigo da Empresa
         /// </summary>
         
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(100, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]

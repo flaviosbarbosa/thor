@@ -20,14 +20,14 @@ namespace elroy.crusade.API.Controllers
         /// <remarks>Retorna Parametro</remarks>
         [Route("API/BuscaParametro/{id}")]
         [HttpGet]
-        public HttpResponseMessage Get(int id)
+        public HttpResponseMessage Get(String id)
         {
             try
             {
                 ParametroBLL parametrosbll = new ParametroBLL();
-                var parametros = parametrosbll.BuscaPorCodigo(id);
+                var parametros = parametrosbll.Busca(id);
 
-                if (parametros.id != 0)
+                if (!String.IsNullOrEmpty(parametros.Id))
                     return Request.CreateResponse(HttpStatusCode.OK, parametros);
                 else
                     throw new KeyNotFoundException();
@@ -53,7 +53,7 @@ namespace elroy.crusade.API.Controllers
             var paramret = ParametrosBll.Grava(parametros);
 
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created);
-            string location = Url.Link("DefaultApi", new { Controller = "parametros", id = paramret.id });
+            string location = Url.Link("DefaultApi", new { Controller = "parametros", id = paramret.Id });
             response.Headers.Location = new Uri(location);
 
             return response;
@@ -66,10 +66,10 @@ namespace elroy.crusade.API.Controllers
         /// <remarks>Parametro excluido</remarks>
         [Route("API/DeletaParametro/{id}")]
         [HttpDelete]
-        public HttpResponseMessage Delete([FromUri] int id)
+        public HttpResponseMessage Delete([FromUri] String id)
         {
             ParametroBLL ParametrosBll = new ParametroBLL();
-            ParametrosBll.Deleta(ParametrosBll.BuscaPorCodigo(id));
+            ParametrosBll.Deleta(ParametrosBll.Busca(id));
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 

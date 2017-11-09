@@ -52,7 +52,7 @@ namespace elroy.crusade.test
         public void BuscaPedidoOracaoporCodigo()
         {
             var pedidoretorno = conexao.Grava(pedidoOracao);
-            pedidoOracao = conexao.BuscaPorCodigo(pedidoretorno.Id);
+            pedidoOracao = conexao.Busca(pedidoretorno.Id);
             Assert.AreEqual(pedidoretorno.Id, pedidoOracao.Id, "Não foi possivel localizar o Pedido de Oracao");
         }
 
@@ -60,7 +60,7 @@ namespace elroy.crusade.test
         public void AtualizaPedidoOracao()
         {
             var pedidoretorno = conexao.Grava(pedidoOracao);
-            pedidoOracao = conexao.BuscaPorCodigo(pedidoretorno.Id);
+            pedidoOracao = conexao.Busca(pedidoretorno.Id);
 
             var descricao = "alterando descrição do pedido de oração";
             pedidoOracao.Descricao = descricao;

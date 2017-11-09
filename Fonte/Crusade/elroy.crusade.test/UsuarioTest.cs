@@ -29,7 +29,7 @@ namespace elroy.crusade.test
         public void CriaUsuario()
         {
             this.usuario = new Usuario();
-            usuario.Id = 0;
+            usuario.Id = "";
             usuario.Nome = "Flavio";
             usuario.Login = "flavio.barbosa";
             usuario.Senha = "123";
@@ -88,7 +88,7 @@ namespace elroy.crusade.test
         public void BuscaUsuarioporCodigo()
         {
             var usuretorno = conexao.Grava(usuario);
-            usuario = conexao.BuscaPorCodigo(usuretorno.Id);
+            usuario = conexao.Busca(usuretorno.Id);
             Assert.AreEqual(usuretorno.Id, usuario.Id, "Não foi possivel localizar o usuário");
         }
 
@@ -96,7 +96,7 @@ namespace elroy.crusade.test
         public void AtualizaUsuario()
         {
             var usuretorno = conexao.Grava(usuario);
-            usuario = conexao.BuscaPorCodigo(usuretorno.Id);
+            usuario = conexao.Busca(usuretorno.Id);
 
             var email = "flavio.barbosa@autoglass.com.br";
             usuario.Email = email;

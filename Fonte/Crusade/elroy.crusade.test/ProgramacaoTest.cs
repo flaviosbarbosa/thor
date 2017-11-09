@@ -52,7 +52,7 @@ namespace elroy.crusade.test
         public void BuscaProgramacaoporCodigo()
         {
             var agendaretorno = conexao.Grava(programacao);
-            programacao = conexao.BuscaPorCodigo(agendaretorno.Id);
+            programacao = conexao.Busca(agendaretorno.Id);
             Assert.AreEqual(agendaretorno.Id, programacao.Id, "Não foi possivel localizar o registro");
         }
 

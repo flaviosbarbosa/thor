@@ -6,16 +6,16 @@ namespace elroy.crusade.dominio
     public class OcorrenciaEntrante
     {
         [Display(Description = "Código")]
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public Beneficiario Responsavel { get; set; }
 
-        public int CodResponsavel{ get; set; }        
+        public string CodResponsavel { get; set; }        
 
         public MensagemEntrante MensagemEntrante { get; set; }
 
         [Display(Name = "Mensagem")]
-        public int CodMensagemEntrante { get; set; }
+        public string CodMensagemEntrante { get; set; }
 
         [Display(Name = "Data")]
         public DateTime Data { get; set; }

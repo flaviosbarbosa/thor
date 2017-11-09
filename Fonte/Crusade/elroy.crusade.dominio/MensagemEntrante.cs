@@ -6,7 +6,7 @@ namespace elroy.crusade.dominio
 {
     public class MensagemEntrante
     {        
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(100, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
@@ -15,15 +15,15 @@ namespace elroy.crusade.dominio
 
         public TipoMensagem TipoMensagem { get; set; }
 
-        public int CodTipoMensagem { get; set; }
+        public string CodTipoMensagem { get; set; }
 
         public Beneficiario Responsavel { get; set; }
 
-        public int CodResponsavel { get; set; }
+        public string CodResponsavel { get; set; }
 
         public Beneficiario Solicitante { get; set; }
 
-        public int CodSolicitante { get; set; }
+        public string CodSolicitante { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(300, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]

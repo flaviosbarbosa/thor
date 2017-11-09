@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using elroy.crusade.dominio;
 using elroy.crusade.Infra;
+using elroy.crusade.Infra.Enum;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -11,22 +12,34 @@ namespace elroy.crusade.bll
     {
         //DONE: Implementar
         public Participantes Grava(Participantes participante)
-        {            
+        {
+            string acao;
+            FuncoesAuxiliaresBLL funcoes = new FuncoesAuxiliaresBLL();
+
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {
-                if (participante.Id == 0)
+                // se ID não for nulo
+                if (!string.IsNullOrEmpty(participante.Id))
+                    acao = funcoes.DefineAcao(this.GetType().Name, participante.Id);
+                else
+                {
+                    participante.Id = funcoes.GeraGuid();
+                    acao = Acoes.Inserir.ToString();
+                }
+
+                if (acao == Acoes.Inserir.ToString())
+
                 {
                     try
                     {
-                        participante.Id = (int)conn.ExecuteScalar(@"INSERT INTO Participantes
-	    	                            (
+                        conn.Execute(@"INSERT INTO Participantes
+	    	                            (ID,
                                         Situacao,
                                         CodMembro,
                                         CodEvento,
-                                        Lembrete)
-                                        OUTPUT INSERTED.id        
+                                        Lembrete)                                        
                                         VALUES
-                                        (
+                                        (@ID,
                                         @Situacao,
                                         @CodMembro,
                                         @CodEvento,
@@ -69,7 +82,7 @@ namespace elroy.crusade.bll
             }
         }
 
-        public Participantes BuscaPorCodigo(int id)
+        public Participantes Busca(String id)
         {
             using (SqlConnection conn = new SqlConnection(Repositorio.Conexao()))
             {

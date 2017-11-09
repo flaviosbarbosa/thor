@@ -6,19 +6,19 @@ namespace elroy.crusade.dominio
 {
     public class MensagemSainte
     {        
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public Ministerio Ministerio { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]        
         [Display(Name = "Ministério")]
-        public int CodMinisterio { get; set; }
+        public string CodMinisterio { get; set; }
 
         public TipoMensagem TipoMensagem { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]        
         [Display(Name = "Tipo Mensagem")]
-        public int CodTipoMensagem { get; set; }
+        public string CodTipoMensagem { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório", AllowEmptyStrings = false)]
         [MaxLength(4000, ErrorMessage = "Tamanho máximo para o campo {0} é de {1} caracteres.")]
@@ -29,7 +29,7 @@ namespace elroy.crusade.dominio
 
         public MensagemEntrante MensagemEntrante { get; set; }
 
-        public int CodMensagemEntrante { get; set; }
+        public string CodMensagemEntrante { get; set; }
 
         public MensagemSainte()
         {

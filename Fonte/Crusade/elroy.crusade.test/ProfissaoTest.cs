@@ -23,7 +23,7 @@ namespace elroy.crusade.test
         {
             this.profissao = new Profissao();
             profissao.Descricao = "Uber";
-            profissao.Id = 0;            
+            profissao.Id = "";            
 
             this.conexao = new ProfissaoBLL();
         }

@@ -51,7 +51,7 @@ namespace elroy.crusade.test
         public void BuscaEventosporCodigo()
         {
             var usuretorno = conexao.Grava(eventos);
-            eventos = conexao.BuscaPorCodigo(usuretorno.Id);
+            eventos = conexao.Busca(usuretorno.Id);
             Assert.AreEqual(usuretorno.Id, eventos.Id, "Não foi possivel localizar o Evento");
         }
 
@@ -59,7 +59,7 @@ namespace elroy.crusade.test
         public void AtualizaEventos()
         {
             var usuretorno = conexao.Grava(eventos);
-            eventos = conexao.BuscaPorCodigo(usuretorno.Id);
+            eventos = conexao.Busca(usuretorno.Id);
 
             var pastorpresente = SimNao.Sim; 
             eventos.PastorPresente = pastorpresente;

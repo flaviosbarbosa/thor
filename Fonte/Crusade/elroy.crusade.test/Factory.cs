@@ -27,7 +27,7 @@ namespace elroy.crusade.test
         public TipoMensagem CriaTipoMensagem()
         {
             var tipomensagem = new TipoMensagem();
-            tipomensagem.Id = 0;
+            tipomensagem.Id = "";
             tipomensagem.Descricao = "Pedido de Oração";
             tipomensagem.Tipo = TrataMensagem.EntradaPedidoOracao;
 
@@ -37,7 +37,7 @@ namespace elroy.crusade.test
         public Beneficiario CriaBeneficiario()
         {
             var PF = new Beneficiario();
-            PF.Id = 0;
+            PF.Id = "";
             PF.Nome = "Flavio de Souza Barbosa";
             PF.Ativo = SimNao.Sim;
             PF.TipoBeneficiario = TipoBeneficiario.Membro;
@@ -62,7 +62,7 @@ namespace elroy.crusade.test
             var ministerio = new Ministerio();
             ministerio.Responsavel = new BeneficiarioBLL().Grava(this.CriaBeneficiario());
 
-            ministerio.Id = 0;
+            ministerio.Id = "";
             ministerio.Nome = "Louvor";
             ministerio.CodResponsavel = ministerio.Responsavel.Id;
             ministerio.Descricao = "Ministerio de Louvor";
@@ -96,7 +96,7 @@ namespace elroy.crusade.test
         public Eventos CriaEvento()
         {
             var evento = new Eventos();
-            evento.Id = 0;
+            evento.Id = "";
             //eventos.banner = "Flavio";
             evento.Titulo = "Dia de Lazer e Cultura";
             evento.Descricao = "Evento Social para a comunidade";
@@ -113,7 +113,7 @@ namespace elroy.crusade.test
         public Participantes CriaParticipantes()
         {         
             var p1 = new Participantes();
-            p1.Id = 0;
+            p1.Id = "";
             p1.Eventos = new EventosBLL().Grava(this.CriaEvento());
             p1.CodEvento = p1.Eventos.Id;
             p1.Membro = new BeneficiarioBLL().Grava(this.CriaBeneficiario());
@@ -128,7 +128,7 @@ namespace elroy.crusade.test
         {
             var pedidoOracao = new PedidoOracao();
 
-            pedidoOracao.Id = 0;
+            pedidoOracao.Id = "";
             pedidoOracao.Assunto = "Motivo de Doença";
             pedidoOracao.Descricao = "Meu irmão está doente e carece de suas orações";
             pedidoOracao.DescricaoRevisada = "Favor orar pelo irmão";

@@ -23,14 +23,14 @@ namespace elroy.crusade.API.Controllers
         [Route("Api/BuscaAgendaPastoral/{id}")]
         [ResponseType(typeof(int))]
         [HttpGet]
-            public HttpResponseMessage Get(int id)
+            public HttpResponseMessage Get(String id)
         {
             try
             {
                 AgendaPastoralBLL agendapastoral = new AgendaPastoralBLL();
-                var agenda = agendapastoral.BuscaPorCodigo(id);
+                var agenda = agendapastoral.Busca(id);
 
-                if (agenda.Id != 0)
+                if (!String.IsNullOrEmpty(agenda.Id))
                     return Request.CreateResponse(HttpStatusCode.OK, agenda);
                 else
                     throw new KeyNotFoundException();
@@ -98,10 +98,10 @@ namespace elroy.crusade.API.Controllers
         [Route("Api/DeletaAgendaPastoral/{id}")]
         [ResponseType(typeof(int))]
         [HttpDelete]
-        public HttpResponseMessage Delete([FromUri] int id)
+        public HttpResponseMessage Delete([FromUri] String id)
         {
             AgendaPastoralBLL agendabll = new AgendaPastoralBLL();
-            agendabll.Deleta(agendabll.BuscaPorCodigo(id));
+            agendabll.Deleta(agendabll.Busca(id));
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 

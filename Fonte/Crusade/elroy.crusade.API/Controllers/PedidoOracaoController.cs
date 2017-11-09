@@ -21,14 +21,14 @@ namespace elroy.crusade.API.Controllers
         /// <remarks>Retorna Pedido de Oração</remarks>
         [Route("API/BuscaPedidoOracao/{id}")]
         [HttpGet]
-        public HttpResponseMessage Get(int id)
+        public HttpResponseMessage Get(String id)
         {
             try
             {
                 PedidoOracaoBLL pedidobll = new PedidoOracaoBLL();
-                var pedido = pedidobll.BuscaPorCodigo(id);
+                var pedido = pedidobll.Busca(id);
 
-                if (pedido.Id != 0)
+                if (!string.IsNullOrEmpty(pedido.Id))
                     return Request.CreateResponse(HttpStatusCode.OK, pedido);
                 else
                     throw new KeyNotFoundException();
@@ -93,10 +93,10 @@ namespace elroy.crusade.API.Controllers
         /// <remarks>Retorna Pedido de Oração excluido</remarks>
         [Route("API/DeletaPedidoOracao/{id}")]
         [HttpDelete]
-        public HttpResponseMessage Delete([FromUri] int id)
+        public HttpResponseMessage Delete([FromUri] String id)
         {
             PedidoOracaoBLL PedidoBLL = new PedidoOracaoBLL();
-            PedidoBLL.Deleta(PedidoBLL.BuscaPorCodigo(id));
+            PedidoBLL.Deleta(PedidoBLL.Busca(id));
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
