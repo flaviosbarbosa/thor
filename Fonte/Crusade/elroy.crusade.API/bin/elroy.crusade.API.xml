@@ -4,16 +4,6 @@
         <name>elroy.crusade.API</name>
     </assembly>
     <members>
-        <member name="T:elroy.crusade.API.SwaggerConfig">
-            <summary>
-            Configuração do SWAGGER
-            </summary>
-        </member>
-        <member name="M:elroy.crusade.API.SwaggerConfig.Register">
-            <summary>
-            Configuração do Registro
-            </summary>
-        </member>
         <member name="T:elroy.crusade.API.WebApiConfig">
             <summary>
             Configuração geral das WEBApis

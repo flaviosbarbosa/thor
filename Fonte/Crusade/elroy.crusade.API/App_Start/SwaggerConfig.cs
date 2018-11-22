@@ -1,20 +1,14 @@
+using System.Web.Http;
+using System.Web;
 using elroy.crusade.API;
 using Swashbuckle.Application;
-using System.Web;
-using System.Web.Http;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
 namespace elroy.crusade.API
 {
-    /// <summary>
-    /// Configuração do SWAGGER
-    /// </summary>
     public class SwaggerConfig
     {
-        /// <summary>
-        /// Configuração do Registro
-        /// </summary>
         public static void Register()
         {
             var thisAssembly = typeof(SwaggerConfig).Assembly;
